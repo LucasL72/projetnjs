@@ -1,0 +1,127 @@
+ <!---Navbar--->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-theme">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="./assets/images/logo2.png" alt="" width="40" height="35">
+                Mon Site </a>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+
+                <ul class="navbar-nav me-auto mb-2mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pics.html">Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Nous contacter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Admin.html">Admin</a>
+                    </li>
+                </ul>
+
+                <!---Modal "se connecter"--->
+                <!-- Button modal -->
+
+                <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
+                    Se connecter/S'inscrire
+                </button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect">
+                    <i class="fas fa-power-off"></i>
+                </button>
+            </div>
+
+            <!-- 1 Modal -->
+            <div class="modal fade" id="connectModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel">Se connecter/S'inscrire</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="container">
+                                    <div class="mb-3">
+                                        <label for="loginEmail" class="form-label">Adresse Mail</label>
+                                        <input type="email" class="form-control" id="loginEmail"
+                                            aria-describedby="emailHelp">
+                                        <div id="emailHelp" class="form-text"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Password" class="form-label">Mot de passe</label>
+                                        <input type="password" class="form-control" id="Password">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="Check">
+                                        <label class="form-check-label" for="Check">Se souvenir de moi</label>
+                                    </div>
+                                    <a data-bs-toggle="modal" href="#lostpassword" role="button">Mot de passe
+                                        oublié</a><br>
+                                    <button type="submit" class="btn btn-contact">Se connecter</button>
+                                    <a href="register.html" class="btn btn-ghost">Nouvel Utilisateur</a>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2 Modal lost password -->
+            <div class="modal fade" id="lostpassword" aria-hidden="true" aria-labelledby="ModalToggleLabel2"
+                tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalToggleLabel2">Mot de passe oublié</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <p class="fst-italic"> Nous vous enverrons le mail de réinitialisation</p>
+                                <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+                                    placeholder="Votre Adresse Mail">
+                                <div id="emailHelp" class="form-text"></div>
+                                <button class="btn btn-primary">Envoyer</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-contact" data-bs-target="#connectModal" data-bs-toggle="modal">Se
+                                connecter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  Modal disconnect -->
+            <div class="modal fade" id="disconnect" aria-hidden="true" aria-labelledby="disconnectmodal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="disconnectmodal">Se déconnecter</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Voulez-vous vraiment vous déconnecter ?
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-contact" data-bs-dismiss="modal">confirmer</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
