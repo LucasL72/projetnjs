@@ -1,0 +1,71 @@
+{{!-- 
+    Partial : register/ New user
+ --}}
+
+
+
+<!---Sign in--->
+<section>
+    <h2>S'inscrire</h2>
+    <div class="container">
+        <form class=" row g-3">
+
+            <div class="row">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Photo de Profil</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Prénom:</label>
+                    <input type="text" class="form-control" value="..." required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Nom:</label>
+                    <input type="text" class="form-control" value="...">
+                </div>
+                <div class="mb-6">
+                    <label class="form-label">Adresse Email :</label>
+                    <input type="email" class="form-control" placeholder="name@example.com">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Nom d'utilisateur:</label>
+                    <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" aria-describedby="inputGroupPrepend">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Ville:</label>
+                    <input type="text" class="form-control">
+
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Département:</label>
+                    <select class="form-select">
+                        <option selected disabled value="text">Choisir...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Code Postal:</label>
+                    <input type="text" class="form-control">
+
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Agree to terms and conditions
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-contact" type="submit">S'inscrire</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>

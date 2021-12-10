@@ -1,0 +1,27 @@
+{{!-- 
+    Modal / navbar : Lost password
+ --}}
+
+<div class="modal fade" id="lostpassword" aria-hidden="true" aria-labelledby="ModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalToggleLabel2">Mot de passe oublié</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <p class="fst-italic"> Nous vous enverrons le mail de réinitialisation</p>
+                    <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+                        placeholder="Votre Adresse Mail">
+                    <div id="emailHelp" class="form-text"></div>
+                    <button class="btn btn-primary">Envoyer</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-contact" data-bs-target="#connectModal" data-bs-toggle="modal">Se
+                    connecter</button>
+            </div>
+        </div>
+    </div>
+</div>

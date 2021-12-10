@@ -1,0 +1,71 @@
+{{!-- 
+    Partial : Admin/ Gestion utilisateurs
+ --}}
+
+<!-------------------Gest User---------------------------------------------->
+<div class="accordion-item">
+    <p class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne">
+            Gestion Utilisateurs
+        </button>
+    </p>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body table-responsive">
+
+            <table class="table table-borderless table-secondary container">
+                <thead>
+                    <tr>
+                        <th scope="col-xs-4">Image de Profil</th>
+                        <th scope="col-xs-2">User Name</th>
+                        <th scope="col-xs-2">Name</th>
+                        <th scope="col-xs-2">Email</th>
+                        <th scope="col-xs-2">Gérer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><img class="img-user" src="assets/images/julia.jpg"> </th>
+                        <td>user name</td>
+                        <td>Name</td>
+                        <td>@mail.com</td>
+                        <td>
+                            <!-- Button trigger modal Gestin users -->
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
+                                <i class="fas fa-tools"></i></button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><img class="img-user" src="assets/images/emilie.jpg"> </th>
+                        <td>user name</td>
+                        <td>Name</td>
+                        <td>@mail.com</td>
+                        <td>
+                            <!-- Button trigger modal Gestin users -->
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
+                                <i class="fas fa-tools"></i></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><img class="img-user" src="assets/images/blaise.jpg"> </th>
+                        <td>user name</td>
+                        <td>Name</td>
+                        <td>@mail.com</td>
+                        <td>
+                            <!-- Button trigger modal Gestin users -->
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
+                                <i class="fas fa-tools"></i></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {{> modals/modalgestuser }}
+
+
+</div>

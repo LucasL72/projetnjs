@@ -1,0 +1,56 @@
+{{!-- 
+    Modal / Admin : Gestion user
+ --}}
+
+
+<!---------------------------- Modal users ------------------------------->
+<div class="modal fade dark" id="GestModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel"> Gérer Profil
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Photo
+                                de Profil</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <img class="img-user" src="assets/images/emilie.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validationDefault02" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="validationDefault02" value="..." required>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <label for="FormControlInput1" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="eFormControlInput1" placeholder="name@example.com">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="validationDefaultUsername" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                            <input type="text" class="form-control" id="validationDefaultUsername"
+                                aria-describedby="inputGroupPrepend2" required>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Banned</button>
+
+                <button type="button" class="btn btn-primary">Save
+                    changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
