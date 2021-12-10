@@ -1,12 +1,13 @@
-{{!-- 
-    Partial : Home/Search-bar
- --}}
+{{!--
+Partial : Home/Search-bar
+--}}
 <!--- Search bar-->
 <div class="container">
     <div class="search-bar">
         <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input class=" form-control me-2" type="text" id="inputFilter" onkeyup="monFiltre()" placeholder="Search"
+                aria-label="Search" aria-describedby="addon-wrapping">
         </form>
     </div>
 </div>
