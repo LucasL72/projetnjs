@@ -58,33 +58,9 @@ Partial : Id/Commentaires
 
         </div>
 
-
-        <!---Ajouter un commentaires--->
-        <div class="col-md-12 bg-com">
-            <h5 class="text-center">Ajouter un commentaire</h5>
-            <form>
-                <div class="input-group">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                    <input type="text" class="form-control" placeholder="Nom d'utilisateur"
-                        aria-describedby="inputGroupPrepend2" required>
-                </div>
-                <label> Votre commentaire:</label>
-                <div class="contact-form">
-                    <textarea id="message" rows="3" class="contact-message"> </textarea>
-                </div>
-            </form>
-
-
-            <!--- Bouton- -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="contact-form -grid gap-2 d-md-flex justify-content-md-center ">
-                        <button class="btn btn-contact">Envoyer</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+        {{> id/coms/addcoms }}
+        
+        {{> id/coms/editcoms }}
+    
     </div>
 </section>

@@ -34,19 +34,21 @@ Partial : contact/contact
                     </div>
 
                 </div>
-                <form>
-                    <!--- Nom & Email- -->
+
+                <!--Create Form-->
+                <form action="/contact" method="post" >
+                    <!-- Nom & Email- -->
                     <div class="row">
                         <div class="col-md-6">
                             <div class="contact-form">
                                 <label class="form-label">Nom:</label>
-                                <input class="form-control" type="text" id="name" placeholder="Ajouter votre Nom" />
+                                <input name="name" class="form-control" type="text" id="name" placeholder="Ajouter votre Nom" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="contact-form">
                                 <label class="form-label">Email:</label>
-                                <input class="form-control" type="email" id="email" placeholder="Ajouter votre email" />
+                                <input name="email" class="form-control" type="email" id="email" placeholder="Ajouter votre email" />
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,7 @@ Partial : contact/contact
                         <div class="col-md-12">
                             <div class="contact-form">
                                 <label class="form-label">Sélectionnez le service</label>
-                                <select>
+                                <select name="Service">
                                     <option>1er Service</option>
                                     <option>2ème Service</option>
                                     <option>SAV</option>
@@ -69,7 +71,7 @@ Partial : contact/contact
                         <div class="col-md-12">
                             <div class="contact-form">
                                 <label class="form-label">Votre message:</label>
-                                <textarea id="message" rows="3" class="contact-message form-control"> </textarea>
+                                <textarea name="message" rows="3" class="contact-message form-control"> </textarea>
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,7 @@ Partial : contact/contact
                     <div class="row">
                         <div class="col-md-12">
                             <div class="contact-form d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-contact">Envoyer</button>
+                                <button type="submit" class="btn btn-contact">Envoyer</button>
                             </div>
 
                         </div>

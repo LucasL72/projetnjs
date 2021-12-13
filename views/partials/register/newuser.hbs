@@ -1,6 +1,6 @@
-{{!-- 
-    Partial : register/ New user
- --}}
+{{!--
+Partial : register/ New user
+--}}
 
 
 
@@ -8,61 +8,63 @@
 <section>
     <h2>S'inscrire</h2>
     <div class="container">
-        <form class=" row g-3">
+        <form action="/register" method="post" class=" row g-3">
 
             <div class="row">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Photo de Profil</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input name="Photodeprofil" class="form-control" type="file" id="formFile">
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label">Prénom:</label>
-                    <input type="text" class="form-control" value="..." required>
+                    <input name="FirstName" type="text" class="form-control" value="..." required>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Nom:</label>
-                    <input type="text" class="form-control" value="...">
+                    <input name="Name" type="text" class="form-control" value="...">
                 </div>
-                <div class="mb-6">
+                <div class="col-md-6">
                     <label class="form-label">Adresse Email :</label>
-                    <input type="email" class="form-control" placeholder="name@example.com">
+                    <input name="Email" type="email" class="form-control" placeholder="name@example.com">
                 </div>
                 <div class="col-md-12">
                     <label class="form-label">Nom d'utilisateur:</label>
                     <div class="input-group">
                         <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" aria-describedby="inputGroupPrepend">
+                        <input name="User" type="text" class="form-control" aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Ville:</label>
-                    <input type="text" class="form-control">
+                    <input name="City" type="text" class="form-control">
 
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Département:</label>
-                    <select class="form-select">
+                    <select name="Departement" class="form-select">
                         <option selected disabled value="text">Choisir...</option>
-                        <option>...</option>
+                        <option>Sarthe</option>
+                        <option>Mayenne</option>
+                        <option>Autre Options ....</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Code Postal:</label>
-                    <input type="text" class="form-control">
+                    <input name="CodePostale" type="text" class="form-control">
 
                 </div>
                 <div class="col-12">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label">
+                        <input name="Terms" class="form-check-input" type="checkbox" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
                             Agree to terms and conditions
                         </label>
 
                     </div>
                 </div>
                 <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button class="btn btn-contact" type="submit">S'inscrire</button>
+                    <button type="submit" class="btn btn-contact" type="submit">S'inscrire</button>
                 </div>
             </div>
 

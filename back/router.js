@@ -18,22 +18,27 @@ const AdminController = require("./controllers/AdminController");
 
 // Routes
 router.route("/")
-   .get(HomeController.homepage);
+   .get(HomeController.homepage)
+   .post(HomeController.CreateMessage);
 
 router.route("/blog")
    .get(BlogController.blogpage);
 
 router.route("/blog:id")
-   .get(BlogController.idpage);
+   .get(BlogController.idpage)
+   .post(BlogController.CreateCom)
+   .put(BlogController.EditCom);
 
 router.route("/pics")
    .get(PicsController.picspage);
 
 router.route("/contact")
-   .get(ContactController.contactpage);
+   .get(ContactController.contactpage)
+   .post(ContactController.CreateMessage);
 
 router.route("/register")
-   .get(RegisterController.registerpage);
+   .get(RegisterController.registerpage)
+   .post(RegisterController.CreateUser);
 
 router.route("/admin")
    .get(AdminController.adminpage);

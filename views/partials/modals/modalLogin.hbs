@@ -8,22 +8,21 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Se connecter/S'inscrire</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/" method="post">
                     <div class="container">
                         <div class="mb-3">
                             <label for="loginEmail" class="form-label">Adresse Mail</label>
-                            <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
+                            <input name="email" type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="Password" class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" id="Password">
+                            <input name="password" type="password" class="form-control" id="Password">
                         </div>
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="Check">
+                            <input name="Remember" type="checkbox" class="form-check-input" id="Check">
                             <label class="form-check-label" for="Check">Se souvenir de moi</label>
                         </div>
                         <a data-bs-toggle="modal" href="#lostpassword" role="button">Mot de passe
