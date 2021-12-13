@@ -13,6 +13,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 const { engine } = require("express-handlebars");
 
+// Method-Override
+//app.use(methodOverride('_method'))
+
 // main en page par default
 app.set("view engine", "hbs");
 app.engine("hbs", engine({
@@ -21,6 +24,12 @@ app.engine("hbs", engine({
 }));
 // on ajoute le css 
 app.use("/assets", express.static('public'));
+
+// Body Parser qui nous permet de parser des data d'une req a une autre
+/*app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));*/
 
 // import et utilisation du Router
 const ROUTER = require('./back/router')
