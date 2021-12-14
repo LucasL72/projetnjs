@@ -52,9 +52,15 @@ router.route("/newsletter")
 
 router.route("/admin")
    .get(AdminController.adminpage)
-   .post(AdminController.adminCreate)
+   /*.post(AdminController.adminCreate)
    .put(AdminController.adminEdit)
-   .delete(AdminController.adminDelete);
+   .delete(AdminController.adminDelete)*/
+
+   // Test DB 
+   .post(AdminController.createArticle)
+   .put(AdminController.editArticle)
+   .delete(AdminController.deleteArticle);
+   // /================
 
 
 // / Routes

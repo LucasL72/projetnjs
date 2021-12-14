@@ -17,99 +17,51 @@ Partial : Admin/ Gestion Blog
             <!-------------------Add Cards---------------------------------------------->
             <div class="col-md-12">
                 <!-------------------Button Modal cards---------------------------------------------->
-                <h3><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CardsModal">
+                <h3><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcardModal">
                         Add Card
                     </button></h3>
 
             </div>
+            <div class="row">
 
-            <!-------------------Cards---------------------------------------------->
+                {{#each dbBlog }}
 
-            <div class="container-fluid">
-                <div class="row">
+                <div class="col-md-4">
+                    <div class="famille-details card">
+                        <img class="card-img-top" src="{{this.img}}" alt="paysage">
+                        <div class="card-body">
+                            <h4 class="card-title">{{this.title}}</h4>
+                            <p class="card-text">{{this.description}}</p>
 
-                    <div class="col-md-4">
-                        <div class="famille-details card">
-                            <img class="card-img-top" src="/assets/images/paysage2.jpg">
-                            <div class="card-body">
-                                <h4 class="card-title">1er Article</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
-                                    accusamus doloribus et
-                                    tempora
-                                    id voluptates dicta unde similique suscipit enim. Pariatur vero sunt
-                                    et earum quod
-                                    laborum,
-                                    facilis eos quos.</p>
-
-                                <button type="button" class="btn produits-icon" data-bs-toggle="modal"
-                                    data-bs-target="#CardsModal">
-                                    <i class="far fa-edit"></i>
-                                </button>
-                                <!------ Button trigger modal --------->
-                                <button class="btn-danger" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
-                            </div>
+                            <button type="button" class="btn produits-icon" data-bs-toggle="modal"
+                                data-bs-target="#editcardModal">
+                                <i class="far fa-edit"></i>
+                            </button>
+                            <!------ Button trigger modal --------->
+                            <button class="btn-danger" type="button" data-bs-toggle="modal"
+                                data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
+                            <!---Button Test Db----->    
+                            <form action="/admin/{{this.id}}?_method=DELETE" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
 
                         </div>
-
                     </div>
-
-                    <div class="col-md-4">
-                        <div class="famille-details card">
-                            <img class="card-img-top" src="/assets/images/paysage4.jpg">
-                            <div class="card-body">
-                                <h4 class="card-title">2ème Article</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
-                                    accusamus doloribus et
-                                    tempora
-                                    id voluptates dicta unde similique suscipit enim. Pariatur vero sunt
-                                    et earum quod
-                                    laborum,
-                                    facilis eos quos.</p>
-
-                                <button type="button" class="btn produits-icon" data-bs-toggle="modal"
-                                    data-bs-target="#CardsModal">
-                                    <i class="far fa-edit"></i>
-                                </button>
-                                <!------ Button trigger modal --------->
-                                <button class="btn-danger" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="famille-details card">
-                            <img class="card-img-top" src="/assets/images/paysage3.jpg">
-                            <div class="card-body">
-                                <h4 class="card-title">3ème Article</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
-                                    accusamus doloribus et
-                                    tempora
-                                    id voluptates dicta unde similique suscipit enim. Pariatur vero sunt
-                                    et earum quod
-                                    laborum,
-                                    facilis eos quos.</p>
-
-                                <button type="button" class="btn produits-icon" data-bs-toggle="modal"
-                                    data-bs-target="#CardsModal">
-                                    <i class="far fa-edit"></i>
-                                </button>
-                                <!------ Button trigger modal --------->
-                                <button class="btn-danger" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
+                {{/each}}
+
             </div>
+
+
 
         </div>
     </div>
 
     {{> modals/modaladdcards }}
+    
+    {{> modals/modaleditcard }}
+    
     {{> modals/modalsupprblog }}
 
 </div>
