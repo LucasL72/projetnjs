@@ -6,148 +6,21 @@ Partial : blog/Cards
     <div class="container-fluid">
         <div class="row" id="listCard">
 
+            {{#each dbBlog }}
+
             <div class="col-md-4">
                 <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage1.jpg" alt="paysage">
+                    <img class="card-img-top" src="{{this.img}}" alt="paysage">
                     <div class="card-body">
-                        <h4 class="card-title">un titre magnifique</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
+                        <h4 class="card-title">{{this.title}}</h4>
+                        <p class="card-text">{{this.description}}</p>
                         <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage4.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">titre incroyable</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage3.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">un titre super</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
+                        <a href="/blog/{{this.id}}?_method=DELETE" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage1.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">un titre Article</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage4.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">jeu</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage3.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">bitcoin</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage1.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">Comment ? ....e</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage4.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">ethereum</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="famille-details card">
-                    <img class="card-img-top" src="assets/images/paysage3.jpg" alt="paysage">
-                    <div class="card-body">
-                        <h4 class="card-title">Le mans</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui accusamus
-                            doloribus et
-                            tempora
-                            id voluptates dicta unde similique suscipit enim. Pariatur vero sunt et earum quod
-                            laborum,
-                            facilis eos quos.</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
 
         </div>
     </div>

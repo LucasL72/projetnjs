@@ -1,9 +1,9 @@
 {{!--
-Modal / Admin : suppr photos
+Modal / Admin : Suppr Cards Blog
 --}}
 
-<!------------------------- Modal suppr photos ------------------------->
-<div class="modal fade" id="delpics" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+<!------------------------- Modal suppr coms ------------------------->
+<div class="modal fade" id="DelArtModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,8 +16,7 @@ Modal / Admin : suppr photos
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form action="/admin/?_method=DELETE" method="post"><button name="DeletePic?" type="submit"
-                        class="btn btn-danger">Delete
+                <form  action="/admin/?_method=DELETE" method="post"><button name="DeleteCard?" type="submit" class="btn btn-danger">Delete
                     </button> </form>
             </div>
         </div>

@@ -1,10 +1,10 @@
 {{!--
-Partial : Id/Comms/Add coms
+Partial : Id/Comms/edit coms
 --}}
 <!---Ajouter un commentaires--->
 <div class="col-md-12 bg-com">
-    <h5 class="text-center">Ajouter un commentaire</h5>
-    <form action="/blog-id" method="post">
+    <h5 class="text-center">Editer un commentaire</h5>
+    <form action="/blog-id/?_method=PUT" method="post">
         <div class="input-group">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
             <input name="user" type="text" class="form-control" placeholder="Nom d'utilisateur"
@@ -12,18 +12,17 @@ Partial : Id/Comms/Add coms
         </div>
         <label> Votre commentaire:</label>
         <div class="contact-form">
-            <textarea name="messagecom" rows="3" class="contact-message"> </textarea>
+            <textarea name="editmessagecom" rows="3" class="contact-message"> </textarea>
         </div>
 
-        <!--- Bouton- -->
+        <!---Bouton---->
         <div class="row">
             <div class="col-md-12">
                 <div class="contact-form -grid gap-2 d-md-flex justify-content-md-center ">
-                    <button type="submit" class="btn btn-contact">Envoyer</button>
+                    <button type="submit" class="btn btn-contact">Editer</button>
                 </div>
 
             </div>
         </div>
     </form>
 </div>
-

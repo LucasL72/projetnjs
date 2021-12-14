@@ -1,6 +1,6 @@
-{{!-- 
-    Modal / Admin : Gestion card
- --}}
+{{!--
+Modal / Admin : Gestion card
+--}}
 
 <!-------------------------- Modal add cards ------------------------------->
 <div class="modal fade dark" id="CardsModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -10,28 +10,31 @@
                 <h5 class="modal-title" id="ModalLab"> Edit Card</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <form action="/admin?_method=PUT" method="post">
+                <div class="modal-body">
 
-                <div class="col-md-12">
-                    <label for="formFile" class="form-label">Photos Article</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <div class="col-md-12">
+                        <label for="formFile" class="form-label">Photos Article</label>
+                        <input name="Blogpic" class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="FormControlInput1" class="form-label">Titre</label>
+                        <input name="Blogtitle"type="text" class="form-control" id="FormControlInput1"
+                            placeholder="C'est beau c'est Bosch">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlTextarea1" class="form-label">Contenu
+                        </label>
+                        <textarea name="Blogdescription" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+                    </div>
                 </div>
-                <div class="col-md-12">
-                    <label for="FormControlInput1" class="form-label">Titre</label>
-                    <input type="text" class="form-control" id="FormControlInput1" placeholder="C'est beau c'est Bosch">
-                </div>
-                <div class="mb-3">
-                    <label for="FormControlTextarea1" class="form-label">Contenu
-                    </label>
-                    <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-footer">
 
-                <button type="button" class="btn btn-primary">Save
-                    changes</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                    <button type="submit" class="btn btn-primary">Save
+                        changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

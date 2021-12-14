@@ -126,7 +126,7 @@ header {
     white-space: nowrap;
     position: relative;
     animation: typing 5s steps(26);
-    animation-iteration-count:infinite; 
+    animation-iteration-count: infinite;
 }
 
 .typewriter p::after {
@@ -365,7 +365,7 @@ cite img {
 
 .map {
     position: relative;
-    padding-bottom: 90%;
+    padding-bottom: 100%;
     height: 0;
     overflow: hidden;
 }

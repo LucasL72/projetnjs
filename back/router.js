@@ -40,8 +40,21 @@ router.route("/register")
    .get(RegisterController.registerpage)
    .post(RegisterController.CreateUser);
 
+router.route("/login")
+   .post(RegisterController.loginUser);
+
+router.route("/lostpassword")
+   .post(RegisterController.lostpassword);
+
+router.route("/newsletter")
+   .post(RegisterController.newsletter);
+
+
 router.route("/admin")
-   .get(AdminController.adminpage);
+   .get(AdminController.adminpage)
+   .post(AdminController.adminCreate)
+   .put(AdminController.adminEdit)
+   .delete(AdminController.adminDelete);
 
 
 // / Routes

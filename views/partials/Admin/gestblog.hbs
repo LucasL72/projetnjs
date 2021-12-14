@@ -30,7 +30,7 @@ Partial : Admin/ Gestion Blog
 
                     <div class="col-md-4">
                         <div class="famille-details card">
-                            <img class="card-img-top" src="assets/images/paysage2.jpg">
+                            <img class="card-img-top" src="/assets/images/paysage2.jpg">
                             <div class="card-body">
                                 <h4 class="card-title">1er Article</h4>
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
@@ -45,8 +45,10 @@ Partial : Admin/ Gestion Blog
                                     data-bs-target="#CardsModal">
                                     <i class="far fa-edit"></i>
                                 </button>
+                                <!------ Button trigger modal --------->
+                                <button class="btn-danger" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
                             </div>
-
 
                         </div>
 
@@ -54,7 +56,7 @@ Partial : Admin/ Gestion Blog
 
                     <div class="col-md-4">
                         <div class="famille-details card">
-                            <img class="card-img-top" src="assets/images/paysage4.jpg">
+                            <img class="card-img-top" src="/assets/images/paysage4.jpg">
                             <div class="card-body">
                                 <h4 class="card-title">2ème Article</h4>
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
@@ -69,13 +71,16 @@ Partial : Admin/ Gestion Blog
                                     data-bs-target="#CardsModal">
                                     <i class="far fa-edit"></i>
                                 </button>
+                                <!------ Button trigger modal --------->
+                                <button class="btn-danger" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="famille-details card">
-                            <img class="card-img-top" src="assets/images/paysage3.jpg">
+                            <img class="card-img-top" src="/assets/images/paysage3.jpg">
                             <div class="card-body">
                                 <h4 class="card-title">3ème Article</h4>
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
@@ -90,6 +95,9 @@ Partial : Admin/ Gestion Blog
                                     data-bs-target="#CardsModal">
                                     <i class="far fa-edit"></i>
                                 </button>
+                                <!------ Button trigger modal --------->
+                                <button class="btn-danger" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
                             </div>
                         </div>
                     </div>
@@ -102,5 +110,6 @@ Partial : Admin/ Gestion Blog
     </div>
 
     {{> modals/modaladdcards }}
+    {{> modals/modalsupprblog }}
 
 </div>

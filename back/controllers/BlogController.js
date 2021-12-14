@@ -1,10 +1,13 @@
 /*
  * Controller: Blog & ID
  * **************** */
+const dbBlog = require('../../public/db.json').blog
 
 exports.blogpage = (req, res) => {
   console.log('je suis la page blog')
-  res.render("blog");
+  res.render("blog", {
+    dbBlog
+  });
 };
 
 /** Controller: ID* **************** */

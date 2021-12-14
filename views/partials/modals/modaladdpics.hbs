@@ -11,24 +11,26 @@ Modal / Admin : Gestion photos
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <form action="/admin" method="post">
+                <div class="modal-body">
 
-                <div class="col-md-12">
-                    <label for="FormControlInput1" class="form-label">Auteur</label>
-                    <input type="text" class="form-control" id="FormControlInput1" placeholder="Anonyme">
+                    <div class="col-md-12">
+                        <label for="FormControlInput1" class="form-label">Auteur</label>
+                        <input name="AuthorPic"type="text" class="form-control" id="FormControlInput1" placeholder="Anonyme">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Photo</label>
+                        <input name="Pic" class="form-control" type="file" id="formFile">
+
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Photo</label>
-                    <input class="form-control" type="file" id="formFile">
+                <div class="modal-footer">
 
+                    <button type="submit" class="btn btn-primary">Save
+                        changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-primary">Save
-                    changes</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
