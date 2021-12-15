@@ -79,7 +79,7 @@ exports.editArticle = (req, res) => {
   dbBlog.splice(index, index - 1, articleEdited)
   dbBlog.slice(dbBlog.splice(index + 1, 1))
 
-  let data = JSON.stringify({ blog: dbBlog }, null, 2);
+  let data = JSON.stringify({ blog: dbBlog }, null, 4);
 
   fs.writeFile("./public/db.json", data, (err) => {
     if (err) console.log(err);
@@ -88,7 +88,7 @@ exports.editArticle = (req, res) => {
 
 
   // res.render("article", {dbArticles});
-  res.redirect('/admin', {dbBlog})
+  res.redirect('/admin')
 };
 // =============/
 
@@ -112,7 +112,7 @@ exports.deleteArticle = (req, res) => {
   dbBlog.slice(dbBlog.splice(index, 1))
 
 
-  let data = JSON.stringify({blog: dbBlog}, null, 2);
+  let data = JSON.stringify({ blog: dbBlog }, null, 4);
 
   fs.writeFile("./public/db.json", data, (err) => {
     if (err) console.log(err);
@@ -120,6 +120,6 @@ exports.deleteArticle = (req, res) => {
   });
 
 
-  res.render("admin", { dbBlog,});
+  res.render("admin", { dbBlog});
 };
 // =============================/

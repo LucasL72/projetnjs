@@ -2,10 +2,10 @@
   "name": "projet",
   "version": "1.0.0",
   "description": "on parce le projet",
-  "main": "server.js",
+  "main": "serverl.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node serverl.js",
+    "dev": "nodemon serverl.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
