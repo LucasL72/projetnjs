@@ -1,5 +1,5 @@
 {
-    "blog": [{
+    "blog2": [{
             "id": 1,
             "img": "/assets/images/paysage2.jpg",
             "title": "title 1",
@@ -27,13 +27,13 @@
         {
             "id": 5,
             "img": "/assets/images/creative1.jpg",
-            "title": "title 5",
+            "title": "Ethereum",
             "description": "Une description intéressante et complètte"
         },
         {
             "id": 6,
             "img": "/assets/images/creative2.jpg",
-            "title": "title 6",
+            "title": "Bitcoin",
             "description": "Une description intéressante et complètte"
         }
     ]

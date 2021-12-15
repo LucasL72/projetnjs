@@ -44,7 +44,9 @@ exports.createArticle = (req, res) => {
 
   dbBlog.push(user);
 
-  let data = JSON.stringify({ blog: dbBlog }, null, 2);
+  let data = JSON.stringify({
+    blog: dbBlog
+  }, null, 2);
 
   fs.writeFile("./public/db.json", data, (err) => {
     if (err) console.log(err);
@@ -68,18 +70,20 @@ exports.editArticle = (req, res) => {
     description: req.body.description
   }
 
-  dbBlog.forEach(art => {
-    // console.log('loop', typeof art.id, typeof req.params.id)
-    if (art.id === Number(req.params.id)) {
-      console.log('indexof', dbBlog.indexOf(art))
-      index = dbBlog.indexOf(art)
+  dbBlog.forEach(user => {
+    console.log('loop', typeof user.id, typeof req.params.id)
+    if (user.id === Number(req.params.id)) {
+      console.log('indexof', dbBlog.indexOf(user))
+      index = dbBlog.indexOf(user)
     }
   })
 
   dbBlog.splice(index, index - 1, articleEdited)
   dbBlog.slice(dbBlog.splice(index + 1, 1))
 
-  let data = JSON.stringify({ blog: dbBlog }, null, 4);
+  let data = JSON.stringify({
+    blog: dbBlog
+  }, null, 4);
 
   fs.writeFile("./public/db.json", data, (err) => {
     if (err) console.log(err);
@@ -88,7 +92,7 @@ exports.editArticle = (req, res) => {
 
 
   // res.render("article", {dbArticles});
-  res.redirect('/admin')
+  res.redirect("/admin")
 };
 // =============/
 
@@ -99,11 +103,11 @@ exports.deleteArticle = (req, res) => {
 
   let index = 0
 
-  dbBlog.forEach(art => {
+  dbBlog.forEach(user => {
     // console.log('loop', typeof art.id, typeof req.params.id)
-    if (art.id === Number(req.params.id)) {
-      console.log('indexof', dbBlog.indexOf(art))
-      index = dbBlog.indexOf(art)
+    if (user.id === Number(req.params.id)) {
+      console.log('indexof', dbBlog.indexOf(user))
+      index = dbBlog.indexOf(user)
     }
   })
 
@@ -112,7 +116,9 @@ exports.deleteArticle = (req, res) => {
   dbBlog.slice(dbBlog.splice(index, 1))
 
 
-  let data = JSON.stringify({ blog: dbBlog }, null, 4);
+  let data = JSON.stringify({
+    blog: dbBlog
+  }, null, 4);
 
   fs.writeFile("./public/db.json", data, (err) => {
     if (err) console.log(err);
@@ -120,6 +126,8 @@ exports.deleteArticle = (req, res) => {
   });
 
 
-  res.render("admin", { dbBlog});
+  res.render("admin", {
+    dbBlog,
+  });
 };
 // =============================/
