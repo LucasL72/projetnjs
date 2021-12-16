@@ -11,6 +11,10 @@ exports.CreateUser = (req, res) => {
   res.render("register");
 }
 
+exports.MulterImg = (req,res) =>{
+  console.log("je suis le controller Multer",req.file, req.body);
+  res.render("register");
+}
 /*
  * Controller: lOG IN 
  * **************** */

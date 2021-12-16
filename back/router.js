@@ -5,6 +5,7 @@
 // Import de module
 const express = require("express");
 const router = express.Router();
+const upload = require('./config/multer')
 
 // Import des controllers
 const HomeController = require("./controllers/HomeController");
@@ -38,8 +39,9 @@ router.route("/contact")
 
 router.route("/register")
    .get(RegisterController.registerpage)
-   .post(RegisterController.CreateUser);
-   
+   .post(RegisterController.CreateUser)
+   .post(upload.single('uploaded_file'), RegisterController.MulterImg);
+
 router.route("/login")
    .post(RegisterController.loginUser);
 
@@ -60,7 +62,7 @@ router.route("/admin")
    .post(AdminController.createArticle)
    .put(AdminController.editArticle)
    .delete(AdminController.deleteArticle);
-   // /================
+// /================
 
 
 // / Routes
