@@ -45,7 +45,7 @@ exports.createArticle = (req, res) => {
   dbBlog.push(user);
 
   let data = JSON.stringify({
-    blog: dbBlog
+    blog : dbBlog
   }, null, 2);
 
   fs.writeFile("./public/db.json", data, (err) => {
@@ -70,11 +70,11 @@ exports.editArticle = (req, res) => {
     description: req.body.description
   }
 
-  dbBlog.forEach(user => {
-    console.log('loop', typeof user.id, typeof req.params.id)
+  dbBlog.forEach(art => {
+    console.log('loop', typeof art.id, typeof req.params.id)
     if (user.id === Number(req.params.id)) {
-      console.log('indexof', dbBlog.indexOf(user))
-      index = dbBlog.indexOf(user)
+      console.log('indexof', dbBlog.indexOf(art))
+      index = dbBlog.indexOf(art)
     }
   })
 
@@ -105,9 +105,9 @@ exports.deleteArticle = (req, res) => {
 
   dbBlog.forEach(user => {
     // console.log('loop', typeof art.id, typeof req.params.id)
-    if (user.id === Number(req.params.id)) {
-      console.log('indexof', dbBlog.indexOf(user))
-      index = dbBlog.indexOf(user)
+    if (art.id === Number(req.params.id)) {
+      console.log('indexof', dbBlog.indexOf(art))
+      index = dbBlog.indexOf(art)
     }
   })
 

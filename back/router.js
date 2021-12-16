@@ -39,7 +39,7 @@ router.route("/contact")
 router.route("/register")
    .get(RegisterController.registerpage)
    .post(RegisterController.CreateUser);
-
+   
 router.route("/login")
    .post(RegisterController.loginUser);
 
