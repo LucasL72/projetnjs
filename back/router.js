@@ -39,8 +39,8 @@ router.route("/contact")
 
 router.route("/register")
    .get(RegisterController.registerpage)
-   .post(RegisterController.CreateUser)
-   .post(upload.single('uploaded_file'), RegisterController.MulterImg);
+   //.post(RegisterController.CreateUser)
+   .post(upload.single('ImgMulter'), RegisterController.MulterImg);
 
 router.route("/login")
    .post(RegisterController.loginUser);
