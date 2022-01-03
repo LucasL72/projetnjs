@@ -12,14 +12,14 @@ Modal / Admin : Gestion user
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/admin?_method=PUT" method="post">
+            <form action="/admin" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Photo
                                     de Profil</label>
-                                <input name="file" class="form-control" type="file" id="formFile">
+                                <input name="ImgMulter" class="form-control" type="file" id="formFile" multiple>
                             </div>
                             <img class="img-user" src="assets/images/emilie.jpg">
                         </div>
