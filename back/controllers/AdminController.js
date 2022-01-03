@@ -45,7 +45,7 @@ exports.createArticle = (req, res) => {
   dbBlog.push(user);
 
   let data = JSON.stringify({
-    blog : dbBlog
+    blog: dbBlog
   }, null, 2);
 
   fs.writeFile("./public/db.json", data, (err) => {
@@ -91,8 +91,10 @@ exports.editArticle = (req, res) => {
   });
 
 
-  // res.render("article", {dbArticles});
-  res.redirect("/admin")
+  res.render("admin", {
+    dbBlog
+  });
+  //res.redirect("/admin")
 };
 // =============/
 
