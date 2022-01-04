@@ -16,7 +16,7 @@ Modal / Admin : Suppr Cards Blog
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form  action="/admin/?_method=DELETE" method="post"><button name="DeleteCard?" type="submit" class="btn btn-danger">Delete
+                <form  action="/admin/{{ this.id }}?_method=DELETE" method="post"><button name="DeleteCard" type="submit" class="btn btn-danger">Delete
                     </button> </form>
             </div>
         </div>

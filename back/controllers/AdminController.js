@@ -53,7 +53,7 @@ exports.createArticle = (req, res) => {
     console.log("Fichier Json Créé");
   });
 
-  res.render("admin", {
+  res.redirect("admin", {
     dbBlog,
   });
 };
@@ -67,12 +67,12 @@ exports.editArticle = (req, res) => {
   const articleEdited = {
     id: Number(req.params.id),
     title: req.body.title,
-    description: req.body.description
+    description: req.body.description,
   }
 
   dbBlog.forEach(art => {
     console.log('loop', typeof art.id, typeof req.params.id)
-    if (user.id === Number(req.params.id)) {
+    if (art.id === Number(req.params.id)) {
       console.log('indexof', dbBlog.indexOf(art))
       index = dbBlog.indexOf(art)
     }
@@ -90,11 +90,9 @@ exports.editArticle = (req, res) => {
     console.log("Fichier Json Créé");
   });
 
-
-  res.render("admin", {
+  res.redirect("admin", {
     dbBlog
-  });
-  //res.redirect("/admin")
+  })
 };
 // =============/
 
@@ -105,7 +103,7 @@ exports.deleteArticle = (req, res) => {
 
   let index = 0
 
-  dbBlog.forEach(user => {
+  dbBlog.forEach(art => {
     // console.log('loop', typeof art.id, typeof req.params.id)
     if (art.id === Number(req.params.id)) {
       console.log('indexof', dbBlog.indexOf(art))
@@ -128,7 +126,7 @@ exports.deleteArticle = (req, res) => {
   });
 
 
-  res.render("admin", {
+  res.redirect("admin", {
     dbBlog,
   });
 };

@@ -40,10 +40,6 @@ Partial : Admin/ Gestion Blog
                             <!------ Button trigger modal --------->
                             <button class="btn-danger" type="button" data-bs-toggle="modal"
                                 data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
-                            <!---Button Test Db----->    
-                            <form action="/admin/{{this.id}}/?_method=DELETE" method="post">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
 
                         </div>
                     </div>
@@ -59,9 +55,9 @@ Partial : Admin/ Gestion Blog
     </div>
 
     {{> modals/modaladdcards }}
-    
+
     {{> modals/modaleditcard }}
-    
+
     {{> modals/modalsupprblog }}
 
 </div>
