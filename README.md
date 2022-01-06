@@ -1,2 +1,3 @@
 # projetnjs
-On parce le projet
+On parce le projet + debut db Mysql
+

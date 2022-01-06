@@ -11,7 +11,7 @@ exports.adminpage = (req, res) => {
     dbBlog,
   });
 };
-/*
+
 exports.adminCreate = (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   res.redirect("/admin");
@@ -26,13 +26,13 @@ exports.adminDelete = (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.body);
   res.redirect("/admin");
 };
-*/
+
 
 
 /*
  * Controller: Create/Edit/delete Cards depuis DB fictive
  * **************** */
-
+/*
 // Crée article depuis formualire
 exports.createArticle = (req, res) => {
   console.log("je suis le controller create card", req.body);
@@ -130,4 +130,5 @@ exports.deleteArticle = (req, res) => {
     dbBlog,
   });
 };
+*/
 // =============================/

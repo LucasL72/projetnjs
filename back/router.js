@@ -54,14 +54,14 @@ router.route("/newsletter")
 
 router.route("/admin")
    .get(AdminController.adminpage)
-   //.post(upload.array('ImgMulter',3), RegisterController.MulterImg)
-   //.put(AdminController.adminEdit)
-   //.delete(AdminController.adminDelete)*/
+   .post(upload.array('ImgMulter',3), RegisterController.MulterImg)
+   .put(AdminController.adminEdit)
+   .delete(AdminController.adminDelete)
 
    // Test DB 
-   .post(AdminController.createArticle)
-   .put(AdminController.editArticle)
-   .delete(AdminController.deleteArticle);
+   //.post(AdminController.createArticle)
+   //.put(AdminController.editArticle)
+   //.delete(AdminController.deleteArticle);
 // /================
 
 
