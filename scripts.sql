@@ -1,6 +1,6 @@
-REATE DATABASE IF NOT EXISTS `crud_tutorial` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `site_db` CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-USE crud_tutorial;
+USE site_db;
 
 CREATE TABLE  `customers` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
