@@ -40,7 +40,7 @@ router.route("/contact")
 router.route("/register")
    .get(RegisterController.registerpage)
    //.post(RegisterController.CreateUser)
-   .post(upload.array('ImgMulter', 3), RegisterController.MulterImg);
+   //.post(upload.array('ImgMulter', 3), RegisterController.MulterImg);
 
 router.route("/login")
    .post(RegisterController.loginUser);
@@ -54,6 +54,7 @@ router.route("/newsletter")
 
 router.route("/admin")
    .get(AdminController.adminBlog)
+   .get(AdminController.adminUser)
    .post(AdminController.adminCreateBlog)
    .put(AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteAllBlog);

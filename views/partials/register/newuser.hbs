@@ -13,61 +13,46 @@ Partial : register/ New user
             <div class="row">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Photo de Profil</label>
-                    <input name="ImgMulter" type="file" class="form-control"  id="formFile" multiple>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Prénom:</label>
-                    <input name="FirstName" type="text" class="form-control" value="...">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Nom:</label>
-                    <input name="Name" type="text" class="form-control" value="...">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Adresse Email :</label>
-                    <input name="Email" type="email" class="form-control" placeholder="name@example.com">
+                    <input name="ImgMulter" type="file" class="form-control" id="formFile">
                 </div>
                 <div class="col-md-12">
                     <label class="form-label">Nom d'utilisateur:</label>
                     <div class="input-group">
                         <span class="input-group-text">@</span>
-                        <input name="User" type="text" class="form-control" aria-describedby="inputGroupPrepend">
+                        <input name="pseudo" type="text" class="form-control" aria-describedby="inputGroupPrepend">
                     </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Prénom:</label>
+                    <input name="firstname" type="text" class="form-control" value="...">
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Ville:</label>
-                    <input name="City" type="text" class="form-control">
+                    <label class="form-label">Nom:</label>
+                    <input name="name" type="text" class="form-control" value="...">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Adresse Email :</label>
+                    <input name="email" type="email" class="form-control" placeholder="name@example.com">
+                </div>
 
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Département:</label>
-                    <select name="Departement" class="form-select">
-                        <option selected disabled value="text">Choisir...</option>
-                        <option>Sarthe</option>
-                        <option>Mayenne</option>
-                        <option>Autre Options ....</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Code Postal:</label>
-                    <input name="CodePostale" type="text" class="form-control">
 
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input name="Terms" class="form-check-input" type="checkbox" id="invalidCheck" required>
-                        <label class="form-check-label" for="invalidCheck">
-                            Agree to terms and conditions
-                        </label>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input name="Terms" class="form-check-input" type="checkbox" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
 
-                    </div>
-                </div>
-                <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button type="submit" class="btn btn-contact">S'inscrire</button>
                 </div>
             </div>
-
+            <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-center">
+                <button type="submit" class="btn btn-contact">S'inscrire</button>
+            </div>
         </form>
+    </div>
+
+    </form>
     </div>
 </section>

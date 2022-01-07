@@ -12,7 +12,7 @@ exports.adminPage = (req, res) => {
  * Controller: Page Admin
     Partie user
  * **************** */
-/*
+
 exports.adminUser = (req, res) => {
   console.log('je suis la page Admin')
   // Variable de récupération de tout les articles
@@ -26,6 +26,7 @@ exports.adminUser = (req, res) => {
     })
   })
 }
+/*
 exports.adminCreateUser = (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   let sql = `INSERT INTO user (pseudo,name,email) values(?)`;

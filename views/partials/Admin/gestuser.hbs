@@ -24,6 +24,7 @@ Partial : Admin/ Gestion utilisateurs
                         <th scope="col-xs-4">Image de Profil</th>
                         <th scope="col-xs-2">User Name</th>
                         <th scope="col-xs-2">Name</th>
+                        <th scope="col-xs-2">First Name</th>
                         <th scope="col-xs-2">Email</th>
                     </tr>
                 </thead>
@@ -32,12 +33,14 @@ Partial : Admin/ Gestion utilisateurs
                         <th><img class="img-user" src="/assets/images/julia.jpg"> </th>
                         <td>user name</td>
                         <td>Name</td>
+                        <td>First Name</td>
                         <td>@mail.com</td>
                     </tr>
                     <tr>
                         {{#each dbuser }}
                         <th><img class="img-user" src="/assets/images/emilie.jpg"> </th>
                         <td>{{ this.pseudo }}</td>
+                        <td>{{this.firstname}}</td>
                         <td>{{ this.name }}</td>
                         <td>{{ this.email }}</td>
                         {{/each}}
