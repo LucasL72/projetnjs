@@ -5,10 +5,17 @@ const dbBlog2 = require('../../public/dbbackup.json').blog2
 
 exports.blogpage = (req, res) => {
   console.log('je suis la page blog')
-  res.render("blog", {
-    dbBlog2
-  });
-};
+  // Variable de récupération de tout les articles
+  let sql = `SELECT * FROM articles`;
+  db.query(sql, (error, data, fields) => {
+    if (error) throw error;
+    res.render('blog', {
+      status: 200,
+      dbarticles: data,
+      message: "article lists retrieved successfully"
+    })
+  })
+}
 
 /** Controller: ID* **************** */
 

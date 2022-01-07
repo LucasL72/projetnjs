@@ -247,10 +247,7 @@ header {
 .famille-details {
     background-color: #fff;
     background-image: linear-gradient(180deg, rgba(6, 138, 1, 0.6), rgba(16, 167, 41, 0.4), rgba(253, 208, 5, 0.4));
-    padding: 30px 20px;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 15px;
 }
 
 
@@ -260,10 +257,6 @@ header {
     transition: all 0.5s;
 }
 
-
-.famille-details img {
-    border-radius: 20px;
-}
 
 
 /* Bannière

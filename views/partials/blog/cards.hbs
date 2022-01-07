@@ -6,15 +6,15 @@ Partial : blog/Cards
     <div class="container-fluid">
         <div class="row" id="listCard">
 
-            {{#each dbBlog2 }}
+            {{#each dbarticles }}
 
             <div class="col-md-4">
                 <div class="famille-details card">
-                    <img class="card-img-top" src="{{this.img}}" alt="paysage">
+                    <img class="card-img-top" src="/assets/images/creative1.jpg" alt="paysage">
                     <div class="card-body">
                         <h4 class="card-title">{{this.title}}</h4>
                         <p class="card-text">{{this.description}}</p>
-                        <a href="blog-id" class="btn btn-ghost">Voir l'article</a>
+                        <div class="card-footer  bg-transparent"><a href="blog-id" class="btn btn-ghost">Voir l'article</a></div>
                     </div>
                 </div>
             </div>

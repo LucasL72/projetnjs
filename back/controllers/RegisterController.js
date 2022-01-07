@@ -21,7 +21,6 @@ exports.MulterImg = (req,res) => {
 exports.loginUser = (req, res) => {
   console.log("Je suis le controller Create mess pour le login", req.body);
   res.redirect(req.headers.referer)
-  // res.render("register");
 }
 
 /*
@@ -30,7 +29,6 @@ exports.loginUser = (req, res) => {
 exports.lostpassword = (req, res) => {
   console.log("Je suis le controller Create mess pour le Mot de passse oublié", req.body);
   res.redirect(req.headers.referer)
-  // res.render("register");
 }
 
 /*
@@ -39,7 +37,6 @@ exports.lostpassword = (req, res) => {
 exports.newsletter = (req, res) => {
   console.log("Je suis le controller Create mess pour la Newsletter", req.body);
   res.redirect(req.headers.referer)
-  // res.render("register");
 }
 
 

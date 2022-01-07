@@ -10,6 +10,7 @@ require("dotenv").config();
 // Import de module
 const express = require("express");
 const app = express();
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const port = process.env.PORT || 3001;
@@ -19,6 +20,19 @@ const {
 
 // Method-Override
 app.use(methodOverride('_method'));
+
+// Mysql
+db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'rfn2K22$',
+  database: 'site_db'
+});
+
+db.connect((err) => {
+  if (err) console.error('error connecting: ' + err.stack);
+  console.log('connected as id ' + db.threadId);
+});
 
 // main en page par default
 app.set("view engine", "hbs");

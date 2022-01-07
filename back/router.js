@@ -40,7 +40,7 @@ router.route("/contact")
 router.route("/register")
    .get(RegisterController.registerpage)
    //.post(RegisterController.CreateUser)
-   .post(upload.array('ImgMulter',3), RegisterController.MulterImg);
+   .post(upload.array('ImgMulter', 3), RegisterController.MulterImg);
 
 router.route("/login")
    .post(RegisterController.loginUser);
@@ -53,17 +53,13 @@ router.route("/newsletter")
 
 
 router.route("/admin")
-   .get(AdminController.adminpage)
-   .post(upload.array('ImgMulter',3), RegisterController.MulterImg)
-   .put(AdminController.adminEdit)
-   .delete(AdminController.adminDelete)
+   .get(AdminController.adminBlog)
+   .post(AdminController.adminCreateBlog)
+   .put(AdminController.adminEditBlog)
+   .delete(AdminController.adminDeleteAllBlog);
 
-   // Test DB 
-   //.post(AdminController.createArticle)
-   //.put(AdminController.editArticle)
-   //.delete(AdminController.deleteArticle);
-// /================
-
+router.route('/admin/:id')
+   .delete(AdminController.adminDeleteOneBlog);
 
 // / Routes
 

@@ -19,45 +19,52 @@ Partial : Admin/ Gestion Blog
                 <!-------------------Button Modal cards---------------------------------------------->
                 <h3><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcardModal">
                         Add Card
-                    </button></h3>
+                    </button>
+                </h3>
 
             </div>
             <div class="row">
 
-                {{#each dbBlog }}
-
+                {{#each dbarticles }}
                 <div class="col-md-4">
-                    <div class="famille-details card">
-                        <img class="card-img-top" src="{{this.img}}" alt="paysage">
+                    <div class="famille-details card mb-3">
+                        <img class="card-img-top" src="/assets/images/creative1.jpg" alt="paysage">
                         <div class="card-body">
+
                             <h4 class="card-title">{{this.title}}</h4>
                             <p class="card-text">{{this.description}}</p>
+                        </div>
+                        <div class="card-footer bg-transparent row">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#editcardModal">
+                                    Edit
+                                </button>
+                            </div>
 
-                            <button type="button" class="btn produits-icon" data-bs-toggle="modal"
-                                data-bs-target="#editcardModal">
-                                <i class="far fa-edit"></i>
-                            </button>
-                            <!------ Button trigger modal --------->
-                            <button class="btn-danger" type="button" data-bs-toggle="modal"
-                                data-bs-target="#DelArtModal"><i class="fas fa-trash-alt "></i></button>
+                            <div class="col-6">
+                                <form action="/admin/{{ this.id }}/?_method=DELETE" method="post">
+                                    <button class="btn btn-danger" name="DeleteCard" type="submit"> Delete
+                                    </button>
+                                </form>
+                            </div>
 
                         </div>
                     </div>
                 </div>
-
                 {{/each}}
-
             </div>
 
-
-
         </div>
+        <div class="col-md-12">
+            <h3>
+                <form action="/admin/?_method=DELETE" method="post">
+                    <button class="btn btn-danger" type="submit">Delete all </button>
+                </form>
+            </h3>
+        </div>
+        {{> modals/modaladdcards }}
+
+        {{> modals/modaleditcard }}
     </div>
-
-    {{> modals/modaladdcards }}
-
-    {{> modals/modaleditcard }}
-
-    {{> modals/modalsupprblog }}
-
 </div>

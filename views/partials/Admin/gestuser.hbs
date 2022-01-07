@@ -1,8 +1,8 @@
-{{!-- 
-    Partial : Admin/ Gestion utilisateurs
- --}}
+{{!--
+Partial : Admin/ Gestion utilisateurs
+--}}
 
-<!-------------------Gest User---------------------------------------------->
+<!---=======Gest User========-->
 <div class="accordion-item">
     <p class="accordion-header" id="panelsStayOpen-headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -14,6 +14,9 @@
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
         aria-labelledby="panelsStayOpen-headingOne">
         <div class="accordion-body table-responsive">
+            <!-- Button trigger modal Gestin users -->
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
+                <i class="fas fa-tools"></i></i></button>
 
             <table class="table table-borderless table-secondary container">
                 <thead>
@@ -22,7 +25,6 @@
                         <th scope="col-xs-2">User Name</th>
                         <th scope="col-xs-2">Name</th>
                         <th scope="col-xs-2">Email</th>
-                        <th scope="col-xs-2">Gérer</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,35 +33,17 @@
                         <td>user name</td>
                         <td>Name</td>
                         <td>@mail.com</td>
-                        <td>
-                            <!-- Button trigger modal Gestin users -->
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
-                                <i class="fas fa-tools"></i></button>
-
-                        </td>
                     </tr>
                     <tr>
+                        {{#each dbuser }}
                         <th><img class="img-user" src="/assets/images/emilie.jpg"> </th>
-                        <td>user name</td>
-                        <td>Name</td>
-                        <td>@mail.com</td>
-                        <td>
-                            <!-- Button trigger modal Gestin users -->
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
-                                <i class="fas fa-tools"></i></i></button>
-                        </td>
+                        <td>{{ this.pseudo }}</td>
+                        <td>{{ this.name }}</td>
+                        <td>{{ this.email }}</td>
+                        {{/each}}
                     </tr>
-                    <tr>
-                        <th><img class="img-user" src="/assets/images/blaise.jpg"> </th>
-                        <td>user name</td>
-                        <td>Name</td>
-                        <td>@mail.com</td>
-                        <td>
-                            <!-- Button trigger modal Gestin users -->
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#GestModal">
-                                <i class="fas fa-tools"></i></i></button>
-                        </td>
-                    </tr>
+
+
                 </tbody>
             </table>
         </div>
