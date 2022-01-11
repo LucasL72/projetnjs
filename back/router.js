@@ -54,7 +54,6 @@ router.route("/newsletter")
 
 router.route("/admin")
    .get(AdminController.adminBlog)
-   .get(AdminController.adminUser)
    .post(AdminController.adminCreateBlog)
    .put(AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteAllBlog);

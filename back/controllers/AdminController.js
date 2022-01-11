@@ -12,7 +12,7 @@ exports.adminPage = (req, res) => {
  * Controller: Page Admin
     Partie user
  * **************** */
-
+/*
 exports.adminUser = (req, res) => {
   console.log('je suis la page Admin')
   // Variable de récupération de tout les articles
@@ -26,7 +26,7 @@ exports.adminUser = (req, res) => {
     })
   })
 }
-/*
+
 exports.adminCreateUser = (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   let sql = `INSERT INTO user (pseudo,name,email) values(?)`;
@@ -77,7 +77,7 @@ exports.adminBlog = (req, res) => {
   })
 }
 
-exports.adminCreateBlog = (req, res) => {
+exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   let sql = `INSERT INTO articles (title,description) values(?)`;
   let values = [
@@ -99,7 +99,7 @@ exports.adminCreateBlog = (req, res) => {
 
 };
 
-exports.adminEditBlog = (req, res) => {
+exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
   res.render("/admin");
 };
@@ -124,7 +124,7 @@ exports.adminDeleteOneBlog = (req, res) => {
   })
 };
 
-exports.adminDeleteAllBlog = (req, res) => {
+exports.adminDeleteAllBlog = async (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.body);
   let sql = `DELETE FROM articles`;
   db.query(sql, function (err, data, fields) {
@@ -134,7 +134,7 @@ exports.adminDeleteAllBlog = (req, res) => {
       if (error) throw error;
       res.render('admin', {
         status: 200,
-        dbArticle: data,
+        dbarticles: data,
         message: "Delete All articles successfully"
       })
     })

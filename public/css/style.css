@@ -83,6 +83,7 @@ section {
     padding: 0px 0px 20px 0px;
 }
 
+
 /* Header 
 ============================*/
 header {
@@ -248,6 +249,7 @@ header {
     background-color: #fff;
     background-image: linear-gradient(180deg, rgba(6, 138, 1, 0.6), rgba(16, 167, 41, 0.4), rgba(253, 208, 5, 0.4));
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2em;
 }
 
 
@@ -387,6 +389,19 @@ footer {
 
 .socials {
     font-size: 25px
+}
+
+#scroll_to_top {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    bottom: 50px;
+    right: 30px;
+}
+
+.scroll-icon {
+    font-size: 34px;
+    color: rgb(0, 0, 0);
 }
 
 
