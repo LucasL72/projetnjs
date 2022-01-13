@@ -176,7 +176,7 @@ header {
 
 .btn-full {
     background-color: azure;
-    color: #5ee077;
+    color: #45bd5d;
     margin-right: 15px;
 }
 
@@ -186,7 +186,7 @@ header {
 }
 
 .btn-full:hover {
-    background-color: #5ee077;
+    background-color: #45bd5d;
     color: #fff;
 }
 
@@ -310,7 +310,6 @@ cite img {
 .bg-com {
     margin-top: 20px;
     border: 2px solid #00c026;
-    ;
     padding: 5px 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

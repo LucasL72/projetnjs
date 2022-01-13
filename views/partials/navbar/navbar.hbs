@@ -1,55 +1,60 @@
-{{!-- 
-    Partial : navabar
- --}}
+{{!--
+Partial : navabar
+--}}
 
- <!---Navbar--->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-theme">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
-                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<!---Navbar--->
+<nav class="navbar navbar-expand-lg navbar-dark bg-theme">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="/assets/images/logo2.png" alt="" width="40" height="35">
+            Mon Site </a>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+
+            <ul class="navbar-nav me-auto mb-2mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pics">Photos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Nous contacter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin</a>
+                </li>
+            </ul>
+
+            <!---Modal "se connecter"--->
+            <!-- Button modal -->
+
+            <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
+                Se connecter/S'inscrire
             </button>
-            <a class="navbar-brand" href="/"><img src="/assets/images/logo2.png" alt="" width="40" height="35">
-                Mon Site </a>
-            <div class="collapse navbar-collapse" id="navbarToggler">
 
-                <ul class="navbar-nav me-auto mb-2mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/pics">Photos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Nous contacter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin">Admin</a>
-                    </li>
-                </ul>
+            <a class="btn btn-full" href="/user" >Profil</a>
 
-                <!---Modal "se connecter"--->
-                <!-- Button modal -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect">
+                <i class="fas fa-power-off"></i>
+            </button>
 
-                <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
-                    Se connecter/S'inscrire
-                </button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect">
-                    <i class="fas fa-power-off"></i>
-                </button>
-            </div>
-
-            <!--  Modal connect -->
-            {{> modals/modalLogin }}
-
-            <!-- 2 Modal lost password -->
-            {{> modals/modalLostpass }}
-
-            <!--  Modal disconnect -->
-            {{> modals/modalLogout }}
 
         </div>
-    </nav>
+
+        <!--  Modal connect -->
+        {{> modals/modalLogin }}
+
+        <!-- 2 Modal lost password -->
+        {{> modals/modalLostpass }}
+
+        <!--  Modal disconnect -->
+        {{> modals/modalLogout }}
+
+    </div>
+</nav>

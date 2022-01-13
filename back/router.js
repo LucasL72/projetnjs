@@ -14,6 +14,7 @@ const PicsController = require("./controllers/PicsController");
 const ContactController = require("./controllers/ContactController");
 const RegisterController = require("./controllers/RegisterController");
 const AdminController = require("./controllers/AdminController");
+const UserController = require("./controllers/UserController");
 
 
 
@@ -39,8 +40,8 @@ router.route("/contact")
 
 router.route("/register")
    .get(RegisterController.registerpage)
-   //.post(RegisterController.CreateUser)
-   //.post(upload.array('ImgMulter', 3), RegisterController.MulterImg);
+//.post(RegisterController.CreateUser)
+//.post(upload.array('ImgMulter', 3), RegisterController.MulterImg);
 
 router.route("/login")
    .post(RegisterController.loginUser);
@@ -60,6 +61,9 @@ router.route("/admin")
 
 router.route('/admin/:id')
    .delete(AdminController.adminDeleteOneBlog);
+
+router.route('/user')
+   .get(UserController.userProfile);
 
 // / Routes
 

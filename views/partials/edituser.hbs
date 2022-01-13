@@ -1,12 +1,12 @@
 {{!--
-Partial : register/ New user
+Partial : user/ edit user
 --}}
 
 
 
 <!---Sign in--->
 <section>
-    <h2>S'inscrire</h2>
+    <h2>Modifier profil</h2>
     <div class="container">
         <form action="/register" method="post" enctype="multipart/form-data" class=" row g-3">
 
@@ -35,7 +35,7 @@ Partial : register/ New user
                     <label class="form-label">Adresse Email :</label>
                     <input name="email" type="email" class="form-control" placeholder="name@example.com">
                 </div>
-                <div class="col-md-6">
+                 <div class="col-md-6">
                     <label class="form-label">Mot de passe:</label>
                     <input name="password" type="password" class="form-control">
                 </div>
@@ -44,20 +44,9 @@ Partial : register/ New user
                     <input name="password" type="password" class="form-control">
                 </div>
 
-
-
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input name="Terms" class="form-check-input" type="checkbox" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                        Agree to terms and conditions
-                    </label>
-
-                </div>
             </div>
             <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-center">
-                <button type="submit" class="btn btn-contact">S'inscrire</button>
+                <button type="submit" class="btn btn-contact">Modifier</button>
             </div>
         </form>
     </div>
