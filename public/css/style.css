@@ -8,10 +8,6 @@
 
 /* Theme
 ===================--------------=========*/
-body {
-    background-color: #fff;
-}
-
 .bg-theme {
     background-color: #009b00;
 }
@@ -125,7 +121,7 @@ header {
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    animation: typing 5s steps(26);
+    animation: typing 7s steps(26);
     animation-iteration-count: infinite;
 }
 
