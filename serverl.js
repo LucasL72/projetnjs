@@ -24,7 +24,7 @@ app.use(methodOverride('_method'));
 // Mysql
 db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: 'lucas',
   password: 'rfn2K22$',
   database: 'site_db'
 });

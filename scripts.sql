@@ -11,7 +11,8 @@ CREATE TABLE  `articles` (
 CREATE TABLE  `user` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `pseudo` VARCHAR( 100 ) NOT NULL ,
-`name` VARCHAR( 100 ) NOT NULL ,
 `firstname` VARCHAR( 100 ) NOT NULL ,
-`email` VARCHAR( 100 ) NOT NULL
+`name` VARCHAR( 100 ) NOT NULL ,
+`email` VARCHAR( 100 ) NOT NULL ,
+'password' VARCHAR( 100 ) NOT NULL
 ) ENGINE = INNODB;
