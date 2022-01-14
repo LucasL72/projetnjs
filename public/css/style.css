@@ -27,7 +27,8 @@
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     letter-spacing: -1px;
@@ -386,21 +387,6 @@ footer {
     font-size: 25px
 }
 
-#scroll_to_top {
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    bottom: 50px;
-    right: 30px;
-}
-
-.scroll-icon {
-    font-size: 34px;
-    color: rgb(0, 0, 0);
-}
-
-
-
 @media (max-width: 990px) {
     header {
         height: 60vh;
@@ -416,7 +402,6 @@ footer {
         height: 250px;
 
     }
-
 
 }
 
