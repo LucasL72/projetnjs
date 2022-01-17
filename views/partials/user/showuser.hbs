@@ -11,17 +11,29 @@ Partial : user/ Profil utilisateur
                     src="/assets/images/emilie.jpg">
             </div>
             <div class="col-md-10">
-                <h5>Pseudo : John</h5>
-               
-                <h5>Nom : Duff</h5>
-              
-                <h5>Prénom : John</h5>
-               
-                <h5>Adresse mail : johnduff@example.com</h5>
-                
+                <div class="col-md-12">
+                    <label class="form-label">Nom d'utilisateur:</label>
+                    <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input name="pseudo" type="text" class="form-control" value="JohnDuff" aria-describedby="inputGroupPrepend">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Prénom:</label>
+                    <input name="firstname" type="text" class="form-control" value="John">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Nom:</label>
+                    <input name="name" type="text" class="form-control" value="Duff">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Adresse Email :</label>
+                    <input name="email" type="email" class="form-control" value="name@example.com">
+
+                </div>
+
             </div>
 
         </div>
-
-    </div>
 </section>
