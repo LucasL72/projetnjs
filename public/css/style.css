@@ -165,7 +165,7 @@ header {
 ============================*/
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px 10px;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 1s, color 1s, border 1s;

@@ -63,6 +63,7 @@ exports.adminCreateUser = (req, res) => {
     Partie blog
  * **************** */
 
+/*----Méthode Get---*/
 exports.adminBlog = (req, res) => {
   console.log('je suis la page Admin')
   // Variable de récupération de tout les articles
@@ -77,6 +78,7 @@ exports.adminBlog = (req, res) => {
   })
 }
 
+/*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   let sql = `INSERT INTO articles (title,description) values(?)`;
@@ -104,6 +106,7 @@ exports.adminEditBlog = async (req, res) => {
   res.render("/admin");
 };
 
+/*----Méthode Delete pour un---*/
 exports.adminDeleteOneBlog = (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.body);
   let sql = `DELETE FROM articles  WHERE id = ?`;
@@ -124,6 +127,7 @@ exports.adminDeleteOneBlog = (req, res) => {
   })
 };
 
+/*----Méthode Delete pour tout---*/
 exports.adminDeleteAllBlog = async (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.body);
   let sql = `DELETE FROM articles`;

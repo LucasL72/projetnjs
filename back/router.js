@@ -63,7 +63,8 @@ router.route('/admin/:id')
    .delete(AdminController.adminDeleteOneBlog);
 
 router.route('/user')
-   .get(UserController.userProfile);
+   .get(UserController.userProfile)
+   .post(UserController.EditUser);
 
 // / Routes
 
