@@ -56,11 +56,12 @@ router.route("/newsletter")
 router.route("/admin")
    .get(AdminController.adminBlog)
    .post(AdminController.adminCreateBlog)
-   .put(AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteAllBlog);
 
 router.route('/admin/:id')
+   .put(AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteOneBlog);
+
 
 router.route('/user')
    .get(UserController.userProfile)

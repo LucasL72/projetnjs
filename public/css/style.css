@@ -344,9 +344,6 @@ cite img {
 
 /* contact
 ============================*/
-.contact-form {
-    margin-top: 10px;
-}
 
 .contact-message {
     width: 100%;
@@ -381,7 +378,7 @@ footer {
 
 .copyright a {
     color: #fff;
-}
+} 
 
 .socials {
     font-size: 25px
