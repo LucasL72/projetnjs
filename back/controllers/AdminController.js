@@ -2,6 +2,7 @@
  * Controller: Page Admin
  * **************** */
 const fs = require("fs");
+const path = require('path');
 
 exports.adminPage = (req, res) => {
   console.log('je suis la page register')
@@ -81,8 +82,9 @@ exports.adminBlog = (req, res) => {
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
-  let sql = `INSERT INTO articles (title,description) values(?)`;
+  let sql = `INSERT INTO articles (authorid,imgarticle,title,description,dateart,user_id) values("1","${req.file.filename}","${req.body.title}","${req.body.description}","2020-01-01 18:10:10","1")`;
   let values = [
+    req.file.filename,
     req.body.title,
     req.body.description
   ];
@@ -100,21 +102,22 @@ exports.adminCreateBlog = async (req, res) => {
   })
 
 };
-
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
-  let sql = `UPDATE articles values title=?, description=? WHERE id = ${req.params.id}`;
+  let sql = `UPDATE articles SET title = "${req.body.title}", description = "${req.body.description}" ,authorid = 1, imgarticle = 'monimatrditge', dateart
+  = '2020-01-01 18:10:10', user_id = '1' WHERE id = "${req.params.id}"`;
   let values = [
     req.body.title,
     req.body.description
   ];
-  db.query(sql, values, function (err, data, fields) {
+  console.log('values', values)
+  db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
     let sql = `SELECT * FROM articles`;
     db.query(sql, (error, data, fields) => {
       if (error) throw error;
-      res.redirect('admin', {
+      res.render('admin', {
         status: 200,
         dbarticles: data,
         message: "Edit article successfully"
@@ -122,7 +125,6 @@ exports.adminEditBlog = async (req, res) => {
     })
   })
 };
-
 
 /*----Méthode Delete pour un---*/
 exports.adminDeleteOneBlog = async (req, res) => {

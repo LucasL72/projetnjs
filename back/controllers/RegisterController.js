@@ -8,12 +8,16 @@ exports.registerpage = (req, res) => {
 
 exports.CreateUser = (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
-  let sql = `INSERT INTO user (pseudo,name,firstname,email) values(?)`;
+  let sql = `INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
+  ("monimage","${req.body.pseudo}","${req.body.firstname}",
+  "${req.body.name}","${req.body.email}","${req.body.password}")`;
+
   let values = [
     req.body.pseudo,
-    req.body.name,
     req.body.firstname,
-    req.body.email
+    req.body.name,
+    req.body.email,
+    req.body.password
   ];
   db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
@@ -30,8 +34,8 @@ exports.CreateUser = (req, res) => {
 
 };
 
-exports.MulterImg = (req,res) => {
-  console.log("je suis le controller Multer",req.file, req.body);
+exports.MulterImg = (req, res) => {
+  console.log("je suis le controller Multer", req.file, req.body);
   res.render("register");
 }
 /*
@@ -57,5 +61,3 @@ exports.newsletter = (req, res) => {
   console.log("Je suis le controller Create mess pour la Newsletter", req.body);
   res.redirect(req.headers.referer)
 }
-
-
