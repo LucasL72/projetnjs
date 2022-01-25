@@ -104,17 +104,17 @@ exports.adminCreateBlog = async (req, res) => {
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
-  let sql = "UPDATE articles SET title='" + req.body.title + "', description='" + req.body.description + "' WHERE id=?";
+  let sql = `UPDATE articles values title=?, description=? WHERE id = ${req.params.id}`;
   let values = [
-    req.params.id
+    req.body.title,
+    req.body.description
   ];
-
-  db.query(sql, [values], function (err, data, fields) {
+  db.query(sql, values, function (err, data, fields) {
     if (err) throw err;
     let sql = `SELECT * FROM articles`;
     db.query(sql, (error, data, fields) => {
       if (error) throw error;
-      res.render('admin', {
+      res.redirect('admin', {
         status: 200,
         dbarticles: data,
         message: "Edit article successfully"
@@ -122,6 +122,7 @@ exports.adminEditBlog = async (req, res) => {
     })
   })
 };
+
 
 /*----Méthode Delete pour un---*/
 exports.adminDeleteOneBlog = async (req, res) => {

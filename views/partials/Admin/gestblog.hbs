@@ -31,15 +31,16 @@ Partial : Admin/ Gestion Blog
                         <img class="card-img-top" src="/assets/images/creative1.jpg" alt="paysage">
                         <div class="card-body">
 
-                            <h4 class="card-title">{{this.title}}</h4>
-                            <p class="card-text">{{this.description}}</p>
+                            <h4 class="card-title">{{ this.title }}</h4>
+                            <p class="card-text">{{ this.description }}</p>
                         </div>
                         <div class="card-footer bg-transparent row">
                             <div class="col-6">
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#editcardModal">
+                                    data-bs-target="#editcardModal{{ this.id }}">
                                     Edit
                                 </button>
+
                             </div>
 
                             <div class="col-6">
@@ -51,8 +52,12 @@ Partial : Admin/ Gestion Blog
 
                         </div>
                     </div>
+
+
                 </div>
+                {{> modals/modaleditcard }}
                 {{/each}}
+
             </div>
 
         </div>
@@ -63,8 +68,8 @@ Partial : Admin/ Gestion Blog
                 </form>
             </h3>
         </div>
+
         {{> modals/modaladdcards }}
 
-        {{> modals/modaleditcard }}
     </div>
 </div>
