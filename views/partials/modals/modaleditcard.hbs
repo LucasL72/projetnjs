@@ -11,12 +11,12 @@ Modal / Admin : Gestion card
                 <h5 class="modal-title" id="ModalLab"> Edit Card</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/admin/{{ this.id }}/?_method=PUT" method="post">
+            <form action="/admin/{{ this.id }}/?_method=PUT" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <div class="col-md-12">
                         <label for="formFile" class="form-label">Photos Article</label>
-                        <input name="Blogpic" class="form-control" type="file" id="formFile{{ this.id }}">
+                        <input name="imgarticle" class="form-control" type="file" id="formFile{{ this.id }}">
                     </div>
                     <div class="col-md-12">
                         <label for="InputTitle" class="form-label">Titre</label>

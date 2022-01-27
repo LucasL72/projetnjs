@@ -56,5 +56,5 @@ app.use('/', ROUTER);
 
 // Lancement de l'application
 app.listen(port, () => {
-  console.log("le serveur tourne sur le port: " + port);
+  console.log("le serveur tourne sur le port: ⚡" + port);
 });

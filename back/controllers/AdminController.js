@@ -4,11 +4,6 @@
 const fs = require("fs");
 const path = require('path');
 
-exports.adminPage = (req, res) => {
-  console.log('je suis la page register')
-  res.render("admin");
-}
-
 /*
  * Controller: Page Admin
     Partie user
@@ -82,7 +77,8 @@ exports.adminBlog = (req, res) => {
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
-  let sql = `INSERT INTO articles (authorid,imgarticle,title,description,dateart,user_id) values("1","${req.file.filename}","${req.body.title}","${req.body.description}","2020-01-01 18:10:10","1")`;
+  let sql = `INSERT INTO articles (imgarticle,title,description,dateart,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}",NOW(),"1")`;
+  
   let values = [
     req.file.filename,
     req.body.title,
@@ -105,11 +101,13 @@ exports.adminCreateBlog = async (req, res) => {
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
-  let sql = `UPDATE articles SET title = "${req.body.title}", description = "${req.body.description}" ,authorid = 1, imgarticle = 'monimatrditge', dateart
-  = '2020-01-01 18:10:10', user_id = '1' WHERE id = "${req.params.id}"`;
+  let sql = `UPDATE articles SET title = "${req.body.title}", description = "${req.body.description}" , imgarticle = "${req.file.filename}", dateart
+  = NOW(), user_id = '1' WHERE id = "${req.params.id}"`;
+  /* (now) pour les dates*/
   let values = [
     req.body.title,
-    req.body.description
+    req.body.description,
+    req.file.filename
   ];
   console.log('values', values)
   db.query(sql, [values], function (err, data, fields) {

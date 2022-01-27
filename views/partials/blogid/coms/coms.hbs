@@ -9,40 +9,22 @@ Partial : Id/Commentaires
             <h2>Comments</h2>
         </div>
 
+        {{#each dbcommentaires }}
+
         <div class="col-md-12">
             <div class="client-profil position-relative">
-                <cite> <img src="/assets/images/julia.jpg"> Anonyme</cite>
-                <button type="button" class=" btn like position-absolute top-0 end-0 like"><i class="fas fa-heart">
-                        1</i> </button>
+                <cite> <img src="/assets/images/julia.jpg"> {{ this.pseudouser }}</cite>
+                <!---<button type="button" class=" btn like position-absolute top-0 end-0 like"><i class="fas fa-heart">
+                        1</i> </button> --->
                 <blockquote>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, quos a obcaecati
-                    explicabo
-                    porro sint nulla ex quasi alias, ipsa necessitatibus in consequatur cum earum esse
-                    deleniti
-                    delectus unde perspiciatis.
-
+                    {{ this.content }}
                 </blockquote>
             </div>
 
 
         </div>
 
-        <div class="col-md-12">
-            <div class="client-profil position-relative">
-                <cite> <img src="/assets/images/emilie.jpg"> Anonyme</cite>
-                <button type="button" class=" btn like position-absolute top-0 end-0 like"><i class="fas fa-heart">
-                        1</i> </button>
-                <blockquote>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, quos a obcaecati
-                    explicabo
-                    porro sint nulla ex quasi alias, ipsa necessitatibus in consequatur cum earum esse
-                    deleniti
-                    delectus unde perspiciatis.
-                </blockquote>
-            </div>
-
-        </div>
-
+        {{/each}}
 
         {{> blogid/coms/addcoms }}
 

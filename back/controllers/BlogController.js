@@ -1,7 +1,8 @@
 /*
  * Controller: Blog & ID
  * **************** */
-const dbBlog2 = require('../../public/dbbackup.json').blog2
+const fs = require("fs");
+const path = require('path');
 
 exports.blogpage = (req, res) => {
   console.log('je suis la page blog')
@@ -15,22 +16,43 @@ exports.blogpage = (req, res) => {
       message: "article lists retrieved successfully"
     })
   })
-}
+};
 
 /** Controller: ID* **************** */
 
 exports.idpage = (req, res) => {
-  console.log('je suis la page Id')
-  res.render("blog-id");
+  console.log('je suis la page Blog:id')
+  // Variable de récupération de tout les commentaires
+  let sql = `SELECT * FROM commentaires`;
+  db.query(sql, (error, data, fields) => {
+    if (error) throw error;
+    res.render('blog-id', {
+      status: 200,
+      dbcommentaires: data,
+      message: "commentaires lists retrieved successfully"
+    })
+  })
 };
 
-exports.CreateCom = (req, res) => {
+exports.CreateCom = async (req, res) => {
   console.log("Je suis le controller Create Com dans blog-id", req.body);
-  res.render("blog-id");
-}
+  let sql = `INSERT INTO commentaires (content,pseudouser,datecom,user_id) values("${req.body.content}","${req.body.pseudouser}","2020-01-01 18:10:10","1")`;
 
-exports.EditCom = (req, res) => {
-  console.log("Je suis le controller Edit Com dans blog-id", req.params.id, req.body);
-  res.render("blog-id");
-  // res.redirect('/blog-id')
-}
+  let values = [
+    req.body.content,
+    req.body.pseudouser
+  ];
+  db.query(sql, [values], function (err, data, fields) {
+    if (err) throw err;
+    let sql = `SELECT * FROM commentaires`;
+    db.query(sql, (error, data, fields) => {
+      if (error) throw error;
+      res.render('blog-id', {
+        status: 200,
+        dbcommentaires: data,
+        message: "Add article successfully"
+      })
+    })
+  })
+
+};

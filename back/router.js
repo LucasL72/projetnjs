@@ -28,8 +28,7 @@ router.route("/blog")
 
 router.route("/blog:id")
    .get(BlogController.idpage)
-   .post(BlogController.CreateCom)
-   .put(BlogController.EditCom);
+   .post(BlogController.CreateCom);
 
 router.route("/pics")
    .get(PicsController.picspage);
@@ -55,12 +54,11 @@ router.route("/newsletter")
 
 router.route("/admin")
    .get(AdminController.adminBlog)
-   //.post(AdminController.adminCreateBlog)
    .post(upload.single('imgarticle'), AdminController.adminCreateBlog)
    .delete(AdminController.adminDeleteAllBlog);
 
 router.route('/admin/:id')
-   .put(AdminController.adminEditBlog)
+   .put(upload.single('imgarticle'),AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteOneBlog);
 
 
