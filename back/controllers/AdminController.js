@@ -73,12 +73,10 @@ exports.adminBlog = (req, res) => {
     })
   })
 }
-
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
-  let sql = `INSERT INTO articles (imgarticle,title,description,dateart,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}",NOW(),"1")`;
-  
+  let sql = `INSERT INTO articles (imgarticle,title,description,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}","1");`
   let values = [
     req.file.filename,
     req.body.title,
@@ -101,8 +99,7 @@ exports.adminCreateBlog = async (req, res) => {
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
-  let sql = `UPDATE articles SET title = "${req.body.title}", description = "${req.body.description}" , imgarticle = "${req.file.filename}", dateart
-  = NOW(), user_id = '1' WHERE id = "${req.params.id}"`;
+  let sql = `UPDATE articles SET title = "${req.body.title}", description = "${req.body.description}" , imgarticle = "${req.file.filename}", user_id = '1' WHERE id = "${req.params.id}"`;
   /* (now) pour les dates*/
   let values = [
     req.body.title,

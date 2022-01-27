@@ -13,10 +13,14 @@ const app = express();
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const moment = require('moment'); // date 
 const port = process.env.PORT || 3001;
 const {
   engine
 } = require("express-handlebars");
+
+const date = moment().format ('MMMM Do YYYY, h:mm:ss a');
+console.log('moemnt', date)
 
 // Method-Override
 app.use(methodOverride('_method'));
