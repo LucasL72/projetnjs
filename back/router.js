@@ -8,14 +8,14 @@ const router = express.Router();
 const upload = require('./config/multer')
 
 // Import des controllers
-const HomeController = require("./controllers/HomeController");
-const BlogController = require("./controllers/BlogController");
-const PicsController = require("./controllers/PicsController");
-const ContactController = require("./controllers/ContactController");
-const RegisterController = require("./controllers/RegisterController");
-const AdminController = require("./controllers/AdminController");
-const UserController = require("./controllers/UserController");
-
+const HomeController = require("./controllers/HomeController"),
+   BlogController = require("./controllers/BlogController"),
+   PicsController = require("./controllers/PicsController"),
+   ContactController = require("./controllers/ContactController"),
+   RegisterController = require("./controllers/RegisterController"),
+   AdminController = require("./controllers/AdminControllerBlog"),
+   UserController = require("./controllers/UserController"),
+   AdminpicsController = require("./controllers/AdminpicsController");
 
 
 // Routes
@@ -39,8 +39,7 @@ router.route("/contact")
 
 router.route("/register")
    .get(RegisterController.registerpage)
-   .post(RegisterController.CreateUser);
-   //.post(upload.single(''), RegisterController.CreateUser);
+   .post(upload.single('imguser'), RegisterController.CreateUser);
 
 router.route("/login")
    .post(RegisterController.loginUser);
@@ -52,15 +51,24 @@ router.route("/newsletter")
    .post(RegisterController.newsletter);
 
 
+// Gestion Administration :
+
 router.route("/admin")
    .get(AdminController.adminBlog)
    .post(upload.single('imgarticle'), AdminController.adminCreateBlog)
    .delete(AdminController.adminDeleteAllBlog);
-
+   
 router.route('/admin/:id')
-   .put(upload.single('imgarticle'),AdminController.adminEditBlog)
+   .put(upload.single('imgarticle'), AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteOneBlog);
 
+/*router.route("/adminn")
+   .get(AdminpicsController.adminpics)
+   .post(upload.single('photo'), AdminpicsController.adminCreatepic);*/
+
+
+
+/////===========================================
 
 router.route('/user')
    .get(UserController.userProfile)

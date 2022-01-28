@@ -60,19 +60,24 @@ exports.adminCreateUser = (req, res) => {
  * **************** */
 
 /*----Méthode Get---*/
-exports.adminBlog = (req, res) => {
+exports.adminBlog = async (req, res) => {
   console.log('je suis la page Admin')
   // Variable de récupération de tout les articles
-  let sql = `SELECT * FROM articles`;
+  let sql = `SELECT * FROM articles,pics`;
+
+  const articles = await db.query('select * from articles;')
+  console.log('article', articles)
+  
   db.query(sql, (error, data, fields) => {
     if (error) throw error;
     res.render('admin', {
       status: 200,
-      dbarticles: data,
+      dbarticles: articles,
+      dbpics:data,
       message: "article lists retrieved successfully"
     })
   })
-}
+};
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
@@ -84,12 +89,16 @@ exports.adminCreateBlog = async (req, res) => {
   ];
   db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
-    let sql = `SELECT * FROM articles`;
-    db.query(sql, (error, data, fields) => {
+    let sql1 = `SELECT * FROM articles,pics`;
+    db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
+      console.log('datatatat', d)
+      const articles = await db.query('select * from articles;')
+
       res.render('admin', {
         status: 200,
-        dbarticles: data,
+        dbarticles: articles,
+        dbpics: data,
         message: "Add article successfully"
       })
     })
@@ -106,16 +115,20 @@ exports.adminEditBlog = async (req, res) => {
     req.body.description,
     req.file.filename
   ];
-  console.log('values', values)
+  
   db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
-    let sql = `SELECT * FROM articles`;
-    db.query(sql, (error, data, fields) => {
+    let sql1 = `SELECT * FROM articles,pics`;
+    db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
+      console.log('datatatat', d)
+      const articles = await db.query('select * from articles;')
+
       res.render('admin', {
         status: 200,
-        dbarticles: data,
-        message: "Edit article successfully"
+        dbarticles: articles,
+        dbpics: data,
+        message: "edit article successfully"
       })
     })
   })
@@ -130,13 +143,17 @@ exports.adminDeleteOneBlog = async (req, res) => {
   ];
   db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
-    let sql = `SELECT * FROM articles`;
-    db.query(sql, (error, data, fields) => {
+    let sql1 = `SELECT * FROM articles,pics`;
+    db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
+      console.log('datatatat', d)
+      const articles = await db.query('select * from articles;')
+
       res.render('admin', {
         status: 200,
-        dbarticles: data,
-        message: "Delete article successfully"
+        dbarticles: articles,
+        dbpics: data,
+        message: "Delete one article successfully"
       })
     })
   })
@@ -146,15 +163,22 @@ exports.adminDeleteOneBlog = async (req, res) => {
 exports.adminDeleteAllBlog = async (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.body);
   let sql = `DELETE FROM articles`;
-  db.query(sql, function (err, data, fields) {
+
+
+
+  db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
-    let sql = `SELECT * FROM articles`;
-    db.query(sql, (error, data, fields) => {
+    let sql1 = `SELECT * FROM articles,pics`;
+    db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
+      console.log('datatatat', d)
+      const articles = await db.query('select * from articles;')
+
       res.render('admin', {
         status: 200,
-        dbarticles: data,
-        message: "Delete All articles successfully"
+        dbarticles: articles,
+        dbpics: data,
+        message: "Delete all article successfully"
       })
     })
   })

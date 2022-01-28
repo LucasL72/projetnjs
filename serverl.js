@@ -8,19 +8,21 @@ console.log("Mon projet en node js");
 require("dotenv").config();
 
 // Import de module
-const express = require("express");
-const app = express();
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
-const moment = require('moment'); // date 
-const port = process.env.PORT || 3001;
-const {
-  engine
-} = require("express-handlebars");
+const express = require("express"),
+  session = require("express-session"),
+  MySQLStore = require("express-mysql-session")(session),
+  app = express(),
+  mysql = require('mysql'),
+  bodyParser = require('body-parser'),
+  methodOverride = require('method-override'),
+  moment = require('moment'), // date 
+  port = process.env.PORT || 3001, 
+  { engine } = require("express-handlebars");
 
-const date = moment().format ('MMMM Do YYYY, h:mm:ss a');
-console.log('moemnt', date)
+
+// Date pour le routeurs
+/*const date = moment().format('MMMM Do YYYY, h:mm:ss a');
+console.log('Date : ', date)*/
 
 // Method-Override
 app.use(methodOverride('_method'));
@@ -37,6 +39,9 @@ db.connect((err) => {
   if (err) console.error('error connecting: ' + err.stack);
   console.log('connected as id ' + db.threadId);
 });
+
+const util = require("util");
+db.query = util.promisify(db.query).bind(db);
 
 // main en page par default
 app.set("view engine", "hbs");

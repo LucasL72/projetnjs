@@ -9,10 +9,11 @@ exports.registerpage = (req, res) => {
 exports.CreateUser = (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   let sql = `INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
-  ("monimage","${req.body.pseudo}","${req.body.firstname}",
+  ("${req.file.filename}","${req.body.pseudo}","${req.body.firstname}",
   "${req.body.name}","${req.body.email}","${req.body.password}")`;
 
   let values = [
+    req.file.filename,
     req.body.pseudo,
     req.body.firstname,
     req.body.name,
