@@ -4,7 +4,7 @@ Modal / Admin : Gestion user
 
 
 <!---------------------------- Modal users ------------------------------->
-<div class="modal fade dark" id="GestModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+<div class="modal fade dark" id="GestModal{{ this.id}}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,44 +12,32 @@ Modal / Admin : Gestion user
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/admin" method="post" enctype="multipart/form-data">
+            <form action="/admin/user/{{ this.id }}/?_method=PUT" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Photo
                                     de Profil</label>
-                                <input name="ImgMulter" class="form-control" type="file" id="formFile" multiple>
+                                <input name="imguser" class="form-control" type="file" id="formFile{{ this.id}}">
                             </div>
-                            <img class="img-user" src="assets/images/emilie.jpg">
+                            <img class="img-user" src="assets/data/{{ this.imguser }}">
                         </div>
                         <div class="col-md-6">
-                            <label for="validationDefault02" class="form-label">Name</label>
-                            <input name="name" type="text" class="form-control" id="validationDefault02" value="..."
-                                required>
+                            <label for="firstname" class="form-label">Firstname</label>
+                            <input name="firstname" type="text" class="form-control" id="firstname{{ this.id }}" value="..."
+                                >
                         </div>
-
-
-                        <div class="col-md-12">
-                            <label for="FormControlInput1" class="form-label">Email
-                                address</label>
-                            <input name="email" type="email" class="form-control" id="eFormControlInput1"
-                                placeholder="name@example.com">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input name="name" type="text" class="form-control" id="name{{ this.id}}" value="..."
+                                >
                         </div>
-                        <div class="col-md-12">
-                            <label for="validationDefaultUsername" class="form-label">Username</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                <input name="user" type="text" class="form-control" id="validationDefaultUsername"
-                                    aria-describedby="inputGroupPrepend2" required>
-                            </div>
-                        </div>
-
-
+                       
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger">Banned</button>
-
+                       
+                            <button type="submit" class="btn btn-danger">Banned</button>
                         <button type="submit" class="btn btn-primary">Save
                             changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

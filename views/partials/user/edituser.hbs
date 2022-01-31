@@ -8,12 +8,12 @@ Partial : user/ edit user
 <section>
     <h2>Modifier profil</h2>
     <div class="container">
-        <form action="/user" method="post" enctype="multipart/form-data" class=" row g-3">
+        <form action="/user/{{ this.id }}/?_method=PUT" method="post" enctype="multipart/form-data" class=" row g-3">
 
             <div class="row">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Photo de Profil</label>
-                    <input name="ImgMulter" type="file" class="form-control" id="formFile">
+                    <input name="imguser" type="file" class="form-control" id="formFile">
                 </div>
                 <div class="col-md-12">
                     <label class="form-label">Nom d'utilisateur:</label>

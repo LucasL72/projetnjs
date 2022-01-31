@@ -4,55 +4,7 @@
 const fs = require("fs");
 const path = require('path');
 
-/*
- * Controller: Page Admin
-    Partie user
- * **************** */
-/*
-exports.adminUser = (req, res) => {
-  console.log('je suis la page Admin')
-  // Variable de récupération de tout les articles
-  let sql = `SELECT * FROM user`;
-  db.query(sql, (error, data, fields) => {
-    if (error) throw error;
-    res.render('admin', {
-      status: 200,
-      dbuser: data,
-      message: "article lists retrieved successfully"
-    })
-  })
-}
 
-exports.adminCreateUser = (req, res) => {
-  console.log("Je suis le controller Create dans Admin", req.body);
-  let sql = `INSERT INTO user (pseudo,name,email) values(?)`;
-  let values = [
-    req.body.pseudo,
-    req.body.name,
-    req.body.email
-    
-  ];
-  db.query(sql, [values], function (err, data, fields) {
-    if (err) throw err;
-    let sql = `SELECT * FROM user`;
-    db.query(sql, (error, data, fields) => {
-      if (error) throw error;
-      res.render('admin', {
-        status: 200,
-        dbuser: data,
-        message: "Add user successfully"
-      })
-    })
-  })
-
-};
-*/
-
-
-
-/*
- * ***************************************************** */
-/*
 
 /*
  * Controller: Page Admin
@@ -68,13 +20,17 @@ exports.adminBlog = async (req, res) => {
 
   const articles = await db.query('select * from articles;');
   const pics = await db.query('select * from pics;');
+  const user = await db.query('select * from user;');
+  const coms = await db.query('select * from commentaires;');
   //console.log('article', articles)
 
   db.query(sql, (error, data, fields) => {
     if (error) throw error;
     res.render('admin', {
       status: 200,
+      dbuser: user,
       dbarticles: articles,
+      dbcommentaires: coms,
       dbpics: pics,
       message: "article lists retrieved successfully"
     })
@@ -97,9 +53,13 @@ exports.adminCreateBlog = async (req, res) => {
       console.log('datatatat', d)
       const articles = await db.query('select * from articles;');
       const pics = await db.query('select * from pics;');
+      const user = await db.query('select * from user;');
+      const coms = await db.query('select * from commentaires;');
       res.render('admin', {
         status: 200,
+        dbuser: user,
         dbarticles: articles,
+        dbcommentaires: coms,
         dbpics: pics,
         message: "Add article successfully"
       })
@@ -123,13 +83,16 @@ exports.adminEditBlog = async (req, res) => {
     let sql1 = `SELECT * FROM articles,pics`;
     db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
-      console.log('datatatat', d)
       const articles = await db.query('select * from articles;');
       const pics = await db.query('select * from pics;');
+      const user = await db.query('select * from user;');
+      const coms = await db.query('select * from commentaires;');
 
       res.render('admin', {
         status: 200,
+        dbuser: user,
         dbarticles: articles,
+        dbcommentaires: coms,
         dbpics: pics,
         message: "edit article successfully"
       })
@@ -151,9 +114,13 @@ exports.adminDeleteOneBlog = async (req, res) => {
       if (error) throw error;
       const articles = await db.query('select * from articles;');
       const pics = await db.query('select * from pics;');
+      const user = await db.query('select * from user;');
+      const coms = await db.query('select * from commentaires;');
       res.render('admin', {
         status: 200,
+        dbuser: user,
         dbarticles: articles,
+        dbcommentaires: coms,
         dbpics: pics,
         message: "Delete one article successfully"
       })
@@ -173,9 +140,13 @@ exports.adminDeleteAllBlog = async (req, res) => {
       if (error) throw error;
       const articles = await db.query('select * from articles;');
       const pics = await db.query('select * from pics;');
+      const user = await db.query('select * from user;');
+      const coms = await db.query('select * from commentaires;');
       res.render('admin', {
         status: 200,
-        dbArticles: articles,
+        dbuser: user,
+        dbarticles: articles,
+        dbcommentaires: coms,
         dbpics: pics,
         message: "Delete All Customer successfully"
       })

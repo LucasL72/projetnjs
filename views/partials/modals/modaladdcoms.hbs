@@ -10,21 +10,21 @@ Modal / Admin : Gestion coms
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/admin" method="post">
+            <form action="/admin/coms" method="post">
                 <div class="modal-body">
 
                     <div class="col-md-12">
                         <label for="validationDefaultUsername" class="form-label">Username</label>
                         <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                            <input name="ComUser" type="text" class="form-control" id="validationDefaultUsername"
+                            <input name="pseudouser" type="text" class="form-control" id="validationDefaultUsername"
                                 aria-describedby="inputGroupPrepend2" required>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="FormControlTextarea1" class="form-label">Contenu
                         </label>
-                        <textarea name="Com" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+                        <textarea name="content" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

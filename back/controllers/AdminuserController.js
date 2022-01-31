@@ -1,19 +1,18 @@
 /*
  * Controller: Page Admin
-    Partie pics
+    Partie user
  * **************** */
-const fs = require("fs");
-const path = require('path');
 
-/*----Méthode Get---*/
-exports.adminpics = async (req, res) => {
-    console.log('je suis la page Admin pics')
+exports.adminShow = async (req, res) => {
+    console.log('je suis la page Admin')
     // Variable de récupération de tout les articles
-    let sql = `SELECT * FROM articles,pics`;
+    let sql = `SELECT * FROM articles,pics,user`;
+
     const articles = await db.query('select * from articles;');
     const pics = await db.query('select * from pics;');
     const user = await db.query('select * from user;');
     const coms = await db.query('select * from commentaires;');
+    //console.log('article', articles)
 
     db.query(sql, (error, data, fields) => {
         if (error) throw error;
@@ -23,22 +22,28 @@ exports.adminpics = async (req, res) => {
             dbarticles: articles,
             dbcommentaires: coms,
             dbpics: pics,
-            message: "Pics lists retrieved successfully"
+            message: "Admin Gestion lists retrieved successfully"
         })
     })
 };
-/*----Méthode Post---*/
-exports.adminCreatepic = async (req, res) => {
-    console.log("Je suis le controller Create pics dans Admin", req.body);
-    let sql = `INSERT INTO pics (photo,authorname,user_id) values("${req.file.filename}","${req.body.authorname}","1");`
+
+exports.adminEditUser = async (req, res) => {
+    console.log("Je suis le controller Edit dans user", req.body);
+    let sql = `UPDATE user SET imguser = "${req.file.filename}",
+      firstname="${req.body.firstname}", name="${req.body.name}" WHERE id = "${req.params.id}"`;
+    /* (now) pour les dates*/
     let values = [
         req.file.filename,
-        req.body.auhtorname
+        req.body.firstname,
+        req.body.name,
+        req.body.email,
+        req.body.password
     ];
+
     db.query(sql, [values], function (err, data, fields) {
         if (err) throw err;
-        let sql1 = `SELECT * FROM articles,pics`;
-        db.query(sql1, async (error, data, fields) => {
+        let sql1 = `SELECT * FROM user`;
+        db.query(sql1, async (error, d, fields) => {
             if (error) throw error;
             const articles = await db.query('select * from articles;');
             const pics = await db.query('select * from pics;');
@@ -50,23 +55,23 @@ exports.adminCreatepic = async (req, res) => {
                 dbarticles: articles,
                 dbcommentaires: coms,
                 dbpics: pics,
-                message: "Add Photo successfully"
+                message: "edit article successfully"
             })
         })
     })
-
 };
 
-/*----Méthode Delete pour un---*/
-exports.adminDeleteOnepic = async (req, res) => {
-    console.log("Je suis le controller Delete pics dans Admin", req.body);
-    let sql = `DELETE FROM pics  WHERE idphotos = ${req.params.idphotos}`;
+exports.adminDeleteUser = async (req, res) => {
+    console.log("Je suis le controller Delete user  dans Admin", req.body);
+    let sql = `DELETE FROM user where id = "${req.params.id}"`;
     let values = [
-        req.params.idphotos
+        req.params.id
     ];
+
     db.query(sql, [values], function (err, data, fields) {
         if (err) throw err;
-        db.query( async (error, data, fields) => {
+        let sql1 = `SELECT * FROM user`;
+        db.query(sql1, async (error, d, fields) => {
             if (error) throw error;
             const articles = await db.query('select * from articles;');
             const pics = await db.query('select * from pics;');
@@ -78,8 +83,11 @@ exports.adminDeleteOnepic = async (req, res) => {
                 dbarticles: articles,
                 dbcommentaires: coms,
                 dbpics: pics,
-                message: "Delete pic successfully"
+                message: "Delete user successfully"
             })
         })
     })
 };
+
+/*
+ * ***************************************************** */

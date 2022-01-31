@@ -15,9 +15,9 @@ const HomeController = require("./controllers/HomeController"),
    RegisterController = require("./controllers/RegisterController"),
    AdminController = require("./controllers/AdminControllerBlog"),
    UserController = require("./controllers/UserController"),
-   AdminpicsController = require("./controllers/AdminpicsController");
-
-
+   AdminpicsController = require("./controllers/AdminpicsController"),
+   AdminuserController = require("./controllers/AdminuserController"),
+   AdmincomController = require("./controllers/AdmincomController");
 // Routes
 router.route("/")
    .get(HomeController.homepage)
@@ -52,21 +52,33 @@ router.route("/newsletter")
 
 
 // Gestion Administration :
-
 router.route("/admin")
+   .get(AdminuserController.adminShow);
+
+router.route("/admin/user/:id")
+   .put(upload.single('imguser'), AdminuserController.adminEditUser)
+   .delete(AdminuserController.adminDeleteUser);
+
+router.route("/admin/blog")
    .get(AdminController.adminBlog)
    .post(upload.single('imgarticle'), AdminController.adminCreateBlog)
    .delete(AdminController.adminDeleteAllBlog);
 
-router.route('/admin/:id')
+router.route('/admin/blog/:id')
    .put(upload.single('imgarticle'), AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteOneBlog);
 
-router.route("/adminn")
+router.route('/admin/coms')
+   .post(AdmincomController.adminCreatecom);
+
+router.route('/admin/coms/:id')
+   .delete(AdmincomController.adminDeleteOnecom);
+
+router.route("/admin/pics")
    .get(AdminpicsController.adminpics)
    .post(upload.single('photo'), AdminpicsController.adminCreatepic);
 
-   router.route("/adminn/:idphotos")
+router.route("/admin/pics/:idphotos")
    .delete(AdminpicsController.adminDeleteOnepic);
 
 
@@ -75,7 +87,7 @@ router.route("/adminn")
 
 router.route('/user')
    .get(UserController.userProfile)
-   .post(UserController.EditUser);
+   .post(upload.single('imguser'), UserController.EditUser);
 
 // / Routes
 

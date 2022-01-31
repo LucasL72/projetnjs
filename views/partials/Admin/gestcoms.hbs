@@ -33,22 +33,13 @@ Partial : Admin/ Gestion commentaires
             <section>
                 <div class="container">
                     <div class="row">
-
+                        {{#each dbcommentaires }}
                         <div class="col-md-12">
                             <div class="client-profil position-relative">
-                                <cite> <img src="/assets/images/blaise.jpg"> Anonyme</cite>
-                                <button type="button" class=" btn like position-absolute top-0 end-0 like"><i
-                                        class="fas fa-heart">
-                                        1</i> </button>
+                                <cite> <img src="/assets/images/blaise.jpg"> {{ this.pseudouser }}</cite>
                                 <blockquote>
 
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, quos
-                                    a obcaecati
-                                    explicabo
-                                    porro sint nulla ex quasi alias, ipsa necessitatibus in consequatur
-                                    cum earum esse
-                                    deleniti
-                                    delectus unde perspiciatis.
+                                   {{ this.content }}
                                     <!------ Button trigger modal --------->
                                     <button class="btn-danger" type="button" data-bs-toggle="modal"
                                         data-bs-target="#MessModal"><i class="fas fa-trash-alt "></i></button>
@@ -56,6 +47,7 @@ Partial : Admin/ Gestion commentaires
                             </div>
 
                         </div>
+                        {{/each}}
                     </div>
                 </div>
 
