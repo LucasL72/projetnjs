@@ -19,8 +19,8 @@ Partial : Admin/ Gestion photos
                 </button></h3>
             <!-------------------------- 1ère rangée----------------------------------->
             <div class="row">
-                {{#each dbpics }} 
-                
+                {{#each dbpics }}
+
                 <div class="col-md-4">
                     <div class="galeries-img position-relative"
                         style="background-image: url(/assets/data/{{ this.photo }});">
@@ -29,18 +29,14 @@ Partial : Admin/ Gestion photos
                                     class="fas fa-camera"></i>
                                 {{ this.authorname }}</p>
                         </div>
-
-                        <div class=" position-absolute top-0 end-0 "> <button class=" btn btn-danger" type="button"
-                                data-bs-toggle="modal" data-bs-target="#delpics"{{ this.id }}><i class="fas fa-times"></i></button>
+                        <div class=" position-absolute top-0 end-0 ">
+                            <button class=" btn btn-danger" type="submit" data-bs-toggle="modal"
+                                data-bs-target="#delpics" name="Deletepic">Delete</button>
                         </div>
-
                     </div>
                 </div>
-                {{> modals/modalsupprpics }}
+                {{> modals/modalsupprpic }}
                 {{/each}}
-
-
-
 
             </div>
         </div>

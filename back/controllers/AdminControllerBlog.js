@@ -66,7 +66,8 @@ exports.adminBlog = async (req, res) => {
   // Variable de récupération de tout les articles
   let sql = `SELECT * FROM articles,pics`;
 
-  const articles = await db.query('select * from articles;')
+  const articles = await db.query('select * from articles;');
+  const pics = await db.query('select * from pics;');
   //console.log('article', articles)
 
   db.query(sql, (error, data, fields) => {
@@ -74,7 +75,7 @@ exports.adminBlog = async (req, res) => {
     res.render('admin', {
       status: 200,
       dbarticles: articles,
-      dbpics: data,
+      dbpics: pics,
       message: "article lists retrieved successfully"
     })
   })
@@ -94,12 +95,12 @@ exports.adminCreateBlog = async (req, res) => {
     db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
       console.log('datatatat', d)
-      const articles = await db.query('select * from articles;')
-
+      const articles = await db.query('select * from articles;');
+      const pics = await db.query('select * from pics;');
       res.render('admin', {
         status: 200,
         dbarticles: articles,
-        dbpics: data,
+        dbpics: pics,
         message: "Add article successfully"
       })
     })
@@ -123,12 +124,13 @@ exports.adminEditBlog = async (req, res) => {
     db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
       console.log('datatatat', d)
-      const articles = await db.query('select * from articles;')
+      const articles = await db.query('select * from articles;');
+      const pics = await db.query('select * from pics;');
 
       res.render('admin', {
         status: 200,
         dbarticles: articles,
-        dbpics: data,
+        dbpics: pics,
         message: "edit article successfully"
       })
     })
@@ -147,13 +149,12 @@ exports.adminDeleteOneBlog = async (req, res) => {
     let sql1 = `SELECT * FROM articles,pics`;
     db.query(sql1, async (error, d, fields) => {
       if (error) throw error;
-      console.log('datatatat', d)
-      const articles = await db.query('select * from articles;')
-
+      const articles = await db.query('select * from articles;');
+      const pics = await db.query('select * from pics;');
       res.render('admin', {
         status: 200,
         dbarticles: articles,
-        dbpics: data,
+        dbpics: pics,
         message: "Delete one article successfully"
       })
     })
@@ -168,11 +169,14 @@ exports.adminDeleteAllBlog = async (req, res) => {
   db.query(sql, function (err, data, fields) {
     if (err) throw err;
     let sql = `SELECT * FROM articles`;
-    db.query(sql, (error, data, fields) => {
+    db.query(sql, async (error, data, fields) => {
       if (error) throw error;
+      const articles = await db.query('select * from articles;');
+      const pics = await db.query('select * from pics;');
       res.render('admin', {
         status: 200,
-        dbArticle: data,
+        dbArticles: articles,
+        dbpics: pics,
         message: "Delete All Customer successfully"
       })
     })

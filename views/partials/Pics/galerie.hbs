@@ -11,130 +11,17 @@ Partial : galerie/pics
     </div>
     <!--- 1ère rangée--->
     <div class="row">
+        {{#each dbpics }}
         <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/css/mtfcolor1.jpg);">
+            <div class="galeries-img position-relative" style="background-image: url(/assets/data/{{ this.photo }});">
                 <div class="text-white">
                     <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="galeries-img position-relative" style="background-image: url(assets/css/mtfcolor2.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
+                        {{ this.authorname }}</p>
                 </div>
             </div>
         </div>
+        {{/each}}
 
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative1.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-            </div>
-        </div>
 
-    </div>
-    <!--- 2ème rangée--->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative2.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/css/mtfcolor1.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative3.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!--- 3ème rangée--->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative4.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/css/mtfcolor2.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/css/mtfcolor1.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!--- 4ème rangée--->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative3.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative2.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(assets/images/creative1.jpg);">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        @Anonyme72</p>
-                </div>
-
-            </div>
-        </div>
     </div>
 </section>

@@ -57,14 +57,17 @@ router.route("/admin")
    .get(AdminController.adminBlog)
    .post(upload.single('imgarticle'), AdminController.adminCreateBlog)
    .delete(AdminController.adminDeleteAllBlog);
-   
+
 router.route('/admin/:id')
    .put(upload.single('imgarticle'), AdminController.adminEditBlog)
    .delete(AdminController.adminDeleteOneBlog);
 
-/*router.route("/adminn")
+router.route("/adminn")
    .get(AdminpicsController.adminpics)
-   .post(upload.single('photo'), AdminpicsController.adminCreatepic);*/
+   .post(upload.single('photo'), AdminpicsController.adminCreatepic);
+
+   router.route("/adminn/:idphotos")
+   .delete(AdminpicsController.adminDeleteOnepic);
 
 
 

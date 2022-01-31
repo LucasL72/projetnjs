@@ -6,20 +6,23 @@ const fs = require("fs");
 const path = require('path');
 
 /*----Méthode Get---*/
-exports.adminpics = (req, res) => {
-    console.log('je suis la page Admin')
+exports.adminpics = async (req, res) => {
+    console.log('je suis la page Admin pics')
     // Variable de récupération de tout les articles
     let sql = `SELECT * FROM articles,pics`;
+    const articles = await db.query('select * from articles;');
+    const pics = await db.query('select * from pics;');
+
     db.query(sql, (error, data, fields) => {
         if (error) throw error;
         res.render('admin', {
             status: 200,
-            dbarticles: data,
-            dbpics: data,
-            message: "article lists retrieved successfully"
+            dbarticles: articles,
+            dbpics: pics,
+            message: "Pics lists retrieved successfully"
         })
     })
-}
+};
 /*----Méthode Post---*/
 exports.adminCreatepic = async (req, res) => {
     console.log("Je suis le controller Create pics dans Admin", req.body);
@@ -30,13 +33,15 @@ exports.adminCreatepic = async (req, res) => {
     ];
     db.query(sql, [values], function (err, data, fields) {
         if (err) throw err;
-        let sql = `SELECT * FROM articles,pics`;
-        db.query(sql, (error, data, fields) => {
+        let sql1 = `SELECT * FROM articles,pics`;
+        db.query(sql1, async (error, data, fields) => {
             if (error) throw error;
+            const articles = await db.query('select * from articles;');
+            const pics = await db.query('select * from pics;');
             res.render('admin', {
                 status: 200,
-                dbpics: data,
-                dbarticles: data,
+                dbpics: pics,
+                dbarticles: articles,
                 message: "Add Photo successfully"
             })
         })
@@ -45,22 +50,24 @@ exports.adminCreatepic = async (req, res) => {
 };
 
 /*----Méthode Delete pour un---*/
-exports.adminDeleteOnepics = async (req, res) => {
+exports.adminDeleteOnepic = async (req, res) => {
     console.log("Je suis le controller Delete pics dans Admin", req.body);
-    let sql = `DELETE FROM pics  WHERE id = ?`;
+    let sql = `DELETE FROM pics  WHERE idphotos = ?`;
     let values = [
-        req.params.id
+        req.params.idphotos
     ];
     db.query(sql, [values], function (err, data, fields) {
         if (err) throw err;
-        let sql = `SELECT * FROM articles,pics`;
-        db.query(sql, (error, data, fields) => {
+        let sql1 = `SELECT * FROM articles,pics`;
+        db.query(sql1, async (error, data, fields) => {
             if (error) throw error;
+            const articles = await db.query('select * from articles;');
+            const pics = await db.query('select * from pics;');
             res.render('admin', {
                 status: 200,
-                dbpics: data,
-                dbarticles :data,
-                message: "Delete article successfully"
+                dbpics: pics,
+                dbarticles: articles,
+                message: "Delete pic successfully"
             })
         })
     })

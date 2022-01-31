@@ -334,8 +334,8 @@ cite img {
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    max-width: 100%;
     height: 325px;
+    width:auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
     margin-bottom: 15px;
