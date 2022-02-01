@@ -17,7 +17,7 @@ Partial : navabar
 
             <ul class="navbar-nav me-auto mb-2mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" aria-current="page" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">Blog</a>
@@ -28,9 +28,11 @@ Partial : navabar
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Nous contacter</a>
                 </li>
+                {{#if isAdmin }}
                 <li class="nav-item">
                     <a class="nav-link" href="/admin">Admin</a>
                 </li>
+                {{/if }}
             </ul>
 
             <!---Modal "se connecter"--->
@@ -40,25 +42,23 @@ Partial : navabar
                 Se connecter/S'inscrire
             </button>
 
+            {{#if user }}
             <a class="btn btn-full" href="/user">Profil</a>
 
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect">
                 <i class="fas fa-power-off"></i>
             </button>
 
+            <!-- 2 Modal lost password -->
+            {{> modals/modalLostpass }}
 
+            <!--  Modal disconnect -->
+            {{> modals/modalLogout }}
+            {{/if }}
+
+         <!--  Modal connect -->
+            {{> modals/modalLogin }}
         </div>
-
-        <!--  Modal connect -->
-        {{> modals/modalLogin }}
-
-        <!-- 2 Modal lost password -->
-        {{> modals/modalLostpass }}
-
-        <!--  Modal disconnect -->
-        {{> modals/modalLogout }}
-
-
     </div>
 
 </nav>

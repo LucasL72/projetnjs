@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS `site_db`.`user` (
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
+  `isAdmin` TINYINT(1) NOT NULL DEFAULT 0,
+  `isBan` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `pseudo_UNIQUE` (`pseudo` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)

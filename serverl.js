@@ -16,8 +16,10 @@ const express = require("express"),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
   moment = require('moment'), // date 
-  port = process.env.PORT || 3011, 
-  { engine } = require("express-handlebars");
+  port = process.env.PORT || 3001,
+  {
+    engine
+  } = require("express-handlebars");
 
 
 // Date pour le routeurs
@@ -27,19 +29,45 @@ console.log('Date : ', date)*/
 // Method-Override
 app.use(methodOverride('_method'));
 
+const options = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+}
+
 // Mysql
-db = mysql.createConnection({
-  host: 'localhost',
-  user: 'lucas',
-  password: 'rfn2K22$',
-  database: 'site_db'
-});
+db = mysql.createConnection(options)
 
 db.connect((err) => {
   if (err) console.error('error connecting: ' + err.stack);
   console.log('connected as id ' + db.threadId);
 });
 
+
+
+const sessionStore = new MySQLStore(options)
+
+// Express MYSQL session
+app.use(
+  session({
+    secret: "securite",
+    name: "cookie_GDC",
+    saveUninitialized: true,
+    resave: false,
+    store: sessionStore
+  })
+);
+
+app.use('*', (req, res, next) => {
+  res.locals.user = req.session.user
+  res.locals.isAdmin = req.session.isAdmin
+  console.log(req.session)
+  next()
+})
+
+// Fonction async
 const util = require("util");
 db.query = util.promisify(db.query).bind(db);
 
@@ -57,7 +85,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
 
 // import et utilisation du Router
 const ROUTER = require('./back/router')

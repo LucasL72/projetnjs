@@ -6,6 +6,7 @@
 const express = require("express");
 const router = express.Router();
 const upload = require('./config/multer');
+const mdl = require("./middleware/AdminOrNot");
 const bcrypt = require("bcrypt");
 
 // Import des controllers
@@ -57,14 +58,14 @@ router.route("/newsletter")
 
 // Gestion Administration :
 router.route("/admin")
-   .get(AdminuserController.adminShow);
+   .get(mdl.isAdmin, AdminuserController.adminShow);
 
 router.route("/admin/user/:id")
    .put(upload.single('imguser'), AdminuserController.adminEditUser)
    .delete(AdminuserController.adminDeleteUser);
 
 router.route("/admin/blog")
-   .get(AdminBlogController.adminBlog)
+   .get(mdl.isAdmin, AdminBlogController.adminBlog)
    .post(upload.single('imgarticle'), AdminBlogController.adminCreateBlog)
    .delete(AdminBlogController.adminDeleteAllBlog);
 

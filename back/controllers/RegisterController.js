@@ -8,39 +8,26 @@ exports.registerpage = (req, res) => {
   res.render("register");
 }
 
-exports.CreateUser = (req, res) => {
+exports.CreateUser = async (req, res) => {
   console.log("Je suis le register", req.body);
 
-
-  let values = [
-    req.file.filename,
-    req.body.pseudo,
-    req.body.firstname,
-    req.body.name,
-    req.body.email,
-    req.body.password
-  ];
+  const {
+    pseudo,
+    firstname,
+    name,
+    email,
+    password
+  } = req.body;
 
   const hash = bcrypt.hashSync(password, 10);
 
-  console.log("hash",hash);
+  console.log("hash", hash);
 
-  let sql = `INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
-  ("${req.file.filename}","${req.body.pseudo}","${req.body.firstname}",
-  "${req.body.name}","${req.body.email}","${hash}")`;
+  await db.query(`INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
+  ("${req.file.filename}","${pseudo}","${firstname}",
+  "${name}","${email}","${hash}")`);
 
-  db.query(sql, [values], function (err, data, fields) {
-    if (err) throw err;
-    let sql1 = `SELECT * FROM user`;
-    db.query(sql1, (error, data, fields) => {
-      if (error) throw error;
-      res.render('/', {
-        status: 200,
-        dbuser: data,
-        message: "Add user successfully"
-      })
-    })
-  })
+  res.render("user");
 
 };
 
@@ -48,18 +35,43 @@ exports.CreateUser = (req, res) => {
  * Controller: lOG IN 
  * **************** */
 exports.loginUser = (req, res) => {
-  console.log("Je suis le controller Create mess pour le login", req.body);
-  res.redirect(req.headers.referer)
+  console.log("Je suis le login ", req.body);
+  let email = req.body.email
+  let password = req.body.password
+
+  if (email && password) {
+    db.query('SELECT * FROM user WHERE email = ?', [email], function (error, results, fields) {
+      if (results.length > 0) {
+        req.session.user = results[0]
+        if (results[0].isAdmin === 1) {
+          req.session.isAdmin = true
+        }
+        if (results[0].isBan === 1) {
+          res.send("Vous êtes banni")
+        }
+
+        res.redirect(req.headers.referer)
+        return;
+      } else {
+        res.redirect(req.headers.referer)
+        return;
+      }
+
+
+    })
+    console.log('Connect',req.body);
+  }
 }
 
 
 exports.logout = (req, res) => {
   req.session.destroy(() => {
-    res.clearCookie("cookie");
-    console.log(req.session);
+    res.clearCookie("cookie_GDC")
+    console.log(req.session)
     res.redirect("/");
   });
 };
+
 /*
  * Controller: lOST PASSWORD
  * **************** */
