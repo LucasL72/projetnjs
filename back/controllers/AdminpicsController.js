@@ -60,13 +60,14 @@ exports.adminCreatepic = async (req, res) => {
 /*----Méthode Delete pour un---*/
 exports.adminDeleteOnepic = async (req, res) => {
     console.log("Je suis le controller Delete pics dans Admin", req.body);
-    let sql = `DELETE FROM pics  WHERE idphotos = ${req.params.idphotos}`;
+    let sql = `DELETE FROM pics  WHERE idphotos = "${req.params.idphotos}"`;
     let values = [
         req.params.idphotos
     ];
     db.query(sql, [values], function (err, data, fields) {
         if (err) throw err;
-        db.query( async (error, data, fields) => {
+        let sql1 = `SELECT * FROM articles,pics`;
+        db.query(sql1, async (error, data, fields) => {
             if (error) throw error;
             const articles = await db.query('select * from articles;');
             const pics = await db.query('select * from pics;');

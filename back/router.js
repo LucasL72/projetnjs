@@ -5,7 +5,8 @@
 // Import de module
 const express = require("express");
 const router = express.Router();
-const upload = require('./config/multer')
+const upload = require('./config/multer');
+const bcrypt = require("bcrypt");
 
 // Import des controllers
 const HomeController = require("./controllers/HomeController"),
@@ -13,7 +14,7 @@ const HomeController = require("./controllers/HomeController"),
    PicsController = require("./controllers/PicsController"),
    ContactController = require("./controllers/ContactController"),
    RegisterController = require("./controllers/RegisterController"),
-   AdminController = require("./controllers/AdminControllerBlog"),
+   AdminBlogController = require("./controllers/AdminBlogController"),
    UserController = require("./controllers/UserController"),
    AdminpicsController = require("./controllers/AdminpicsController"),
    AdminuserController = require("./controllers/AdminuserController"),
@@ -44,6 +45,9 @@ router.route("/register")
 router.route("/login")
    .post(RegisterController.loginUser);
 
+router.route("/logout")
+   .get(RegisterController.logout);
+
 router.route("/lostpassword")
    .post(RegisterController.lostpassword);
 
@@ -60,13 +64,13 @@ router.route("/admin/user/:id")
    .delete(AdminuserController.adminDeleteUser);
 
 router.route("/admin/blog")
-   .get(AdminController.adminBlog)
-   .post(upload.single('imgarticle'), AdminController.adminCreateBlog)
-   .delete(AdminController.adminDeleteAllBlog);
+   .get(AdminBlogController.adminBlog)
+   .post(upload.single('imgarticle'), AdminBlogController.adminCreateBlog)
+   .delete(AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
-   .put(upload.single('imgarticle'), AdminController.adminEditBlog)
-   .delete(AdminController.adminDeleteOneBlog);
+   .put(upload.single('imgarticle'), AdminBlogController.adminEditBlog)
+   .delete(AdminBlogController.adminDeleteOneBlog);
 
 router.route('/admin/coms')
    .post(AdmincomController.adminCreatecom);

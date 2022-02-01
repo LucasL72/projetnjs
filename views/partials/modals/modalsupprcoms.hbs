@@ -16,7 +16,7 @@ Modal / Admin : Suppr coms
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form  action="/admin/?_method=DELETE" method="post"><button name="DeleteCom?" type="submit" class="btn btn-danger">Delete
+                <form  action="/admin/coms/{{ this.idcommentaire }}/?_method=DELETE" method="post"><button name="DeleteCom" type="submit" class="btn btn-danger">Delete
                     </button> </form>
             </div>
         </div>

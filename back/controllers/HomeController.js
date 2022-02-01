@@ -1,16 +1,17 @@
 /*
  * Controller: Home
  * **************** */
-const {
+/*const {
   formatterDate
-} = require('../../utils')
+} = require('../../utils')*/
 
 exports.homepage = (req, res) => {
-  const dateNoFormat = '2022-01-27 16:27:00'
+  /*const dateNoFormat = '2022-01-27 16:27:00'
   const newDate = formatterDate(dateNoFormat)
 
 
-  console.log('newDate', newDate)
+  console.log('newDate', newDate)*/
+  console.log("Je suis la page Home"),
   res.render("home");
 };
 

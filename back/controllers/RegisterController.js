@@ -1,16 +1,16 @@
 /*
  * Controller: Page Register/ Nouvel utilisateur
  * **************** */
+const bcrypt = require("bcrypt");
+
 exports.registerpage = (req, res) => {
   console.log('je suis la page register')
   res.render("register");
 }
 
 exports.CreateUser = (req, res) => {
-  console.log("Je suis le controller Create dans Admin", req.body);
-  let sql = `INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
-  ("${req.file.filename}","${req.body.pseudo}","${req.body.firstname}",
-  "${req.body.name}","${req.body.email}","${req.body.password}")`;
+  console.log("Je suis le register", req.body);
+
 
   let values = [
     req.file.filename,
@@ -20,12 +20,21 @@ exports.CreateUser = (req, res) => {
     req.body.email,
     req.body.password
   ];
+
+  const hash = bcrypt.hashSync(password, 10);
+
+  console.log("hash",hash);
+
+  let sql = `INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
+  ("${req.file.filename}","${req.body.pseudo}","${req.body.firstname}",
+  "${req.body.name}","${req.body.email}","${hash}")`;
+
   db.query(sql, [values], function (err, data, fields) {
     if (err) throw err;
-    let sql = `SELECT * FROM user`;
-    db.query(sql, (error, data, fields) => {
+    let sql1 = `SELECT * FROM user`;
+    db.query(sql1, (error, data, fields) => {
       if (error) throw error;
-      res.render('register', {
+      res.render('/', {
         status: 200,
         dbuser: data,
         message: "Add user successfully"
@@ -35,10 +44,6 @@ exports.CreateUser = (req, res) => {
 
 };
 
-exports.MulterImg = (req, res) => {
-  console.log("je suis le controller Multer", req.file, req.body);
-  res.render("register");
-}
 /*
  * Controller: lOG IN 
  * **************** */
@@ -47,6 +52,14 @@ exports.loginUser = (req, res) => {
   res.redirect(req.headers.referer)
 }
 
+
+exports.logout = (req, res) => {
+  req.session.destroy(() => {
+    res.clearCookie("cookie");
+    console.log(req.session);
+    res.redirect("/");
+  });
+};
 /*
  * Controller: lOST PASSWORD
  * **************** */

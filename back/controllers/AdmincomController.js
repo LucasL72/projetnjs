@@ -8,14 +8,14 @@
     /*----Méthode Post---*/
     exports.adminCreatecom = async (req, res) => {
         console.log("Je suis le controller Create pics dans Admin", req.body);
-        let sql = `INSERT INTO commentaires (content,pseudouser,datecom,user_id,articles_id) values("${req.file.content}","${req.body.pseudouser}","1","28");`
+        let sql = `INSERT INTO commentaires (content,pseudouser,user_id,articles_id) values("${req.body.content}","${req.body.pseudouser}","1","28");`
         let values = [
-            req.file.content,
+            req.body.content,
             req.body.pseudouser
         ];
         db.query(sql, [values], function (err, data, fields) {
             if (err) throw err;
-            let sql1 = `SELECT * FROM articles,pics`;
+            let sql1 = `SELECT * FROM articles,pics,commentaires,user`;
             db.query(sql1, async (error, data, fields) => {
                 if (error) throw error;
                 const articles = await db.query('select * from articles;');
@@ -28,7 +28,7 @@
                     dbarticles: articles,
                     dbcommentaires: coms,
                     dbpics: pics,
-                    message: "Add Photo successfully"
+                    message: "Add com successfully"
                 })
             })
         })
@@ -38,13 +38,13 @@
     /*----Méthode Delete pour un---*/
     exports.adminDeleteOnecom = async (req, res) => {
         console.log("Je suis le controller Delete pics dans Admin", req.body);
-        let sql = `DELETE FROM commentaires  WHERE id = ${req.params.id}`;
+        let sql = `DELETE FROM commentaires  WHERE idcommentaire = "${req.params.idcommentaire}"`;
         let values = [
-            req.params.idphotos
+            req.params.idcommentaire
         ];
         db.query(sql, [values], function (err, data, fields) {
             if (err) throw err;
-            let sql1 = `SELECT * FROM articles,pics`;
+            let sql1 = `SELECT * FROM articles,pics,commentaires,user`;
             db.query(sql1, async (error, data, fields) => {
                 if (error) throw error;
                 const articles = await db.query('select * from articles;');
@@ -57,7 +57,7 @@
                     dbarticles: articles,
                     dbcommentaires: coms,
                     dbpics: pics,
-                    message: "Delete pic successfully"
+                    message: "Delete com successfully"
                 })
             })
         })
