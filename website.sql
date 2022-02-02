@@ -86,24 +86,6 @@ CREATE TABLE IF NOT EXISTS `site_db`.`commentaires` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `site_db`.`status`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `site_db`.`status` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `isAdmin` TINYINT NOT NULL,
-  `isBanned` TINYINT NOT NULL,
-  `isVerified` TINYINT NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
-  INDEX `fk_status_user1_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `fk_status_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `site_db`.`user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

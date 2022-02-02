@@ -2,41 +2,34 @@
 Partial : Id/Id product/article
 --}}
 <!---Id-->
-<section id="idcards">
+<section>
     <div class="container">
-        <div clas="row">
-            <div class="col-md-12">
-                <h2>un titre</h2>
-            </div>
+        {{#each dbarticles}}
+        <div class="col-md-12">
+            <h2>{{ this.title }}</h2>
         </div>
-        <div class="row">
-            <div class="col-md-8">
-                <img src="/assets/images/creative1.jpg" alt="paysage" class="produit-img">
-            </div>
 
-            <div class="col-md-4">
-                <!--- para 1-->
-                <div class="produits-plus">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="produits-icon">
-                                <i class="fab fa-readme"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <h4>un titre</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repellat, optio pariatur
-                                aperiam consequatur incidunt ex tenetur cumque atque iure quae. Laudantium ex assumenda
-                                repellat esse veniam pariatur quod ipsum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repellat, optio pariatur
-                                aperiam consequatur incidunt ex tenetur cumque atque iure quae. Laudantium ex assumenda
-                                repellat esse veniam pariatur quod ipsum.</p>
-                                <p class="text-muted"> Author: </p>
 
+        <div class="col-md-12 text-center">
+            <img src="/assets/data/{{ this.imgarticle }}" alt="paysage" class="produit-img ">
+        </div>
+
+        <div class="col-md-12">
+            <div class="produits-plus">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="produits-icon">
+                            <i class="fab fa-readme"></i>
                         </div>
+                    </div>
+                    <div class="col-md-10">
+                        <p> {{ this.description }}</p>
+                        <p class="text-muted"> Date: {{ this.dateart }}</p>
+
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+    {{/each}}
 </section>

@@ -2,6 +2,7 @@
 Partial : Id/Comms/Add coms
 --}}
 <!---Ajouter un commentaires--->
+{{#if user}}
 <div class="col-md-12 bg-com">
     <h5 class="text-center">Ajouter un commentaire</h5>
     <form action="/blog-id" method="post">
@@ -27,3 +28,4 @@ Partial : Id/Comms/Add coms
     </form>
 
 </div>
+{{/if}}

@@ -5,14 +5,13 @@
   formatterDate
 } = require('../../utils')*/
 
-exports.homepage = (req, res) => {
-  /*const dateNoFormat = '2022-01-27 16:27:00'
-  const newDate = formatterDate(dateNoFormat)
+exports.homepage = async (req, res) => {
 
-
-  console.log('newDate', newDate)*/
   console.log("Je suis la page Home"),
-  res.render("home");
+
+    res.render("home", {
+      dbarticles: await db.query(`SELECT * FROM articles ORDER BY dateart DESC LIMIT 3`),
+    })
 };
 
 exports.CreateMessage = (req, res) => {

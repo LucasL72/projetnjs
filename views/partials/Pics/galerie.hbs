@@ -12,13 +12,21 @@ Partial : galerie/pics
     <!--- 1ère rangée--->
     <div class="row">
         {{#each dbpics }}
-        <div class="col-md-4">
-            <div class="galeries-img position-relative" style="background-image: url(/assets/data/{{ this.photo }});">
-                <div class="text-white">
-                    <p class="fst-italic text-white position-absolute bottom-0 end-0"><i class="fas fa-camera"></i>
-                        {{ this.authorname }}</p>
-                </div>
-            </div>
+
+        <!-- Trigger the Modal -->
+        <img class="photospage" id="myImg" src="/assets/data/{{this.photo}}" alt="{{ this.authorname }}">
+
+        <!-- The Modal -->
+        <div id="myModal" class="modalpics">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="modalimg">
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
         </div>
         {{/each}}
 

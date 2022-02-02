@@ -22,9 +22,11 @@ Partial : navabar
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">Blog</a>
                 </li>
+                {{#if user}}
                 <li class="nav-item">
                     <a class="nav-link" href="/pics">Photos</a>
                 </li>
+                {{/if}}
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Nous contacter</a>
                 </li>
@@ -38,9 +40,7 @@ Partial : navabar
             <!---Modal "se connecter"--->
             <!-- Button modal -->
 
-            <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
-                Se connecter/S'inscrire
-            </button>
+
 
             {{#if user }}
             <a class="btn btn-full" href="/user">Profil</a>
@@ -48,16 +48,22 @@ Partial : navabar
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect">
                 <i class="fas fa-power-off"></i>
             </button>
+            <!--  Modal disconnect -->
+            {{> modals/modalLogout }}
+
+            {{ else }}
+            <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
+                Se connecter/S'inscrire
+            </button>
 
             <!-- 2 Modal lost password -->
             {{> modals/modalLostpass }}
+            <!--  Modal connect -->
+            {{> modals/modalLogin }}
 
-            <!--  Modal disconnect -->
-            {{> modals/modalLogout }}
             {{/if }}
 
-         <!--  Modal connect -->
-            {{> modals/modalLogin }}
+
         </div>
     </div>
 

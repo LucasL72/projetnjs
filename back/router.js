@@ -7,7 +7,6 @@ const express = require("express");
 const router = express.Router();
 const upload = require('./config/multer');
 const mdl = require("./middleware/AdminOrNot");
-const bcrypt = require("bcrypt");
 
 // Import des controllers
 const HomeController = require("./controllers/HomeController"),
@@ -28,7 +27,7 @@ router.route("/")
 router.route("/blog")
    .get(BlogController.blogpage);
 
-router.route("/blog:id")
+router.route("/blog/:title")
    .get(BlogController.idpage)
    .post(BlogController.CreateCom);
 

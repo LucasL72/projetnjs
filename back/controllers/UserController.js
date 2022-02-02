@@ -2,10 +2,14 @@
  * Controller: User
  * **************** */
 
-exports.userProfile = (req, res) => {
+exports.userProfile = async (req, res) => {
   console.log('je suis la page user')
-  res.render("user");
+  res.render('user', {
+    dbuser: await db.query(`SELECT * FROM user where id="${req.session.user.id}"`),
+  })
 };
+
+
 
 exports.EditUser = async (req, res) => {
   console.log("Je suis le controller Edit dans user", req.body);

@@ -5,26 +5,28 @@ Partial : user/ Profil utilisateur
 <section>
     <div class="container">
         <h2>Mon Profil</h2>
+        {{#each dbuser}}
         <div class="row border border-5 border-success">
             <div class="col-md-2">
-                <img class="img-fluid rounded-circle mx-auto d-block" src="/assets/images/logo.png">
+                <img class="img-fluid rounded-circle mx-auto d-block" src="/assets/data/{{ this.imguser }}">
             </div>
             <div class="col-md-10">
                 <div class="col-md-12">
-                    <h4>Nom d'utilisateur : </h4>
+                    <h4>Nom d'utilisateur : {{ this.pseudo }}</h4>
                 </div>
 
                 <div class="col-md-12">
-                    <h4>Prénom:</h4>
+                    <h4>Prénom: {{ this.firstname }} </h4>
                 </div>
                 <div class="col-md-12">
-                    <h4>Nom:</h4>
+                    <h4>Nom: {{ this.name }}</h4>
                 </div>
                 <div class="col-md-12">
-                    <h4>Adresse Email :</h4>
+                    <h4>Adresse Email : {{ this.email }}</h4>
                 </div>
 
             </div>
 
         </div>
+        {{/each}}
 </section>

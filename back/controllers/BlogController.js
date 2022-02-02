@@ -20,19 +20,13 @@ exports.blogpage = (req, res) => {
 
 /** Controller: ID* **************** */
 
-exports.idpage = (req, res) => {
+exports.idpage = async (req, res) => {
   console.log('je suis la page Blog:id')
-  // Variable de récupération de tout les commentaires
-  let sql = `SELECT * FROM commentaires`;
-  db.query(sql, (error, data, fields) => {
-    if (error) throw error;
-    res.render('blog-id', {
-      status: 200,
-      dbcommentaires: data,
-      message: "commentaires lists retrieved successfully"
-    })
+  res.render('blog-id', {
+    dbarticles: await db.query(`SELECT * FROM articles WHERE title ="${req.params.title}"`),
+    dbcommentaires: await db.query(`SELECT * FROM commentaires`)
   })
-};
+}
 
 exports.CreateCom = async (req, res) => {
   console.log("Je suis le controller Create Com dans blog-id", req.body);
