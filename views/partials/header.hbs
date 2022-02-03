@@ -7,12 +7,22 @@
     <div class="container">
         <div class="row home-title">
             <div class="col-md-12">
-                <h1>Welcome</h1>
+                {{#if user}}
+                <h1>Bonjour {{ user.firstname }}</h1>
                 <div class="typewriter-container">
                     <div class="typewriter">
-                        <p class="welcome">Rejoignez l' aventure !</p>
+                        <p class="welcome">Comment allez-vous!</p>
                     </div>
                 </div>
+                {{else}}
+                 <h1>Bienvenue</h1>
+                <div class="typewriter-container">
+                    <div class="typewriter">
+                        <p class="welcome">Rejoignez l'aventure!</p>
+                    </div>
+                </div>
+                {{/if}}
+
             </div>
         </div>
     </div>

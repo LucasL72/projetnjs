@@ -17,15 +17,16 @@ Partial : Admin/ Gestion utilisateurs
             <!-- Button trigger modal Gestin users -->
 
 
-            <table class="table table-borderless table-secondary container">
+            <table class="table table-success table-striped container">
                 <thead>
                     <tr>
-                        <th scope="col-xs-4">Image de Profil</th>
-                        <th scope="col-xs-2">User Name</th>
-                        <th scope="col-xs-2">Name</th>
-                        <th scope="col-xs-2">First Name</th>
-                        <th scope="col-xs-2">Email</th>
-                        <th scope="col-xs-2">Gérer profil</th>
+                        <th scope="col-xs-2" class="text-center"> Statut compte</th>
+                        <th scope="col-xs-2" class="text-center">Image de Profil</th>
+                        <th scope="col-xs-2" class="text-center">User Name</th>
+                        <th scope="col-xs-2" class="text-center">Name</th>
+                        <th scope="col-xs-2" class="text-center">First Name</th>
+                        <th scope="col-xs-2" class="text-center">Email</th>
+                        <th scope="col-xs-2" class="text-center">Gérer profil</th>
 
 
                     </tr>
@@ -33,23 +34,33 @@ Partial : Admin/ Gestion utilisateurs
                 <tbody>
                     {{#each dbuser }}
                     <tr>
-                        <th><img class="img-user" src="/assets/data/users/{{ this.imguser }}"> </th>
-                        <td>{{ this.pseudo }}</td>
-                        <td>{{ this.firstname }}</td>
-                        <td>{{ this.name }}</td>
-                        <td>{{ this.email }}</td>
-                        <td scope="col-xs-2">
+                        <td class="text-center">{{#if this.isBan }}<div class="text-danger text-center"><i
+                                    class="fas fa-user-times"></i></div>{{/if
+                            }}{{#unless this.isBan}}<div class="text-success text-center"><i
+                                    class="fas fa-user-check"></i></div>
+                            {{/unless }}</td>
+                        <td class="text-center"><img class="img-user" src="/assets/data/users/{{ this.imguser }}"> </td>
+                        <td class="text-center">{{ this.pseudo }}</td>
+                        <td class="text-center">{{ this.firstname }}</td>
+                        <td class="text-center">{{ this.name }}</td>
+                        <td class="text-center">{{ this.email }}</td>
+                        <td class="text-center" scope="col-xs-2">
                             <a data-bs-toggle="modal" data-bs-target="#GestModal{{ this.id }}" class="btn"> <i
                                     class="fas fa-tools"></i></a>
                             <a class="text-danger" data-bs-toggle="modal" data-bs-target="#DelUser{{ this.id }}"
-                                    type="submit"><i class="fas fa-trash-alt "></i>
-                                </a>
+                                type="submit"><i class="fas fa-trash-alt "></i>
+                            </a>
+                            <a class="text-danger" data-bs-toggle="modal" data-bs-target="#BanUser{{ this.id }}"
+                                type="submit"><i class="fas fa-ban"></i>
+                            </a>
+
                             </form>
                         </td>
 
                     </tr>
                     {{> modals/modalsuppruser }}
                     {{> modals/modalgestuser }}
+                    {{> modals/ modalbanuser }}
                     {{/each}}
                 </tbody>
             </table>

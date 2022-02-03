@@ -27,7 +27,7 @@ exports.CreateUser = async (req, res) => {
   ("${req.file.filename}","${pseudo}","${firstname}",
   "${name}","${email}","${hash}")`);
 
-  res.render("/");
+  res.redirect("/");
 
 };
 
@@ -41,28 +41,33 @@ exports.loginUser = (req, res) => {
 
   if (email && password) {
     db.query('SELECT * FROM user WHERE email = ? ', [email], function (error, results, fields) {
-      if (results.length > 0) {
-        req.session.user = results[0]
-        if (results[0].isAdmin === 1) {
-          req.session.isAdmin = true
-        }
-        if (results[0].isBan === 1) {
-          res.send("Vous êtes banni")
-        }
-
-        res.redirect(req.headers.referer)
-        return;
-      } else {
-        res.redirect(req.headers.referer)
-        return;
+      if (results) {
+        bcrypt.compare(password, results[0].password, (error, same) => {
+          if (!same) {
+            const notWorking = true
+            res.render("register",{
+              notWorking
+            })
+          } else if (results[0].isBan === 0) {
+            if (results[0].isAdmin === 1) {
+              req.session.isAdmin = true
+            }
+            req.session.user = results[0]
+            res.redirect("/")
+            console.log("C'est ok!");
+            return;
+          } else {
+            const notWorking = true
+            res.render("register",{
+              notWorking
+            })
+            console.log("C'est pas ok....");
+          }
+        })
       }
-
-
     })
-    console.log('Connect',req.body);
   }
 }
-
 
 exports.logout = (req, res) => {
   req.session.destroy(() => {

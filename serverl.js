@@ -22,9 +22,11 @@ const express = require("express"),
   } = require("express-handlebars");
 
 
-// Date pour le routeurs
-/*const date = moment().format('MMMM Do YYYY, h:mm:ss a');
-console.log('Date : ', date)*/
+// Date
+const {
+  formatDate,
+  formatDateCom
+} = require('./back/helper')
 
 // Method-Override
 app.use(methodOverride('_method'));
@@ -74,6 +76,10 @@ db.query = util.promisify(db.query).bind(db);
 // main en page par default
 app.set("view engine", "hbs");
 app.engine("hbs", engine({
+  helpers: {
+    formatDate,
+    formatDateCom,
+  },
   extname: "hbs",
   defaultLayout: "main",
 }));

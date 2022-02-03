@@ -1,28 +1,21 @@
-
-/*======== 
-La fonction filtre par titre ======================*/
+/*======== La fonction filtre par titre ======================*/
 function monFiltre() {
     // Declare variables
-    let input, filter, listCard, card, h4, i, txtValue;
-    input = document.getElementById("inputFilter");
+    var input, filter, listCard, card, h4, i, txtValue;
+    input = document.getElementById('inputFilter');
     filter = input.value.toUpperCase();
     listCard = document.getElementById("listCard");
-    card = listCard.getElementsByTagName("div");
+    card = listCard.getElementsByTagName('div');
 
-    // Boucle pour parcourir nos cards
+    // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < card.length; i++) {
         h4 = card[i].getElementsByTagName("h4")[0];
-       
-        txtValueH4 =
-            (h4.textContent || h4.textContent).toUpperCase().indexOf(filter) > -1;
-       
+        txtValue = h4.textContent || h4.innerText;
 
-
-        // Condition pour ajouter notre display none au div ne correspondant pas à notre recherche (input.value)
-        if (txtValueH4) {
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
             card[i].style.display = "";
         } else {
             card[i].style.display = "none";
         }
     }
-}
+};

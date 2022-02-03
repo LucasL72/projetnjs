@@ -11,7 +11,7 @@ Partial : Id/Id product/article
 
 
         <div class="col-md-12 text-center">
-            <img src="/assets/data/{{ this.imgarticle }}" alt="paysage" class="produit-img ">
+            <img src="/assets/data/articles/{{ this.imgarticle }}" alt="paysage" class="produit-img ">
         </div>
 
         <div class="col-md-12">
@@ -24,7 +24,7 @@ Partial : Id/Id product/article
                     </div>
                     <div class="col-md-10">
                         <p> {{ this.description }}</p>
-                        <p class="text-muted"> Date: {{ this.dateart }}</p>
+                        <p class="text-muted">Posté le {{{formatDate dateart "DD MMMM YYYY à HH:mm"}}}</p>
 
                     </div>
                 </div>
