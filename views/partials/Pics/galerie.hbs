@@ -9,27 +9,14 @@ Partial : galerie/pics
             <h2>Galeries Photos</h2>
         </div>
     </div>
-    <!--- 1ère rangée--->
+
     <div class="row">
         {{#each dbpics }}
-
         <!-- Trigger the Modal -->
-        <img class="photospage" id="myImg" src="/assets/data/{{this.photo}}" alt="{{ this.authorname }}">
+        <img class="photospage" src="/assets/data/photos/{{this.photo}}" data-modal alt="{{ this.authorname }}">
 
-        <!-- The Modal -->
-        <div id="myModal" class="modalpics">
-
-            <!-- The Close Button -->
-            <span class="close">&times;</span>
-
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="modalimg">
-
-            <!-- Modal Caption (Image Text) -->
-            <div id="caption"></div>
-        </div>
         {{/each}}
-
-
     </div>
+
+
 </section>

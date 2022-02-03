@@ -11,7 +11,6 @@ const path = require('path');
     Partie blog
  * **************** */
 
-
 /*----Méthode Get---*/
 exports.adminBlog = async (req, res) => {
   console.log('je suis la page Admin')

@@ -8,7 +8,7 @@
     /*----Méthode Post---*/
     exports.adminCreatecom = async (req, res) => {
         console.log("Je suis le controller Create pics dans Admin", req.body);
-        let sql = `INSERT INTO commentaires (content,pseudouser,user_id,articles_id) values("${req.body.content}","${req.body.pseudouser}","1","28");`
+        let sql = `INSERT INTO commentaires (content,pseudouser,user_id,articles_id) values("${req.body.content}","${req.body.pseudouser}","1","2");`
         let values = [
             req.body.content,
             req.body.pseudouser

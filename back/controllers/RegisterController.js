@@ -27,7 +27,7 @@ exports.CreateUser = async (req, res) => {
   ("${req.file.filename}","${pseudo}","${firstname}",
   "${name}","${email}","${hash}")`);
 
-  res.render("user");
+  res.render("/");
 
 };
 
@@ -40,7 +40,7 @@ exports.loginUser = (req, res) => {
   let password = req.body.password
 
   if (email && password) {
-    db.query('SELECT * FROM user WHERE email = ?', [email], function (error, results, fields) {
+    db.query('SELECT * FROM user WHERE email = ? ', [email], function (error, results, fields) {
       if (results.length > 0) {
         req.session.user = results[0]
         if (results[0].isAdmin === 1) {

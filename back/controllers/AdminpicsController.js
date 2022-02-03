@@ -73,13 +73,15 @@ exports.adminDeleteOnepic = async (req, res) => {
             const pics = await db.query('select * from pics;');
             const user = await db.query('select * from user;');
             const coms = await db.query('select * from commentaires;');
-            res.render('admin', {
+            res.render("admin", {
                 status: 200,
                 dbuser: user,
                 dbarticles: articles,
                 dbcommentaires: coms,
                 dbpics: pics,
-                message: "Delete pic successfully"
+                message: "Add Photo successfully"
+
+
             })
         })
     })

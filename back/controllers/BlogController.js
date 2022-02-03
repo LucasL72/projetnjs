@@ -31,7 +31,7 @@ exports.idpage = async (req, res) => {
 exports.CreateCom = async (req, res) => {
   console.log("Je suis le controller Create Com dans blog-id", req.body);
   let sql = `INSERT INTO commentaires (content,pseudouser,datecom,user_id,articles_id) 
-  values("${req.body.content}","${req.body.pseudouser}",NOW(),"1","28")`;
+  values("${req.body.content}","${req.body.pseudouser}",NOW(),"1","2")`;
 
   let values = [
     req.body.content,

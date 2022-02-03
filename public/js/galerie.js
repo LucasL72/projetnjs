@@ -1,21 +1,17 @@
 /*======== Modal afficher photo ======================*/
-// Get the modal
-let modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-let img = document.getElementById("myImg");
-let modalImg = document.getElementById("modalimg");
-let captionText = document.getElementById("caption");
-img.onclick = function () {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
+document.querySelectorAll("img[data-modal]").forEach((img) => {
+    var content = document.createElement("div"); //background
+    content.className = "modals-content";
+    content.appendChild(new Image()).src = img.src; //modal image
+    img.insertAdjacentElement("afterend", content); //insert invisible content after image
+    img.addEventListener("click", () => { //show modal on click
+        content.style.opacity = "1";
+        content.style.zIndex = "100";
+        document.documentElement.style.overflow = "hidden"; //prevent scrolling while modal is shown
+    });
+    content.addEventListener("click", () => { //hide modal
+        content.style.opacity = "";
+        content.style.zIndex = "";
+        document.documentElement.style.overflow = "";
+    });
+});

@@ -1,10 +1,10 @@
 {{!--
-Modal / Admin : Suppr pics
+Modal / Admin : Suppr user
 --}}
 
 <!------------------------- Modal suppr photos ------------------------->
 
-<div class="modal fade" id="DelPics{{ this.idphotos }}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+<div class="modal fade" id="DelUser{{ this.id }}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -14,12 +14,12 @@ Modal / Admin : Suppr pics
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Voulez-vous vraiment supprimer ce contenu?
+                Voulez-vous vraiment supprimer cet utilisateur?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                <form action="/admin/pics/{{ this.idphotos }}/?_method=DELETE" method="post">
+                <form action="/admin/user/{{ this.id }}/?_method=DELETE" method="post">
                     <button type="submit" class="btn btn-danger">Delete
                     </button>
                 </form>

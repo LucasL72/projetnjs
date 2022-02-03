@@ -16,13 +16,46 @@ Page type:Partial Footer /
                 </div>
             </form>
         </div>
+        <div class="row">
+            <div class="col-md-4 ">
+                <ul class="navbar-nav me-auto mb-2mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pics">Photos</a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Nous contacter</a>
+                    </li>
+                    {{#if isAdmin }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+                    </li>
+                    {{/if }}
+                </ul>
 
-        <div class="col-md-12">
-            <p><i class="fas fa-phone"></i> Tél : 02.00.00.00.00</p>
-            <p><i class="fas fa-envelope"></i> Email : Example@example.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Adresse : 72450 Montfort-le-Gesnois </p>
+            </div>
+
+            <div class="col-md-4">
+                <a class="navbar-brand" href="/"><img src="/assets/images/logo2.png" alt="" width="40" height="35">
+                    Graines
+                    de
+                    Citoyen Montgesnois</a>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Nos Coordonnés</h5>
+                <p><i class="fas fa-phone"></i> Tél : 02.00.00.00.00</p>
+                <p><i class="fas fa-envelope"></i> Email : Example@example.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Adresse : 72450 Montfort-le-Gesnois </p>
+            </div>
         </div>
-
         <div class="col-md-12 socials">
             <a href="#"> <i class="fab fa-discord black"></i></a>
             <a href="#"> <i class="fab fa-facebook black"></i></a>
@@ -31,6 +64,7 @@ Page type:Partial Footer /
             <a href="#"> <i class="fab fa-snapchat black"></i></a>
             <a href="#"> <i class="fab fa-instagram black"></i></a>
         </div>
+
         <p class="copyright">Created by Lucas Ledoux© 2021-2022 <a href="#">Mentions légales</a></p>
     </div>
 

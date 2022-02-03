@@ -9,8 +9,6 @@ exports.userProfile = async (req, res) => {
   })
 };
 
-
-
 exports.EditUser = async (req, res) => {
   console.log("Je suis le controller Edit dans user", req.body);
   let sql = `UPDATE articles SET imguser = "${req.file.filename}", pseudo = "${req.body.pseudo},

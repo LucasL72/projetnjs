@@ -314,104 +314,49 @@ cite img {
 
 /* Galerie 
 ============================*/
-/* Style the Image Used to Trigger the Modal */
-#myImg {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+img[data-modal] {
+    cursor: zoom-in;
 }
 
-#myImg:hover {
-    opacity: 0.7;
-}
-
-/* The Modal (background) */
-.modalpics {
-    display: none;
-    /* Hidden by default */
+.modals-content {
+    z-index: -100;
+    /* behind everything */
+    opacity: 0;
+    /* invisible */
     position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
     top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.9);
-    /* Black w/ opacity */
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    /* black, transparent */
+    width: 100vw;
+    /* 100% width */
+    height: 100vh;
+    /* 100% height */
+    display: flex;
+    justify-content: center;
+    /* horizontal align */
+    align-items: center;
+    /* vertical align */
+    transition: 0.5s;
+    /* animate */
+    cursor: zoom-out;
 }
 
-/* Modal Content (Image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: auto;
+.modals-content img {
+    min-width: 50vw;
+    /* at least 50% of the viewport width */
     height: auto;
-}
-
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-}
-
-/* Add Animation - Zoom in the Modal */
-.modal-content,
-#caption {
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
-@keyframes zoom {
-    from {
-        transform: scale(0)
-    }
-
-    to {
-        transform: scale(1)
-    }
-}
-
-/* The Close Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 
 .galeries-img {
     display: block;
+    position: relative;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     height: 325px;
-    width:auto;
+    width: auto;
     border-radius: 5px;
     margin-bottom: 15px;
 }
@@ -422,7 +367,6 @@ cite img {
     border-radius: 5px;
     margin-bottom: 15px;
 }
-
 
 /* contact
 ============================*/
@@ -466,7 +410,7 @@ footer {
     font-size: 25px
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1200px) {
     header {
         height: 60vh;
     }
@@ -482,7 +426,7 @@ footer {
 
     }
 
-    .modal-content {
+    .modals-content {
         width: 100%;
     }
 }

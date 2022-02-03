@@ -5,7 +5,9 @@
 // Import de module
 const express = require("express");
 const router = express.Router();
-const upload = require('./config/multer');
+const uploadArticles = require('./config/multerArticles');
+const uploadPhotos = require('./config/multerPhotos');
+const uploadUsers = require('./config/multerUsers');
 const mdl = require("./middleware/AdminOrNot");
 
 // Import des controllers
@@ -40,7 +42,7 @@ router.route("/contact")
 
 router.route("/register")
    .get(RegisterController.registerpage)
-   .post(upload.single('imguser'), RegisterController.CreateUser);
+   .post(uploadUsers.single('imguser'), RegisterController.CreateUser);
 
 router.route("/login")
    .post(RegisterController.loginUser);
@@ -60,27 +62,27 @@ router.route("/admin")
    .get(mdl.isAdmin, AdminuserController.adminShow);
 
 router.route("/admin/user/:id")
-   .put(upload.single('imguser'), AdminuserController.adminEditUser)
+   .put(uploadUsers.single('imguser'), AdminuserController.adminEditUser)
    .delete(AdminuserController.adminDeleteUser);
 
 router.route("/admin/blog")
    .get(mdl.isAdmin, AdminBlogController.adminBlog)
-   .post(upload.single('imgarticle'), AdminBlogController.adminCreateBlog)
+   .post(uploadArticles.single('imgarticle'), AdminBlogController.adminCreateBlog)
    .delete(AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
-   .put(upload.single('imgarticle'), AdminBlogController.adminEditBlog)
+   .put(uploadArticles.single('imgarticle'), AdminBlogController.adminEditBlog)
    .delete(AdminBlogController.adminDeleteOneBlog);
 
 router.route('/admin/coms')
    .post(AdmincomController.adminCreatecom);
 
-router.route('/admin/coms/:id')
+router.route('/admin/coms/:idcommentaire')
    .delete(AdmincomController.adminDeleteOnecom);
 
 router.route("/admin/pics")
    .get(AdminpicsController.adminpics)
-   .post(upload.single('photo'), AdminpicsController.adminCreatepic);
+   .post(uploadPhotos.single('photo'), AdminpicsController.adminCreatepic);
 
 router.route("/admin/pics/:idphotos")
    .delete(AdminpicsController.adminDeleteOnepic);
@@ -91,7 +93,7 @@ router.route("/admin/pics/:idphotos")
 
 router.route('/user')
    .get(UserController.userProfile)
-   .post(upload.single('imguser'), UserController.EditUser);
+   .post(uploadUsers.single('imguser'), UserController.EditUser);
 
 // / Routes
 
