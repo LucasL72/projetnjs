@@ -238,12 +238,8 @@ header {
 
 /* Cards
 ============================*/
-.famille-cards {
-    background-color: rgb(255, 255, 255);
-}
 
 .famille-details {
-    background-color: #fff;
     background-image: linear-gradient(180deg, rgba(6, 138, 1, 0.6), rgba(16, 167, 41, 0.4), rgba(253, 208, 5, 0.4));
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 2em;
@@ -251,8 +247,7 @@ header {
 
 
 .famille-details:hover {
-    transform: translateY(20px);
-    background-color: rgb(240, 239, 239);
+    transform: translateY(15px);
     transition: all 0.5s;
 }
 

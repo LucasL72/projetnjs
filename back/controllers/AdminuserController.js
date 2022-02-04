@@ -29,65 +29,15 @@ exports.adminShow = async (req, res) => {
 
 exports.adminEditUser = async (req, res) => {
     console.log("Je suis le controller Edit dans user", req.body);
-    let sql = `UPDATE user SET imguser = "${req.file.filename}",
-      firstname="${req.body.firstname}", name="${req.body.name}" WHERE id = "${req.params.id}"`;
-    /* (now) pour les dates*/
-    let values = [
-        req.file.filename,
-        req.body.firstname,
-        req.body.name,
-        req.body.email,
-        req.body.password
-    ];
-
-    db.query(sql, [values], function (err, data, fields) {
-        if (err) throw err;
-        let sql1 = `SELECT * FROM user`;
-        db.query(sql1, async (error, d, fields) => {
-            if (error) throw error;
-            const articles = await db.query('select * from articles;');
-            const pics = await db.query('select * from pics;');
-            const user = await db.query('select * from user;');
-            const coms = await db.query('select * from commentaires;');
-            res.render('admin', {
-                status: 200,
-                dbuser: user,
-                dbarticles: articles,
-                dbcommentaires: coms,
-                dbpics: pics,
-                message: "edit article successfully"
-            })
-        })
-    })
+    await db.query(`UPDATE user SET imguser = "${req.file.filename}",
+      firstname="${req.body.firstname}", name="${req.body.name}" WHERE id = "${req.params.id}"`);
+  res.redirect("/admin")
 };
 
 exports.adminDeleteUser = async (req, res) => {
-    console.log("Je suis le controller Delete user  dans Admin", req.body);
-    let sql = `DELETE FROM user where id = "${req.params.id}"`;
-    let values = [
-        req.params.id
-    ];
-
-    db.query(sql, [values], function (err, data, fields) {
-        if (err) throw err;
-        let sql1 = `SELECT * FROM user`;
-        db.query(sql1, async (error, d, fields) => {
-            if (error) throw error;
-            const articles = await db.query('select * from articles;');
-            const pics = await db.query('select * from pics;');
-            const user = await db.query('select * from user;');
-            const coms = await db.query('select * from commentaires;');
-            res.render('admin', {
-                status: 200,
-                dbuser: user,
-                dbarticles: articles,
-                dbcommentaires: coms,
-                dbpics: pics,
-                message: "Delete user successfully"
-            })
-        })
-    })
-};
+    console.log("Je suis le controller Delete dans Admin", req.params.id);
+    await db.query(`DELETE FROM user WHERE id="${req.params.id}"`)
+    res.redirect('/admin')};
 
 exports.banUser = async (req, res) => {
     console.log("LA TU VOIS ON BAN:", req.params.id);

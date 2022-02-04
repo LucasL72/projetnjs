@@ -13,9 +13,9 @@ Partial : Id/Commentaires
 
         <div class="col-md-12">
             <div class="client-profil position-relative">
-                <cite> <img src="/assets/images/julia.jpg"> {{ this.pseudouser }}</cite>
-                <!---<button type="button" class=" btn like position-absolute top-0 end-0 like"><i class="fas fa-heart">
-                        1</i> </button> --->
+                {{#if user}}
+                <cite> <img src="/assets/data/users/{{ user.imguser }}"> {{ user.pseudo }}</cite>
+                {{/if}}
                 <blockquote>
                     {{ this.content }}
                 </blockquote>

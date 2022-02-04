@@ -8,8 +8,8 @@ Partial : Id/Comms/Add coms
     <form action="/blog-id" method="post">
         <div class="input-group">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
-            <input name="pseudouser" type="text" class="form-control" placeholder="Nom d'utilisateur"
-                aria-describedby="inputGroupPrepend2" required>
+            <input name="pseudouser" type="text" class="form-control" placeholder="{{ user.pseudo }}"
+                aria-describedby="inputGroupPrepend2">
         </div>
         <label> Votre commentaire:</label>
         <div class="contact-form">

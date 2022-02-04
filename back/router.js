@@ -63,36 +63,36 @@ router.route("/admin")
 
 router.route("/admin/user/:id")
    .put(mdl.isAdmin, uploadUsers.single('imguser'), AdminuserController.adminEditUser)
-   .delete(mdl.isAdmin,AdminuserController.adminDeleteUser);
+   .delete(mdl.isAdmin, AdminuserController.adminDeleteUser);
 
 router.route('/ban/:id')
-   .put(mdl.isAdmin,AdminuserController.banUser);
+   .put(mdl.isAdmin, AdminuserController.banUser);
 
 /*router.route('/unban/:id')
    .put(mdl.isAdmin, AdminuserController.unbanUser);*/
 
 
 router.route("/admin/blog")
-   .get(mdl.isAdmin,AdminBlogController.adminBlog)
-   .post(mdl.isAdmin,uploadArticles.single('imgarticle'), AdminBlogController.adminCreateBlog)
+   .get(mdl.isAdmin, AdminBlogController.adminBlog)
+   .post(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminCreateBlog)
    .delete(AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
-   .put(mdl.isAdmin,uploadArticles.single('imgarticle'), AdminBlogController.adminEditBlog)
-   .delete(mdl.isAdmin,AdminBlogController.adminDeleteOneBlog);
+   .put(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminEditBlog)
+   .delete(mdl.isAdmin, AdminBlogController.adminDeleteOneBlog);
 
 router.route('/admin/coms')
-   .post(mdl.isAdmin,AdmincomController.adminCreatecom);
+   .post(mdl.isAdmin, AdmincomController.adminCreatecom);
 
 router.route('/admin/coms/:idcommentaire')
-   .delete(mdl.isAdmin,AdmincomController.adminDeleteOnecom);
+   .delete(mdl.isAdmin, AdmincomController.adminDeleteOnecom);
 
 router.route("/admin/pics")
-   .get(mdl.isAdmin,AdminpicsController.adminpics)
-   .post(mdl.isAdmin,uploadPhotos.single('photo'), AdminpicsController.adminCreatepic);
+   .get(mdl.isAdmin, AdminpicsController.adminpics)
+   .post(mdl.isAdmin, uploadPhotos.single('photo'), AdminpicsController.adminCreatepic);
 
 router.route("/admin/pics/:idphotos")
-   .delete(mdl.isAdmin,AdminpicsController.adminDeleteOnepic);
+   .delete(mdl.isAdmin, AdminpicsController.adminDeleteOnepic);
 
 
 
