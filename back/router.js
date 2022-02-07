@@ -33,6 +33,7 @@ router.route("/blog/:title")
    .get(BlogController.idpage)
    .post(BlogController.CreateCom);
 
+
 router.route("/pics")
    .get(PicsController.picspage);
 
@@ -86,6 +87,7 @@ router.route('/admin/coms')
 
 router.route('/admin/coms/:idcommentaire')
    .delete(mdl.isAdmin, AdmincomController.adminDeleteOnecom);
+
 
 router.route("/admin/pics")
    .get(mdl.isAdmin, AdminpicsController.adminpics)

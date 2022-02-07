@@ -20,7 +20,7 @@ exports.adminBlog = async (req, res) => {
   const articles = await db.query('select * from articles;');
   const pics = await db.query('select * from pics;');
   const user = await db.query('select * from user;');
-  const coms = await db.query('select * from commentaires;');
+  const coms = await db.query(`SELECT * FROM commentaires`);
   //console.log('article', articles)
 
   db.query(sql, (error, data, fields) => {

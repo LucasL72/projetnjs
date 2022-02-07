@@ -16,7 +16,7 @@ Partial : Admin/ Gestion commentaires
         <div class="accordion-body">
 
             <!------------------- 1er Article------------------>
-            <h2>1er Article</h2>
+            <h2>Commentaires</h2>
 
             <!-------------------Add Comms---------------------------------------------->
             <div class="col-md-12">
@@ -25,15 +25,15 @@ Partial : Admin/ Gestion commentaires
                         Add Comment
                     </button></h3>
 
-                {{> modals/modaladdcoms }}
 
             </div>
 
+            {{#each dbcommentaires }}
             <!-------------------Commentaires---------------------------------------------->
             <section>
                 <div class="container">
                     <div class="row">
-                        {{#each dbcommentaires }}
+
                         <div class="col-md-12">
                             <div class="client-profil position-relative">
 
@@ -45,29 +45,21 @@ Partial : Admin/ Gestion commentaires
                                     {{ this.content }}
                                     <!------ Button trigger modal --------->
                                     <button class="btn-danger" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#MessModal"><i class="fas fa-trash-alt "></i></button>
+                                        data-bs-target="#MessModal{{ this.idcommentaire }} "><i class="fas fa-trash-alt "></i></button>
+                                    {{> modals/modalsupprcoms }}
                                 </blockquote>
-                                  <p class="text-muted">Posté le {{{formatDate datecom "DD MMMM YYYY à HH:mm"}}} </p>
+                                <p class="text-muted">Posté le {{{formatDate datecom "DD MMMM YYYY à HH:mm"}}} </p>
                             </div>
 
                         </div>
-                        {{> modals/modalsupprcoms }}
-                        {{/each}}
+
+
                     </div>
                 </div>
 
             </section>
+            {{/each}}
         </div>
-        <!------------------- 2ème Article------------------>
-
-        <h2>2ème Article</h2>
-        <div class="col-md-12">
-            <!-------------------Button Modal Comms---------------------------------------------->
-            <h3><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ComsModal">
-                    Add Comment
-                </button></h3>
-        </div>
-
-
+        {{> modals/modaladdcoms }}
     </div>
 </div>

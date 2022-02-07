@@ -8,10 +8,10 @@ exports.adminShow = async (req, res) => {
     // Variable de récupération de tout les articles
     let sql = `SELECT * FROM articles,pics,user`;
 
-    const articles = await db.query('select * from articles;');
+    const articles = await db.query(`SELECT * FROM articles`);
     const pics = await db.query('select * from pics;');
     const user = await db.query('select * from user;');
-    const coms = await db.query('select * from commentaires;');
+    const coms = await db.query(`SELECT * FROM  commentaires`);
     //console.log('article', articles)
 
     db.query(sql, (error, data, fields) => {

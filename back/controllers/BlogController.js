@@ -22,6 +22,7 @@ exports.blogpage = (req, res) => {
 
 exports.idpage = async (req, res) => {
   console.log('je suis la page Blog id')
+
   res.render('blog-id', {
     dbarticles: await db.query(`SELECT * FROM articles WHERE title ="${req.params.title}"`),
     dbcommentaires: await db.query(`SELECT * FROM  commentaires INNER JOIN articles ON commentaires.articles_id=articles.id WHERE articles.title="${req.params.title}"`),
