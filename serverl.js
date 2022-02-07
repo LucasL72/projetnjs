@@ -100,3 +100,10 @@ app.use('/', ROUTER);
 app.listen(port, () => {
   console.log("le serveur tourne sur le port: ⚡" + port);
 });
+// Met toute les autres page non défini en 404
+app.use('*', function (req, res) {
+  res.status(404).render("error404", {
+    title: `${process.env.ETP} - Error 404`,
+    layout: 'err'
+  });
+});
