@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `site_db`.`commentaires` (
   `idcommentaire` INT NOT NULL AUTO_INCREMENT,
   `content` VARCHAR(255) NOT NULL,
   `pseudouser` VARCHAR(255) NOT NULL,
+  `imguser` VARCHAR(255) NOT NULL,
   `datecom` timestamp not null default current_timestamp on update current_timestamp,
   `user_id` INT NOT NULL,
   `articles_id` INT NOT NULL,

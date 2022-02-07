@@ -5,12 +5,8 @@ Partial : Id/Comms/Add coms
 {{#if user}}
 <div class="col-md-12 bg-com">
     <h5 class="text-center">Ajouter un commentaire</h5>
-    <form action="/blog-id" method="post">
-        <div class="input-group">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-            <input name="pseudouser" type="text" class="form-control" placeholder="{{ user.pseudo }}"
-                aria-describedby="inputGroupPrepend2">
-        </div>
+    {{#each @root.dbarticles}}
+    <form action="/blog/{{ this.title }}" method="post">
         <label> Votre commentaire:</label>
         <div class="contact-form">
             <textarea name="content" rows="3" class="contact-message"> </textarea>
@@ -26,6 +22,6 @@ Partial : Id/Comms/Add coms
             </div>
         </div>
     </form>
-
+    {{/each }}
 </div>
 {{/if}}

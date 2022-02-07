@@ -40,7 +40,7 @@ exports.adminDeleteUser = async (req, res) => {
     res.redirect('/admin')};
 
 exports.banUser = async (req, res) => {
-    console.log("LA TU VOIS ON BAN:", req.params.id);
+    console.log(" BAN:", req.params.id);
     await db.query(`UPDATE user SET isBan = 1 WHERE id = ${req.params.id}`)
     res.redirect('/admin')
 };

@@ -44,18 +44,20 @@ Partial : Admin/ Gestion Blog
                             </div>
 
                             <div class="col-6">
-                                <form action="/admin/blog/{{ this.id }}/?_method=DELETE" method="post">
-                                    <button class="btn btn-danger" name="DeleteCard" type="submit"> Delete
+                               
+                                    <button class="btn btn-danger" name="DeleteCard" type="submit" data-bs-toggle="modal"
+                                    data-bs-target="#DelBlog"> Delete
                                     </button>
-                                </form>
+                               
                             </div>
-                            <p class="text-muted">Posté le {{{formatDate dateart "DD MMMM YYYY à HH:mm"}}} </p>
+                            <p class="text-muted">Posté le {{{formatDate dateart "DD MMMM YYYY à HH:mm"}}}  et Edité le {{{formatDate dateedit "DD MMMM YYYY à HH:mm"}}} </p>
 
                         </div>
                     </div>
 
 
                 </div>
+                {{> modals/modalsupprblog }}
                 {{> modals/modaleditcard }}
                 {{/each}}
 
@@ -64,12 +66,11 @@ Partial : Admin/ Gestion Blog
         </div>
         <div class="col-md-12">
             <h3>
-                <form action="/admin/blog/?_method=DELETE" method="post">
-                    <button class="btn btn-danger" type="submit">Delete all </button>
-                </form>
+                    <button class="btn btn-danger" type="submit" data-bs-toggle="modal"
+                                    data-bs-target="#DelAllBlog">Delete all </button>
             </h3>
         </div>
-
+        {{> modals/modalsupprallblog}}
         {{> modals/modaladdcards }}
 
     </div>
