@@ -58,6 +58,9 @@ router.route("/newsletter")
    .post(RegisterController.newsletter);
 
 
+router.route("/CGU")
+   .get(HomeController.mention);
+
 // Gestion Administration :
 router.route("/admin")
    .get(mdl.isAdmin, AdminuserController.adminShow);
@@ -69,8 +72,8 @@ router.route("/admin/user/:id")
 router.route('/ban/:id')
    .put(mdl.isAdmin, AdminuserController.banUser);
 
-/*router.route('/unban/:id')
-   .put(mdl.isAdmin, AdminuserController.unbanUser);*/
+router.route('/unban/:id')
+   .put(mdl.isAdmin, AdminuserController.unbanUser);
 
 
 router.route("/admin/blog")

@@ -102,7 +102,7 @@ app.listen(port, () => {
 });
 // Met toute les autres page non défini en 404
 app.use('*', function (req, res) {
-  res.status(404).render("error404", {
+  res.status(404).render("err", {
     title: `${process.env.ETP} - Error 404`,
     layout: 'err'
   });

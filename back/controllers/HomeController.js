@@ -18,3 +18,10 @@ exports.CreateMessage = (req, res) => {
   console.log("Je suis le controller Create Message dans Home", req.body);
   res.render("home");
 }
+
+exports.mention = async (req, res) => {
+
+  console.log("Je suis la page CGU")
+
+  res.render("cgu")
+};

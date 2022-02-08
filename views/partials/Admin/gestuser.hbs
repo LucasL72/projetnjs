@@ -53,6 +53,9 @@ Partial : Admin/ Gestion utilisateurs
                             <a class="text-danger" data-bs-toggle="modal" data-bs-target="#BanUser{{ this.id }}"
                                 type="submit"><i class="fas fa-ban"></i>
                             </a>
+                            <a class="text-success" data-bs-toggle="modal" data-bs-target="#UnBanUser{{ this.id }}"
+                                type="submit"><i class="fas fa-ban"></i>
+                            </a>
 
                             </form>
                         </td>
@@ -60,6 +63,7 @@ Partial : Admin/ Gestion utilisateurs
                     </tr>
                     {{> modals/modalsuppruser }}
                     {{> modals/modalgestuser }}
+                    {{> modals/modalunbanuser }}
                     {{> modals/ modalbanuser }}
                     {{/each}}
                 </tbody>

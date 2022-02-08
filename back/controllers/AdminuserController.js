@@ -45,5 +45,11 @@ exports.banUser = async (req, res) => {
     res.redirect('/admin')
 };
 
+exports.unbanUser = async (req, res) => {
+    console.log(" UNBAN:", req.params.id);
+    await db.query(`UPDATE user SET isBan = 0 WHERE id = ${req.params.id}`)
+    res.redirect('/admin')
+};
+
 /*
  * ***************************************************** */

@@ -1,10 +1,10 @@
 {{!--
-Modal / Admin : Suppr user
+Modal / Admin : Unban user
 --}}
 
 <!------------------------- Modal suppr photos ------------------------->
 
-<div class="modal fade" id="BanUser{{ this.id }}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+<div class="modal fade" id="UnBanUser{{ this.id }}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -14,12 +14,12 @@ Modal / Admin : Suppr user
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Voulez-vous vraiment BANNIR cet utilisateur?
+                Voulez-vous vraiment dé-BANNIR cet utilisateur?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                <form action="/ban/{{ this.id }}/?_method=PUT" method="post">
+                <form action="/unban/{{ this.id }}/?_method=PUT" method="post">
                     <button type="submit" class="btn btn-danger">Confirmer
                     </button>
                 </form>
