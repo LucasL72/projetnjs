@@ -31,13 +31,14 @@ exports.adminEditUser = async (req, res) => {
     console.log("Je suis le controller Edit dans user", req.body);
     await db.query(`UPDATE user SET imguser = "${req.file.filename}",
       firstname="${req.body.firstname}", name="${req.body.name}" WHERE id = "${req.params.id}"`);
-  res.redirect("/admin")
+    res.redirect("/admin")
 };
 
 exports.adminDeleteUser = async (req, res) => {
     console.log("Je suis le controller Delete dans Admin", req.params.id);
     await db.query(`DELETE FROM user WHERE id="${req.params.id}"`)
-    res.redirect('/admin')};
+    res.redirect('/admin')
+};
 
 exports.banUser = async (req, res) => {
     console.log(" BAN:", req.params.id);

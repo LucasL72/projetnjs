@@ -53,7 +53,17 @@ exports.adminEditBlog = async (req, res) => {
 
 exports.adminDeleteOneBlog = async (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.params.id);
+
   await db.query(`DELETE FROM articles WHERE id="${req.params.id}"`)
+
+  for (const file of files) {
+    pathImg = path.resolve("public/data/articles/" + file.img_url)
+    fs.unlink(pathImg, (err) => {
+      if (err) console.log(err)
+      else return
+    })
+  }
+
   res.redirect('/admin')
 };
 
@@ -61,6 +71,7 @@ exports.adminDeleteOneBlog = async (req, res) => {
 exports.adminDeleteAllBlog = async (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.params.id);
   await db.query(`DELETE FROM articles`)
+
   res.redirect('/admin')
 };
 

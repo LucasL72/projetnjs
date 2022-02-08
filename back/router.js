@@ -21,6 +21,7 @@ const HomeController = require("./controllers/HomeController"),
    AdminpicsController = require("./controllers/AdminpicsController"),
    AdminuserController = require("./controllers/AdminuserController"),
    AdmincomController = require("./controllers/AdmincomController");
+
 // Routes
 router.route("/")
    .get(HomeController.homepage)
@@ -57,9 +58,13 @@ router.route("/lostpassword")
 router.route("/newsletter")
    .post(RegisterController.newsletter);
 
-
 router.route("/CGU")
    .get(HomeController.mention);
+
+router.route('/user')
+   .get(UserController.userProfile)
+   .post(uploadUsers.single('imguser'), UserController.EditUser);
+
 
 // Gestion Administration :
 router.route("/admin")
@@ -102,10 +107,6 @@ router.route("/admin/pics/:idphotos")
 
 
 /////===========================================
-
-router.route('/user')
-   .get(UserController.userProfile)
-   .post(uploadUsers.single('imguser'), UserController.EditUser);
 
 // / Routes
 

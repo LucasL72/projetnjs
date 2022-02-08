@@ -13,7 +13,7 @@ exports.adminpics = async (req, res) => {
     const articles = await db.query('select * from articles;');
     const pics = await db.query('select * from pics;');
     const user = await db.query('select * from user;');
-    const coms = await db.query('select * from commentaires;');
+    const coms = await db.query(`SELECT * FROM  commentaires `);
 
     db.query(sql, (error, data, fields) => {
         if (error) throw error;
@@ -39,6 +39,22 @@ exports.adminCreatepic = async (req, res) => {
 /*----Méthode Delete pour un---*/
 exports.adminDeleteOnepic = async (req, res) => {
     console.log("Je suis le controller Delete dans Admin", req.params.idphotos);
+
     await db.query(`DELETE FROM pics WHERE idphotos="${req.params.idphotos}"`)
+    const directory = path.resolve("./public/data/photos/");
+
+    fs.readdir(directory, (err, files) => {
+        if (err) console.log(err);
+        else {
+            for (const file of files) {
+                fs.unlink(path.join(directory, file), (err) => {
+                    if (err) console.log(err);
+                    else console.log("Delete file" + file);
+                });
+            }
+            // quand la boucle est fini
+            console.log(files);
+        }
+    });
     res.redirect('/admin')
 };
