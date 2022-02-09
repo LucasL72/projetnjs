@@ -26,7 +26,7 @@ exports.EditUser = async (req, res) => {
 
   deleteFile(dir, user[0].imuser)
 
-  await db.query(`UPDATE user SET imguser = '${req.file.filename}' WHERE id = ${req.params.idphotos}`)
+  await db.query(`UPDATE user SET imguser = '${req.file.filename}' WHERE id = ${req.session.user.id}`)
 
   res.redirect("/user")
 
