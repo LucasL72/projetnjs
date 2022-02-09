@@ -4,6 +4,9 @@
  * **************** */
 const fs = require("fs");
 const path = require('path');
+const {
+    deleteFile
+} = require('../utils/deleteFile');
 
 /*----Méthode Get---*/
 exports.adminpics = async (req, res) => {
@@ -39,22 +42,9 @@ exports.adminCreatepic = async (req, res) => {
 /*----Méthode Delete pour un---*/
 exports.adminDeleteOnepic = async (req, res) => {
     console.log("Je suis le controller Delete dans Admin", req.params.idphotos);
-
+    const photos = await db.query(`SELECT * FROM pics WHERE idphotos = "${req.params.idphotos}"`)
     await db.query(`DELETE FROM pics WHERE idphotos="${req.params.idphotos}"`)
-    const directory = path.resolve("./public/data/photos/");
-
-    fs.readdir(directory, (err, files) => {
-        if (err) console.log(err);
-        else {
-            for (const file of files) {
-                fs.unlink(path.join(directory, file), (err) => {
-                    if (err) console.log(err);
-                    else console.log("Delete file" + file);
-                });
-            }
-            // quand la boucle est fini
-            console.log(files);
-        }
-    });
+    const dir = path.join('./public/data/photos')
+    deleteFile(dir, photos[0].photo)
     res.redirect('/admin')
 };

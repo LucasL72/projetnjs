@@ -2,6 +2,11 @@
  * Controller: Page Admin
     Partie user
  * **************** */
+const fs = require("fs");
+const path = require('path');
+const {
+    deleteFile
+} = require('../utils/deleteFile');
 
 exports.adminShow = async (req, res) => {
     console.log('je suis la page Admin')
@@ -36,7 +41,11 @@ exports.adminEditUser = async (req, res) => {
 
 exports.adminDeleteUser = async (req, res) => {
     console.log("Je suis le controller Delete dans Admin", req.params.id);
+    const user = await db.query(`SELECT * FROM user WHERE id = "${req.params.id}"`)
     await db.query(`DELETE FROM user WHERE id="${req.params.id}"`)
+    const dir = path.join('./public/data/users')
+    deleteFile(dir, user[0].imguser)
+
     res.redirect('/admin')
 };
 

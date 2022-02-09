@@ -8,7 +8,8 @@ Partial : user/ edit user
 <section>
     <h2>Modifier profil</h2>
     <div class="container">
-        <form action="/user/{{ this.id }}/?_method=PUT" method="post" enctype="multipart/form-data" class=" row g-3">
+        {{#each dbuser}}
+        <form action="/user/?_method=PUT" method="post" enctype="multipart/form-data" class=" row g-3">
 
             <div class="row">
                 <div class="mb-3">
@@ -38,6 +39,7 @@ Partial : user/ edit user
                 <button type="submit" class="btn btn-contact">Modifier</button>
             </div>
         </form>
+        {{/each}}
     </div>
 
     </form>

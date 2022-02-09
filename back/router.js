@@ -63,7 +63,7 @@ router.route("/CGU")
 
 router.route('/user')
    .get(UserController.userProfile)
-   .post(uploadUsers.single('imguser'), UserController.EditUser);
+   .put(uploadUsers.single('imguser'), UserController.EditUser);
 
 
 // Gestion Administration :
