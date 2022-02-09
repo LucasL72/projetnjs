@@ -4,7 +4,7 @@
 const fs = require("fs");
 const path = require('path');
 const {
-    deleteFile
+  deleteFile
 } = require('../utils/deleteFile');
 
 exports.userProfile = async (req, res) => {
@@ -19,14 +19,13 @@ exports.EditUser = async (req, res) => {
   const user = await db.query(`SELECT * FROM user WHERE id = "${req.session.user.id}"`)
 
   await db.query(`UPDATE user SET imguser = "${req.file.filename}",
-    firstname="${req.body.firstname}", name="${req.body.name}",
-    password="${req.body.password}"`);
+    firstname="${req.body.firstname}", name="${req.body.name}" WHERE id ="${req.session.user.id}"`)
 
-  const dir = path.join('./public/data/users')
+  const dir = path.join('./public/data/users');
+  deleteFile(dir, user[0].imguser)
 
-  deleteFile(dir, user[0].imuser)
+  await db.query(`UPDATE user SET imguser = '${req.file.filename}' WHERE id = "${req.session.user.id}"`)
 
-  await db.query(`UPDATE user SET imguser = '${req.file.filename}' WHERE id = ${req.session.user.id}`)
 
   res.redirect("/user")
 

@@ -34,8 +34,17 @@ exports.adminShow = async (req, res) => {
 
 exports.adminEditUser = async (req, res) => {
     console.log("Je suis le controller Edit dans user", req.body);
+
+    const user = await db.query(`SELECT * FROM user WHERE id = "${req.params.id}"`)
+
     await db.query(`UPDATE user SET imguser = "${req.file.filename}",
       firstname="${req.body.firstname}", name="${req.body.name}" WHERE id = "${req.params.id}"`);
+
+    const dir = path.join('./public/data/users');
+    deleteFile(dir, user[0].imguser)
+
+    await db.query(`UPDATE user SET imguser = '${req.file.filename}' WHERE id = "${req.params.id}"`)
+
     res.redirect("/admin")
 };
 
