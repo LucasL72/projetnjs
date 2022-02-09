@@ -14,8 +14,8 @@ exports.adminShow = async (req, res) => {
     let sql = `SELECT * FROM articles,pics,user`;
 
     const articles = await db.query(`SELECT * FROM articles`);
-    const pics = await db.query('select * from pics;');
-    const user = await db.query('select * from user;');
+    const pics = await db.query('SELECT * FROM pics;');
+    const user = await db.query('SELECT * FROM user;');
     const coms = await db.query(`SELECT * FROM  commentaires`);
     //console.log('article', articles)
 

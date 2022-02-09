@@ -43,7 +43,6 @@ exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
   await db.query(`INSERT INTO articles (imgarticle,title,description,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}","${req.session.user.id}");`);
   res.redirect("/admin")
-
 };
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {

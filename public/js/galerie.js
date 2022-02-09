@@ -1,8 +1,8 @@
 /*======== Modal afficher photo ======================*/
 document.querySelectorAll("img[data-modal]").forEach((img) => {
-    var content = document.createElement("div"); //background
+    let content = document.createElement("div"); //background
     content.className = "modals-content";
-    content.appendChild(new Image()).src = img.src; //modal image
+    content.appendChild(new Image()).src = img.src; //modal image  
     img.insertAdjacentElement("afterend", content); //insert invisible content after image
     img.addEventListener("click", () => { //show modal on click
         content.style.opacity = "1";

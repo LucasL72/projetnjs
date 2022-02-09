@@ -16,7 +16,7 @@ Partial : Admin/ Gestion commentaires
         <div class="accordion-body">
 
             <!------------------- 1er Article------------------>
-            <h2>Commentaires</h2>
+            <h2>Tous les Commentaires</h2>
 
             <!-------------------Add Comms---------------------------------------------->
             <div class="col-md-12">
@@ -28,8 +28,8 @@ Partial : Admin/ Gestion commentaires
 
             </div>
 
-            {{#each dbcommentaires }}
-            <!-------------------Commentaires---------------------------------------------->
+
+            {{#each dbcommentaires}}
             <section>
                 <div class="container">
                     <div class="row">
@@ -45,7 +45,8 @@ Partial : Admin/ Gestion commentaires
                                     {{ this.content }}
                                     <!------ Button trigger modal --------->
                                     <button class="btn-danger" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#MessModal{{ this.idcommentaire }} "><i class="fas fa-trash-alt "></i></button>
+                                        data-bs-target="#MessModal{{ this.idcommentaire }} "><i
+                                            class="fas fa-trash-alt "></i></button>
                                     {{> modals/modalsupprcoms }}
                                 </blockquote>
                                 <p class="text-muted">Posté le {{{formatDate datecom "DD MMMM YYYY à HH:mm"}}} </p>
@@ -58,7 +59,10 @@ Partial : Admin/ Gestion commentaires
                 </div>
 
             </section>
+
             {{/each}}
+
+
         </div>
         {{> modals/modaladdcoms }}
     </div>
