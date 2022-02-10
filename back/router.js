@@ -15,12 +15,13 @@ const HomeController = require("./controllers/HomeController"),
    BlogController = require("./controllers/BlogController"),
    PicsController = require("./controllers/PicsController"),
    ContactController = require("./controllers/ContactController"),
-   RegisterController = require("./controllers/RegisterController"),
+   AuthController = require("./controllers/AuthController"),
    AdminBlogController = require("./controllers/AdminBlogController"),
    UserController = require("./controllers/UserController"),
    AdminpicsController = require("./controllers/AdminpicsController"),
    AdminuserController = require("./controllers/AdminuserController"),
-   AdmincomController = require("./controllers/AdmincomController");
+   AdmincomController = require("./controllers/AdmincomController"),
+   NodemailerController = require("./controllers/NodemailerController");
 
 // Routes
 router.route("/")
@@ -43,20 +44,26 @@ router.route("/contact")
    .post(ContactController.CreateMessage);
 
 router.route("/register")
-   .get(RegisterController.registerpage)
-   .post(uploadUsers.single('imguser'), RegisterController.CreateUser);
+   .get(AuthController.registerpage)
+   .post(uploadUsers.single('imguser'), AuthController.CreateUser);
 
 router.route("/login")
-   .post(RegisterController.loginUser);
+   .post(AuthController.loginUser);
 
 router.route("/logout")
-   .get(RegisterController.logout);
+   .get(AuthController.logout);
 
 router.route("/lostpassword")
-   .post(RegisterController.lostpassword);
+   .post(NodemailerController.lostpassword);
+
+router.route("/lostpassword/:id")
+   .get(NodemailerController.PageEditPassword);
+
+router.route("/editPassword/:id")
+.post(AuthController.editPassword);
 
 router.route("/newsletter")
-   .post(RegisterController.newsletter);
+   .post(NodemailerController.newsletter);
 
 router.route("/CGU")
    .get(HomeController.mention);

@@ -37,11 +37,8 @@ Partial : navabar
                 {{/if }}
             </ul>
 
-            <!---Modal "se connecter"--->
-            <!-- Button modal -->
-
-
-
+            <!-- 2 Modal lost password -->
+            {{> modals/modalLostpass }}
             {{#if user }}
             <a class="btn btn-full" href="/user">Profil</a>
 
@@ -55,9 +52,6 @@ Partial : navabar
             <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
                 Se connecter/S'inscrire
             </button>
-
-            <!-- 2 Modal lost password -->
-            {{> modals/modalLostpass }}
             <!--  Modal connect -->
             {{> modals/modalLogin }}
 
