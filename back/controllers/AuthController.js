@@ -75,7 +75,7 @@ exports.editPassword = async (req, res) => {
 
   const hash = bcrypt.hashSync(password, 10);
 
-  await db.query(`UPDATE user SET password = "${hash}" WHERE email = "${req.body.email}"`);
+  await db.query(`UPDATE user SET password = "${hash}" WHERE email= ${req.body.email}`);
 
   res.render("home",{
     dbarticles: await db.query(`SELECT * FROM articles ORDER BY dateart DESC LIMIT 3`)

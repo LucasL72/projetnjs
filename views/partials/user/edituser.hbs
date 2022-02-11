@@ -7,8 +7,11 @@ Partial : user/ edit user
 <!---Sign in--->
 <section>
     <h2>Modifier profil</h2>
+    <div class="text-center" id='flash'></div>
     <div class="container">
-        <form action="/user/?_method=PUT" method="post" enctype="multipart/form-data" class=" row g-3">
+        {{#each dbuser}}
+        <form id="form" action="/user/?_method=PUT" method="post" enctype="multipart/form-data"
+            onsubmit="checkForm(event)" class=" row g-3">
 
             <div class="row">
                 <div class="mb-3">
@@ -17,19 +20,62 @@ Partial : user/ edit user
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Prénom:</label>
-                    <input name="firstname" type="text" class="form-control" value="...">
+                    <input name="firstname" type="text" class="form-control" value="{{firstname}}">
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Nom:</label>
-                    <input name="name" type="text" class="form-control" value="...">
+                    <input name="name" type="text" class="form-control" value="{{name}}">
+                </div>
+                <div class="col-md-6">
+                    <label for="Password" class="form-label">Mot de passe</label>
+                    <input name="password" type="password" class="form-control" id="password" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="Password" class="form-label">Confirmer mot de passe :</label>
+                    <input name="passwordConfirm" type="password" class="form-control" id="passwordConfirm" required>
                 </div>
             </div>
             <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-center">
                 <button type="submit" class="btn btn-contact">Modifier</button>
             </div>
         </form>
+        {{/each}}
     </div>
 
     </form>
     </div>
 </section>
+
+{{!-- Script --}}
+<script>
+    // Déclaration de constante
+    const form = document.getElementById('form');
+    const input = form.getElementsByTagName('input');
+    // Fonction pour checker le formulaire (Le mot de passe sur notre exemple)
+    function checkForm(event) {
+        // On récupère les fonctionnalité par défault de notre formulaire et on les ré-initialise
+        // dans notre cas on demande à notre formulaire de ne pas s'envoyer
+        event.preventDefault()
+        // Définition de nos constantes
+        const pass = document.getElementById('password').value;
+        const passConfirm = document.getElementById('passwordConfirm').value;
+        const flash = document.getElementById('flash');
+        const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        // console.log(pass)
+        // Condition pour matché notre password avec la regex
+        if (!pass.match(regex)) {
+            // Gestion du flash (error)
+            flash.style.color = 'red';
+            flash.innerText = 'Le mot de passe ne respecte pas les conditions, Veuillez réessayer  !';
+            // Condition pour checker si password est bien égale avec passwordConfim
+        } else if (pass !== passConfirm) {
+            // Gestion du flash (error)
+            flash.style.color = 'red';
+            flash.innerText = 'Les mots de passe ne sont pas identique, Veuillez réessayer SVP !';
+        } else if (pass.match(regex) && pass === passConfirm && accept === true) {
+            alert("Confirmation de l'envoi du formulaire");
+            // C'est ici que le formulaire s'envoie
+            form.submit()
+        }
+    }
+</script>

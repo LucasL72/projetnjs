@@ -1,7 +1,8 @@
 /*
  * Controller: Nodemailer
  * **************** */
-
+const bcrypt = require("bcrypt");
+let rand, host, link, mailOptions;
 // import nodemailer 
 const nodemailer = require('nodemailer'),
     // Déclaration ne notre transporter
@@ -34,12 +35,11 @@ module.exports = {
                 subject: "Mot de passe oublié",
                 rand: rand,
                 html: `
-          <h2>Encore un effort</h2>,<br>
+          <h2>Encore un effort</h2><br>
           <h4>Cliquer sur le lien suivant afin de finir la procédure de recréation de mot de passe.</h4><br>
           <a href=" ` + link + ` ">Click here to create password</a>
         `
             }
-            console.log(mailOptions)
             // Et envoi notre mail avec nos callback
             transporter.sendMail(mailOptions, (err, res, next) => {
                 if (err) {
@@ -50,6 +50,8 @@ module.exports = {
                     next()
                 }
             })
+
+            console.log('Données ', rand, link, mailOptions, host)
             // Response
             res.render('home', {
                 dbarticles: await db.query(`SELECT * FROM articles ORDER BY dateart DESC LIMIT 3`),
@@ -65,7 +67,7 @@ module.exports = {
     PageEditPassword: (req, res) => {
 
         console.log(req.protocol + "://" + req.get('host'))
-        console.log('Page verify: ')
+        console.log('Page Edit Password: ', rand,  mailOptions, host)
 
         // Ici on tcheck notre protocole hébergeur (nodejs localhost) et le liens générer dans le mail
         if ((req.protocol + "://" + req.get('host')) == ("http://" + host)) {
@@ -76,7 +78,7 @@ module.exports = {
                 console.log("email is verified")
                 // res.end("<h1>Email " + mailOptions.to + " is been Successfully verified")
                 res.render('editPassword', {
-                    mailOptions
+                    mailOptions,rand
                 })
 
             } else {
@@ -90,6 +92,19 @@ module.exports = {
                 message: "Request is from unknown source !"
             })
         }
+    },
+
+    editPassword: async (req, res) => {
+        console.log("Je suis le controller Changement de mdp", req.body,rand,host,mailOptions);
+        const {
+            password
+        } = req.body;
+
+        const hash = bcrypt.hashSync(password, 10);
+
+        await db.query(`UPDATE user SET password = "${hash}" WHERE email= "${req.body.email}"`);
+
+        res.redirect("/")
     },
 
     /*

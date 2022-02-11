@@ -26,7 +26,7 @@ const HomeController = require("./controllers/HomeController"),
 // Routes
 router.route("/")
    .get(HomeController.homepage)
-   .post(HomeController.CreateMessage);
+   .post(ContactController.CreateMessage);
 
 router.route("/blog")
    .get(BlogController.blogpage);
@@ -60,7 +60,7 @@ router.route("/lostpassword/:id")
    .get(NodemailerController.PageEditPassword);
 
 router.route("/editPassword/:id")
-.post(AuthController.editPassword);
+.post(NodemailerController.editPassword);
 
 router.route("/newsletter")
    .post(NodemailerController.newsletter);
