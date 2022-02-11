@@ -111,7 +111,8 @@ router.route("/admin/pics")
 router.route("/admin/pics/:idphotos")
    .delete(mdl.isAdmin, AdminpicsController.adminDeleteOnepic);
 
-
+router.route("/messages")
+.get(mdl.isAdmin, AdmincomController.MyMessages);
 
 /////===========================================
 

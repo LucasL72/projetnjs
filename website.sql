@@ -86,6 +86,18 @@ CREATE TABLE IF NOT EXISTS `site_db`.`commentaires` (
   INDEX `fk_commentaires_articles1_idx` (`articles_id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `site_db`.`messages`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `site_db`.`messages` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `content` VARCHAR(255) NOT NULL,
+  `author` VARCHAR(255) NOT NULL,
+  `datemess` timestamp not null default current_timestamp on update current_timestamp,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

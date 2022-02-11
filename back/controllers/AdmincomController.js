@@ -9,6 +9,7 @@ const path = require('path');
 /*----Méthode Post---*/
 exports.adminCreatecom = async (req, res) => {
     console.log("Je suis le controller Create coms dans Admin", req.body);
+
     const articleID = await db.query(` SELECT * FROM articles WHERE title ="${req.params.title}"`)
 
     await db.query(`INSERT INTO commentaires(content,pseudouser,imguser,user_id,articles_id) 
@@ -22,4 +23,12 @@ exports.adminDeleteOnecom = async (req, res) => {
     console.log("Je suis le controller Delete dans blog id", req.params.idcommentaire);
     await db.query(`DELETE FROM commentaires WHERE idcommentaire="${req.params.idcommentaire}"`)
     res.redirect('/admin')
-  };
+};
+
+exports.MyMessages = async (req, res) => {
+    console.log("je suis la page des Massages")
+    res.render("messages", {
+        dbmessages: await db.query(`SELECT * FROM messages`),
+    })
+
+}
