@@ -1,0 +1,441 @@
+/*------------------------------Début Projet Arinfo---------------------*/
+/*-----Licence
+-bootstrap v5.1
+-fontawesome for icons
+- https://fonts.googleapis.com : for theme Roboto
+-https://fonts.gstatic.com
+---*/
+
+/* Theme
+===================--------------=========*/
+.bg-theme {
+    background-color: #009b00;
+}
+
+.theme-com {
+    background-image: linear-gradient(180deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.432));
+}
+
+.theme-contact {
+    background-image: linear-gradient(rgba(2, 165, 24, 0.5), rgba(170, 197, 170, 0.945));
+
+}
+
+/* Global
+===================--------------=========*/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: 300;
+    word-spacing: 8px;
+}
+
+h1 {
+    color: rgb(154, 230, 4);
+
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+    font-size: 250%;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #009b00;
+    width: 100px;
+    content: "";
+    margin: 0 auto;
+}
+
+h3 {
+    font-size: 160%;
+    text-align: center;
+}
+
+h4 {
+    font-size: 125%
+}
+
+p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 24px;
+    margin: 5px;
+}
+
+
+
+section {
+    padding: 0px 0px 20px 0px;
+}
+
+
+/* Header 
+============================*/
+header {
+    background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.432)), url(mtfcolor1.jpg);
+    background-position: 100% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 80vh;
+}
+
+.home-title {
+    position: absolute;
+    top: 30%;
+}
+
+.home-title h1 {
+    font-size: 340%;
+}
+
+.welcome {
+    color: rgb(255, 255, 255);
+    padding-bottom: 3px;
+    padding-bottom: 3px;
+    font-size: 30px;
+    font-weight: 325;
+    line-height: 20px;
+}
+
+/* Effet machine à écrire 
+============================*/
+.typewriter-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.typewriter p {
+    font-size: 20px;
+    font-weight: lighter;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    animation: typing 7s steps(26);
+    animation-iteration-count: infinite;
+}
+
+.typewriter p::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 1px;
+    background: #fff;
+    right: 0;
+    top: 0;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*  Boutons
+============================*/
+.btn {
+    display: inline-block;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 1s, color 1s, border 1s;
+}
+
+.btn-full {
+    background-color: azure;
+    color: #45bd5d;
+    margin-right: 15px;
+}
+
+.btn-ghost {
+    border: 1px solid black;
+    color: green;
+}
+
+.btn-full:hover {
+    background-color: #45bd5d;
+    color: #fff;
+}
+
+.btn-ghost:hover {
+    background-color: #5ee077;
+    border: 1px solid #5ee077;
+    color: #fff;
+}
+
+.btn-contact {
+    background-color: rgb(43, 204, 3);
+    color: #fff;
+}
+
+/* Search-Bar
+============================*/
+.search-bar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* ID
+============================*/
+.produits-plus {
+    margin: 20px 0;
+}
+
+.produits-plus:hover .produits-icon {
+    color: rgb(14, 112, 1);
+    transform: translateX(15px);
+}
+
+.produit-img {
+    max-width: 100%;
+    height: 60vh;
+    border-radius: 10px;
+
+}
+
+.produits-icon {
+    font-size: 34px;
+    color: rgb(4, 184, 4);
+    transition: all 1s;
+}
+
+/* Logo présentation
+============================*/
+.present-img {
+    max-width: 100%;
+    height: 60vh;
+}
+
+/* Cards
+============================*/
+
+.famille-details {
+    background-image: linear-gradient(180deg, rgba(6, 138, 1, 0.6), rgba(16, 167, 41, 0.4), rgba(253, 208, 5, 0.4));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+}
+
+
+.famille-details:hover {
+    transform: translateY(15px);
+    transition: all 0.5s;
+}
+
+
+
+/* Bannière
+============================*/
+.banniere {
+    background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(155, 187, 38, 0.7), rgba(253, 208, 5, 0.4)), url(mtfcolor2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 30vh;
+    color: #fff;
+}
+
+/* Commentaires
+============================*/
+.client-profil {
+    border: 2px solid #00c026;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+
+}
+
+blockquote {
+    line-height: 130%;
+    font-style: italic;
+    color: rgb(0, 0, 0);
+    margin: 5px 0 5px 5px;
+}
+
+cite {
+    margin-top: 5px;
+    display: block;
+    font-size: 100%;
+
+}
+
+cite img {
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 5px 5px 5px;
+}
+
+.img-user {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.bg-com {
+    margin-top: 20px;
+    border: 2px solid #00c026;
+    padding: 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Galerie 
+============================*/
+img[data-modal] {
+    cursor: zoom-in;
+}
+
+.modals-content {
+    z-index: -100;
+    /* behind everything */
+    opacity: 0;
+    /* invisible */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    /* black, transparent */
+    width: 100vw;
+    /* 100% width */
+    height: 100vh;
+    /* 100% height */
+    display: flex;
+    justify-content: center;
+    /* horizontal align */
+    align-items: center;
+    /* vertical align */
+    transition: 0.5s;
+    /* animate */
+    cursor: zoom-out;
+}
+
+.modals-content img {
+    min-width: 50vw;
+    /* at least 50% of the viewport width */
+    height: auto;
+}
+
+
+.galeries-img {
+    display: block;
+    position: relative;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 325px;
+    width: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.photospage {
+    height: 325px;
+    width: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* contact
+============================*/
+
+.contact-message {
+    width: 100%;
+}
+
+
+.map {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.map iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Footer
+============================*/
+footer {
+    background: #009b00;
+    color: #fff;
+}
+
+.copyright {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.copyright a {
+    color: #fff;
+}
+
+.socials {
+    font-size: 25px
+}
+
+@media (max-width: 1200px) {
+    header {
+        height: 60vh;
+    }
+
+    .home-title {
+        position: relative;
+        top: 30%;
+    }
+
+    .galeries-img {
+        max-width: 100%;
+        height: 250px;
+
+    }
+
+    .modals-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .galeries-img {
+        max-width: 100%;
+        height: 200px;
+
+    }
+
+    .modal-content {
+        width: 100%;
+    }
+}
