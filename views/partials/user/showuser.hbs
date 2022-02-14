@@ -6,27 +6,23 @@ Partial : user/ Profil utilisateur
     <div class="container">
         <h2>Mon Profil</h2>
         {{#each dbuser}}
-        <div class="row border border-5 border-success">
-            <div class="col-md-2">
-                <img class="img-fluid rounded-circle mx-auto d-block" src="/assets/data/users/{{ this.imguser }}">
+
+        <div class="card border-success mb-3  mx-auto" style="max-width: 800px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="/assets/data/users/{{ this.imguser }}" class="img-fluid rounded-start"
+                        alt="image de pofile">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ this.pseudo }}</h3>
+                        <p class="card-text">Prénom: {{ this.firstname }}</p>
+                        <p class="card-text">Nom: {{ this.name }}</p>
+                        <p class="card-text">Email: {{ this.email }}</p>
+
+                    </div>
+                </div>
             </div>
-            <div class="col-md-10">
-                <div class="col-md-12">
-                    <h4>Nom d'utilisateur : {{ this.pseudo }}</h4>
-                </div>
-
-                <div class="col-md-12">
-                    <h4>Prénom: {{ this.firstname }} </h4>
-                </div>
-                <div class="col-md-12">
-                    <h4>Nom: {{ this.name }}</h4>
-                </div>
-                <div class="col-md-12">
-                    <h4>Adresse Email : {{ this.email }}</h4>
-                </div>
-
-            </div>
-
         </div>
         {{/each}}
 </section>

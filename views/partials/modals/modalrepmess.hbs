@@ -1,0 +1,29 @@
+{{!--
+Modal / Admin : Répondre message 
+--}}
+<!-- ---------------Modal coms ----------------------->
+<div class="modal fade dark" id="RepMess{{this.id}}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLab"> Votre Message de {{this.author}}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/messages/{{this.id}}" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="FormControlTextarea1" class="form-label">Message
+                        </label>
+                        <textarea name="message" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

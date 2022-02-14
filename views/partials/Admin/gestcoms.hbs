@@ -17,18 +17,6 @@ Partial : Admin/ Gestion commentaires
 
             <!------------------- 1er Article------------------>
             <h2>Tous les Commentaires</h2>
-
-            <!-------------------Add Comms---------------------------------------------->
-            <div class="col-md-12">
-                <!-------------------Button Modal Comms---------------------------------------------->
-                <h3><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ComsModal">
-                        Add Comment
-                    </button></h3>
-
-
-            </div>
-
-
             {{#each dbcommentaires}}
             <section>
                 <div class="container">
@@ -64,6 +52,5 @@ Partial : Admin/ Gestion commentaires
 
 
         </div>
-        {{> modals/modaladdcoms }}
     </div>
 </div>

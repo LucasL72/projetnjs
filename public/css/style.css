@@ -384,6 +384,13 @@ img[data-modal] {
     height: 100%;
 }
 
+/* contact
+============================*/
+.userprofile {
+    background-image: linear-gradient(180deg, rgba(28, 228, 10, 0.6), rgba(155, 187, 38, 0.7), rgba(253, 208, 5, 0.4));
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 /* Footer
 ============================*/
 footer {

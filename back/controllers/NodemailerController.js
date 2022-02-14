@@ -67,7 +67,7 @@ module.exports = {
     PageEditPassword: (req, res) => {
 
         console.log(req.protocol + "://" + req.get('host'))
-        console.log('Page Edit Password: ', rand,  mailOptions, host)
+        console.log('Page Edit Password: ', rand, mailOptions, host)
 
         // Ici on tcheck notre protocole hébergeur (nodejs localhost) et le liens générer dans le mail
         if ((req.protocol + "://" + req.get('host')) == ("http://" + host)) {
@@ -78,7 +78,8 @@ module.exports = {
                 console.log("email is verified")
                 // res.end("<h1>Email " + mailOptions.to + " is been Successfully verified")
                 res.render('editPassword', {
-                    mailOptions,rand
+                    mailOptions,
+                    rand
                 })
 
             } else {
@@ -95,7 +96,7 @@ module.exports = {
     },
 
     editPassword: async (req, res) => {
-        console.log("Je suis le controller Changement de mdp", req.body,rand,host,mailOptions);
+        console.log("Je suis le controller Changement de mdp", req.body, rand, host, mailOptions);
         const {
             password
         } = req.body;
@@ -107,11 +108,29 @@ module.exports = {
         res.redirect("/")
     },
 
-    /*
-     * Controller: Newletter
-     * **************** */
-    newsletter: (req, res) => {
-        console.log("Je suis le controller Create mess pour la Newsletter", req.body);
-        res.redirect(req.headers.referer)
+
+    SendMessage: async (req, res) => {
+        console.log("Je suis le controller Send Message dans messages", req.body);
+        
+        message = await db.query(`SELECT * FROM messages WHERE id = ${req.params.id}`)
+
+        const mailOptions = {
+            from: `testgrainesdecitoyen@gmail.com`,
+            to: message[0].email,
+            subject: 'Bonjour ' + message[0].author + ' !',
+            html: `
+        <h2>${req.body.message}</h2>
+      `
+        }
+        // On demande à notre transporter d'envoyer notre mail
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) console.log(err)
+            else {
+                console.log(info)
+                res.redirect('/messages')
+                console.log("success : Un message à bien été envoyer à ", message[0].email)
+
+            }
+        })
     }
 };

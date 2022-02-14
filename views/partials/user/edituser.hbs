@@ -9,6 +9,15 @@ Partial : user/ edit user
     <h2>Modifier profil</h2>
     <div class="text-center" id='flash'></div>
     <div class="container">
+        <div class="col-md-12">
+            <h5>Le mot de passe doit contenir minimum 8 character dont:</h5>
+            <ul>
+                <li> 1 numéro</li>
+                <li> 1 majuscule</li>
+                <li> 1 minuscule</li>
+                <li> 1 caractère spécial</li>
+            </ul>
+        </div>
         {{#each dbuser}}
         <form id="form" action="/user/?_method=PUT" method="post" enctype="multipart/form-data"
             onsubmit="checkForm(event)" class=" row g-3">
@@ -41,9 +50,6 @@ Partial : user/ edit user
         </form>
         {{/each}}
     </div>
-
-    </form>
-    </div>
 </section>
 
 {{!-- Script --}}
@@ -72,7 +78,7 @@ Partial : user/ edit user
             // Gestion du flash (error)
             flash.style.color = 'red';
             flash.innerText = 'Les mots de passe ne sont pas identique, Veuillez réessayer SVP !';
-        } else if (pass.match(regex) && pass === passConfirm && accept === true) {
+        } else if (pass.match(regex) && pass === passConfirm === true) {
             alert("Confirmation de l'envoi du formulaire");
             // C'est ici que le formulaire s'envoie
             form.submit()

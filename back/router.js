@@ -60,10 +60,7 @@ router.route("/lostpassword/:id")
    .get(NodemailerController.PageEditPassword);
 
 router.route("/editPassword/:id")
-.post(NodemailerController.editPassword);
-
-router.route("/newsletter")
-   .post(NodemailerController.newsletter);
+   .post(NodemailerController.editPassword);
 
 router.route("/CGU")
    .get(HomeController.mention);
@@ -97,8 +94,6 @@ router.route('/admin/blog/:id')
    .put(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminEditBlog)
    .delete(mdl.isAdmin, AdminBlogController.adminDeleteOneBlog);
 
-router.route('/admin/coms')
-   .post(mdl.isAdmin, AdmincomController.adminCreatecom);
 
 router.route('/admin/coms/:idcommentaire')
    .delete(mdl.isAdmin, AdmincomController.adminDeleteOnecom);
@@ -112,7 +107,11 @@ router.route("/admin/pics/:idphotos")
    .delete(mdl.isAdmin, AdminpicsController.adminDeleteOnepic);
 
 router.route("/messages")
-.get(mdl.isAdmin, AdmincomController.MyMessages);
+   .get(mdl.isAdmin, AdmincomController.MyMessages);
+
+router.route("/messages/:id")
+   .post(mdl.isAdmin,NodemailerController.SendMessage)
+   .delete(mdl.isAdmin,AdmincomController.MessDelete);
 
 /////===========================================
 

@@ -91,6 +91,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `site_db`.`messages` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NOT NULL,
   `content` VARCHAR(255) NOT NULL,
   `author` VARCHAR(255) NOT NULL,
   `datemess` timestamp not null default current_timestamp on update current_timestamp,

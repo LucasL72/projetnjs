@@ -1,6 +1,36 @@
-{{!-- 
-    Page: Mes mesages
-    ---}}
-<h1>(En production)</h1>
-<h2>Mes Messages</h2>
+{{!--
+Page: Mes mesages
+---}}
+<div class="container">
+    <h2>Mes Messages</h2>
+    <section>
+        <div class="col-md-12 text-center">
+            <img src="assets/images/gif/mess.gif" alt="paysage" class="present-img">
+        </div>
 
+    </section>
+    <section>
+        {{#each dbmessages}}
+        <div class="col-md-12">
+            <div class="client-profil">
+                <cite> De : {{ author }}</cite>
+                <p class="text-muted"> Email : {{ email }}</p>
+                <blockquote>{{ content }}
+                    <!------ Button trigger modal --------->
+                    <a class="text-danger" type="button" data-bs-toggle="modal"
+                        data-bs-target="#DelMess{{ this.id }} "><i class="fas fa-trash-alt "></i></a>
+
+                    <a class="text-success" type="button" data-bs-toggle="modal" data-bs-target="#RepMess{{this.id}}"
+                       ><i class="fas fa-envelope"></i></a>
+
+                </blockquote>
+
+                <p class="text-muted">Reçu le {{{formatDate datemess "DD MMMM YYYY à HH:mm"}}} </p>
+            </div>
+
+        </div>
+        {{> modals/modaldelmess }}
+        {{> modals/modalrepmess }}
+        {{/each}}
+    </section>
+</div>

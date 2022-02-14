@@ -34,7 +34,6 @@ exports.adminpics = async (req, res) => {
 exports.adminCreatepic = async (req, res) => {
     console.log("Je suis le controller Create pics dans Admin", req.body);
     await db.query(`INSERT INTO pics (photo,authorname,user_id) values("${req.file.filename}","${req.body.authorname}","${req.session.user.id}");`)
-    req.flash("Pic créée")
     res.redirect('/admin')
 
 };
