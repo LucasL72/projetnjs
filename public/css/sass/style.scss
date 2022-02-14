@@ -5,11 +5,14 @@
 - https://fonts.googleapis.com : for theme Roboto
 -https://fonts.gstatic.com
 ---*/
+$font-stack: 'Roboto',
+sans-serif;
+$primary-color: #009b00;
 
 /* Theme
 ===================--------------=========*/
 .bg-theme {
-    background-color: #009b00;
+    background-color: $primary-color;
 }
 
 .theme-com {
@@ -18,7 +21,6 @@
 
 .theme-contact {
     background-image: linear-gradient(rgba(2, 165, 24, 0.5), rgba(170, 197, 170, 0.945));
-
 }
 
 /* Global
@@ -47,15 +49,16 @@ h2 {
     text-align: center;
     margin-top: 35px;
     margin-bottom: 30px;
-}
 
-h2:after {
-    display: block;
-    height: 2px;
-    background-color: #009b00;
-    width: 100px;
-    content: "";
-    margin: 0 auto;
+
+    :after {
+        display: block;
+        height: 2px;
+        background-color: $primary-color;
+        width: 100px;
+        content: "";
+        margin: 0 auto;
+    }
 }
 
 h3 {
@@ -94,10 +97,11 @@ header {
 .home-title {
     position: absolute;
     top: 30%;
-}
 
-.home-title h1 {
-    font-size: 340%;
+
+    h1 {
+        font-size: 340%;
+    }
 }
 
 .welcome {
@@ -388,7 +392,7 @@ img[data-modal] {
 /* Footer
 ============================*/
 footer {
-    background: #009b00;
+    background: $primary-color;
     color: #fff;
 }
 
