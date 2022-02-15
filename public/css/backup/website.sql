@@ -84,16 +84,6 @@ CREATE TABLE IF NOT EXISTS `site_db`.`commentaires` (
   PRIMARY KEY (`idcommentaire`),
   INDEX `fk_commentaires_user1_idx` (`user_id` ASC) VISIBLE,
   INDEX `fk_commentaires_articles1_idx` (`articles_id` ASC) VISIBLE)
-  CONSTRAINT `fk_commentaires_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `site_db`.`user` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_commentaires_articles1`
-    FOREIGN KEY (`articles_id`)
-    REFERENCES `site_db`.`articles` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
