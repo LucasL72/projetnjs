@@ -19,7 +19,7 @@ Partial : Admin/ Gestion commentaires
             <h2>Tous les Commentaires</h2>
 
 
-            {{#each dbcommentaires}}
+            {{#each dbcommentaires }}
             <h3>{{title}}</h3>
             <section>
                 <div class="container">
@@ -28,12 +28,12 @@ Partial : Admin/ Gestion commentaires
                         <div class="col-md-12">
                             <div class="client-profil position-relative">
 
-                                <cite> <img src="/assets/data/users/{{ this.imguser }}">
+                                <cite> <img class="rounded-circle" src="/assets/data/users/{{ imguser }}">
 
-                                    {{ this.pseudouser }}</cite>
+                                    {{ pseudouser }}</cite>
                                 <blockquote>
 
-                                    {{ this.content }}
+                                    {{ content }}
                                     <!------ Button trigger modal --------->
                                     <a class="text-danger" type="button" data-bs-toggle="modal"
                                         data-bs-target="#MessModal{{ this.idcommentaire }} "><i
