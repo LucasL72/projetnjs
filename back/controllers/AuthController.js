@@ -69,18 +69,7 @@ exports.loginUser = (req, res) => {
   }
 };
 
-exports.editPassword = async (req, res) => {
-  console.log("Je suis le controller Changement de mdp", req.body);
-  const {password} = req.body; 
 
-  const hash = bcrypt.hashSync(password, 10);
-
-  await db.query(`UPDATE user SET password = "${hash}" WHERE email= ${req.body.email}`);
-
-  res.render("home",{
-    dbarticles: await db.query(`SELECT * FROM articles ORDER BY dateart DESC LIMIT 3`)
-  })
-};
 
 exports.logout = (req, res) => {
   req.session.destroy(() => {

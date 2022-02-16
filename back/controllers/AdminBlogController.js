@@ -41,7 +41,7 @@ exports.adminBlog = async (req, res) => {
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
-  await db.query(`INSERT INTO articles (imgarticle,title,description,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}","${req.session.user.id}");`);
+  await db.query(`INSERT INTO articles (imgarticle,title,description,contenu,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}","${req.body.description}","${req.session.user.id}");`);
   res.redirect("/admin")
 };
 /*----Méthode PUT --------*/
@@ -62,6 +62,9 @@ exports.adminEditBlog = async (req, res) => {
   }
   if (description) {
     await db.query(`UPDATE articles SET description = "${req.body.description}" WHERE id = "${req.params.id}"`)
+  }
+  if (contenu) {
+    await db.query(`UPDATE articles SET ceontenu = "${req.body.contenu}" WHERE id = "${req.params.id}"`)
   }
   res.redirect('/admin')
 };
@@ -99,7 +102,6 @@ exports.adminDeleteAllBlog = async (req, res) => {
 
   res.redirect('/admin')
 };
-
 
 /*
  * ***************************************************** */

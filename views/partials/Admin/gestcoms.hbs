@@ -20,7 +20,6 @@ Partial : Admin/ Gestion commentaires
 
 
             {{#each dbcommentaires }}
-            <h3>{{title}}</h3>
             <section>
                 <div class="container">
                     <div class="row">
@@ -30,7 +29,7 @@ Partial : Admin/ Gestion commentaires
 
                                 <cite> <img class="rounded-circle" src="/assets/data/users/{{ imguser }}">
 
-                                    {{ pseudouser }}</cite>
+                                    {{ pseudouser }} / Dans : {{title}} </cite>
                                 <blockquote>
 
                                     {{ content }}
@@ -39,6 +38,7 @@ Partial : Admin/ Gestion commentaires
                                         data-bs-target="#MessModal{{ this.idcommentaire }} "><i
                                             class="fas fa-trash-alt "></i></a>
                                     {{> modals/modalsupprcoms }}
+
                                 </blockquote>
                                 <p class="text-muted">Posté le {{{formatDate datecom "DD MMMM YYYY à HH:mm"}}} </p>
                             </div>

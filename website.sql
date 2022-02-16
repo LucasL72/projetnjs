@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `site_db`.`articles` (
   `imgarticle` VARCHAR(255) NOT NULL,
   `title` VARCHAR(100) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
+  `contenu` LONGTEXT NOT NULL,
   `dateart` timestamp not null default current_timestamp,
   `dateedit` timestamp not null default current_timestamp on update current_timestamp,
   `user_id` INT NOT NULL,
@@ -83,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `site_db`.`commentaires` (
   `articles_id` INT NOT NULL,
   PRIMARY KEY (`idcommentaire`),
   INDEX `fk_commentaires_user1_idx` (`user_id` ASC) VISIBLE,
-  INDEX `fk_commentaires_articles1_idx` (`articles_id` ASC) VISIBLE)
+  INDEX `fk_commentaires_articles1_idx` (`articles_id` ASC) VISIBLE,
   CONSTRAINT `fk_commentaires_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `site_db`.`user` (`id`)

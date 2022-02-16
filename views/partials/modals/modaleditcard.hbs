@@ -24,10 +24,15 @@ Modal / Admin : Gestion card
                             value="{{ this.title}}">
                     </div>
                     <div class="mb-3">
-                        <label for="ContenuCard" class="form-label">Contenu
+                        <label for="ContenuCard" class="form-label">Description
                         </label>
                         <textarea name="description" class="form-control" id="ContenuCard{{ this.id }}"
                             rows="3"> {{ this.description }}</textarea>
+                    </div>
+                     <div class="mb-3">
+                        <label for="FormControlTextarea1" class="form-label">Contenu
+                        </label>
+                        <textarea name="contenu" class="form-control" id="FormControlTextarea1" rows="3">{{ this.contenu }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
