@@ -2,12 +2,10 @@
 Partial : blog/Cards
 --}}
 <!--- Cards--->
-<section class="famille-prod" id="cards">
+<section class="famille-prod">
     <div class="container">
         <div class="row" id="listCard">
-
             {{#each dbarticles }}
-
             <div class="col-md-4">
                 <div class="famille-details card">
                     <img class="card-img-top" src="/assets/data/articles/{{ this.imgarticle }}" alt="paysage">
@@ -21,9 +19,7 @@ Partial : blog/Cards
                     </div>
                 </div>
             </div>
-
             {{/each}}
-
         </div>
 
     </div>

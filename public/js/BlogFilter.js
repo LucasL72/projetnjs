@@ -1,7 +1,7 @@
 /*======== La fonction filtre par titre ======================*/
 function monFiltre() {
     // Declare variables
-    var input, filter, listCard, card, h4, i, txtValue;
+    let input, filter, listCard, card, h4, i, txtValue;
     input = document.getElementById('inputFilter');
     filter = input.value.toUpperCase();
     listCard = document.getElementById("listCard");
