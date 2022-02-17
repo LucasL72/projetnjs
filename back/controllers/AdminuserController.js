@@ -16,7 +16,7 @@ exports.adminShow = async (req, res) => {
     const articles = await db.query(`SELECT * FROM articles`);
     const pics = await db.query('SELECT * FROM pics;');
     const user = await db.query('SELECT * FROM user;');
-    const coms = await db.query(`SELECT commentaires.*, articles.title FROM  commentaires INNER JOIN articles ON commentaires.articles_id=articles.id`);
+    const coms = await db.query(`SELECT commentaires.*, articles.title FROM  commentaires INNER JOIN articles ON commentaires.articles_id=articles.id ORDER BY commentaires.idcommentaire DESC`);
     //console.log('article', articles)
 
     db.query(sql, (error, data, fields) => {

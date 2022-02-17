@@ -25,7 +25,7 @@ exports.idpage = async (req, res) => {
 
   res.render('blog-id', {
     dbarticles: await db.query(`SELECT * FROM articles WHERE title ="${req.params.title}"`),
-    dbcommentaires: await db.query(`SELECT * FROM  commentaires INNER JOIN articles ON commentaires.articles_id=articles.id WHERE articles.title="${req.params.title}"`),
+    dbcommentaires: await db.query(`SELECT * FROM  commentaires INNER JOIN articles ON commentaires.articles_id=articles.id WHERE articles.title="${req.params.title}" ORDER BY commentaires.idcommentaire DESC`),
   })
 };
 
