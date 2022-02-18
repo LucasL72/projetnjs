@@ -68,6 +68,17 @@ app.use('*', (req, res, next) => {
   next()
 })
 
+// gestion des "" pour MySQL
+db.config.queryFormat = function (query, values) {
+  if (!values) return query;
+  return query.replace(/\:(\w+)/g, function (txt, key) {
+    if (values.hasOwnProperty(key)) {
+      return this.escape(values[key]);
+    }
+    return txt;
+  }.bind(this));
+};
+
 // Fonction async
 const util = require("util");
 db.query = util.promisify(db.query).bind(db);
@@ -90,18 +101,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
-
-// gestion des "" pour MySQL
-/*db.config.queryFormat = function (query, values) {
-  if (!values) return query;
-  return query.replace(/\:(\w+)/g, function (txt, key) {
-    if (values.hasOwnProperty(key)) {
-      return this.escape(values[key]);
-    }
-    return txt;
-  }.bind(this));
-};*/
 
 
 // import et utilisation du Router
