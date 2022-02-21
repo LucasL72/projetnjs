@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node serverl.js",
     "dev": "nodemon serverl.js",
-    "test": "mocha"
+    "chai": "nodemon --exec 'mocha ./test/chai.js'",
+    "test": "mocha",
+    "async": "nodemon --exec 'mocha ./test/async.js'"
   },
   "repository": {
     "type": "git",

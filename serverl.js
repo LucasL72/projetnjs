@@ -107,6 +107,10 @@ app.use(bodyParser.urlencoded({
 const ROUTER = require('./back/router')
 app.use('/', ROUTER);
 
+// test json
+/*const ROUTER_API = require('./back/router-api')
+app.use('/api/v1', ROUTER_API)*/
+
 // Lancement de l'application
 app.listen(port, () => {
   console.log("le serveur tourne sur le port: ⚡" + port);
