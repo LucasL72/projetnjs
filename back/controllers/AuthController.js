@@ -40,7 +40,7 @@ exports.loginUser = (req, res) => {
   let password = req.body.password
 
   if (email && password) {
-    db.query('SELECT * FROM user WHERE email = ? ', [email], function (error, results, fields) {
+    db.query(`SELECT * FROM user WHERE email = "${req.body.email}"  `, [email], function (error, results, fields) {
       if (results) {
         bcrypt.compare(password, results[0].password, (error, same) => {
           if (!same) {
