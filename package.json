@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node serverl.js",
     "dev": "nodemon serverl.js",
-    "chai": "nodemon --exec 'mocha ./test/chai.js'",
+    "chai": "nodemon --exec 'mocha ./test/testchai.js'",
     "test": "mocha",
     "async": "nodemon --exec 'mocha ./test/async.js'"
   },

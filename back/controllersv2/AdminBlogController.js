@@ -23,7 +23,7 @@ exports.adminBlog = async (req, res) => {
   const pics = await db.query('select * from pics;');
   const user = await db.query('select * from user;');
   const coms = await db.query(`SELECT * FROM commentaires`);
-  //console.log('article', articles)
+  // console.log('article admin', articles)
 
   db.query(sql, (error, data, fields) => {
     if (error) throw error;
@@ -44,7 +44,7 @@ exports.adminCreateBlog = async (req, res) => {
   await db.query(`INSERT INTO articles (imgarticle,title,description,contenu,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}","${req.body.contenu}","${req.session.user.id}");`);
   res.json({
     status: 200,
-    dbarticles: articles,
+    dbarticles: data,
     message: "article lists retrieved successfully"
 
   })
@@ -53,18 +53,15 @@ exports.adminCreateBlog = async (req, res) => {
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
   let title = req.body.title
-  let image = req.file
+  let image = req.body.imgarticle
   let description = req.body.description
   let contenu = req.body.contenu
-  const article = await db.query(`SELECT * FROM articles WHERE id = "${req.params.id}"`)
 
   if (title) {
     await db.query(`UPDATE articles SET title ="${req.body.title}" WHERE id = "${req.params.id}"`)
   }
   if (image) {
-    const dir = path.join('./public/data/articles');
-    deleteFile(dir, article[0].imgarticle)
-    await db.query(`UPDATE articles SET imgarticle = '${req.file.filename}' WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET imgarticle = '${req.body.imgarticle}' WHERE id = "${req.params.id}"`)
   }
   if (description) {
     await db.query(`UPDATE articles SET description = "${req.body.description}" WHERE id = "${req.params.id}"`)
@@ -74,49 +71,31 @@ exports.adminEditBlog = async (req, res) => {
   }
   res.json({
     status: 200,
-    dbarticles: articles,
+    dbarticles: data,
     message: "article lists retrieved successfully"
   })
 };
 
 exports.adminDeleteOneBlog = async (req, res) => {
   console.log("Je suis le controller Delete dans Admin", req.params.id);
-  const article = await db.query(`SELECT * FROM articles WHERE id = "${req.params.id}"`)
+ 
   await db.query(`DELETE FROM articles WHERE id="${req.params.id}"`)
-  const dir = path.join('./public/data/articles')
-  deleteFile(dir, article[0].imgarticle)
 
   res.json({
     status: 200,
-    dbarticles: articles,
+    dbarticles: data,
     message: "article lists retrieved successfully"
   })
 };
 
 /*----Méthode Delete pour tout---*/
 exports.adminDeleteAllBlog = async (req, res) => {
-  console.log("Je suis le controller Delete dans Admin", req.params.id);
+  console.log("Je suis le controller Delete dans Admin");
   await db.query(`DELETE FROM articles`)
-
-  const directory = path.resolve("./public/data/articles/");
-
-  fs.readdir(directory, (err, files) => {
-    if (err) console.log(err);
-    else {
-      for (const file of files) {
-        fs.unlink(path.join(directory, file), (err) => {
-          if (err) console.log(err);
-          else console.log("Delete file" + file);
-        });
-      }
-      // quand la boucle est fini
-      console.log(files);
-    }
-  });
 
   res.json({
     status: 200,
-    dbarticles: articles,
+    dbarticles: data,
     message: "article lists retrieved successfully"
   })
 };

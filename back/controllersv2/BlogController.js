@@ -10,7 +10,7 @@ exports.blogpage = (req, res) => {
   let sql = `SELECT * FROM articles`;
   db.query(sql, (error, data, fields) => {
     if (error) throw error;
-    res.render('blog', {
+    res.json('blog', {
       status: 200,
       dbarticles: data,
       message: "article lists retrieved successfully"
@@ -37,6 +37,6 @@ exports.CreateCom = async (req, res) => {
   await db.query(`INSERT INTO commentaires(content,pseudouser,imguser,user_id,articles_id) 
   VALUES("${req.body.content}","${req.session.user.pseudo}","${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `)
   
-  res.redirect('back')
+  res.json('back')
 
 };

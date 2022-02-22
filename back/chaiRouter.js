@@ -86,13 +86,13 @@ router.route('/unban/:id')
 
 
 router.route("/admin/blog")
-   .get(mdl.isAdmin, AdminBlogController.adminBlog)
-   .post(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminCreateBlog)
+   .get(AdminBlogController.adminBlog)
+   .post(AdminBlogController.adminCreateBlog)
    .delete(AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
-   .put(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminEditBlog)
-   .delete(mdl.isAdmin, AdminBlogController.adminDeleteOneBlog);
+   .put(AdminBlogController.adminEditBlog)
+   .delete(AdminBlogController.adminDeleteOneBlog);
 
 
 router.route('/admin/coms/:idcommentaire')

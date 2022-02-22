@@ -122,3 +122,5 @@ app.use('*', function (req, res) {
     layout: 'err'
   });
 });
+
+module.exports = {app,db};
