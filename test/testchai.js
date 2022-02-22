@@ -67,7 +67,6 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
     it(" ChaiRouter // Post Article", (done) => {
 
         const body = {
-            imgarticle: "mon image",
             title: "test post john",
             description: "test post john",
             contenu: "test post john",
@@ -92,14 +91,12 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
     it(" ChaiRouter // Put Article", (done) => {
 
         const body = {
-            imgarticle: "mon image",
             title: "test edit nina",
             description: "test edit nina",
             contenu: "test edit nina",
             user_id: 12,
         };
 
-        
         chai
             .request(app)
             .put(`/back/v1/admin/blog/${customer.id}`)
@@ -116,7 +113,6 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
 
     it(" ChaiRouter // Delete ID Article", (done) => {
 
-      
         chai
             .request(app)
             .delete(`/back/v1/admin/blog/${customer.id}`)
