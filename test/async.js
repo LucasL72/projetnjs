@@ -4,7 +4,7 @@ const {
 } = require("../serverl");
 
 describe("MOCHA // CRUD // articles", () => {
-  let customer = {};
+  let article = {};
   let id = 0;
 
   // Loop for create Customer before 'it'
@@ -66,19 +66,19 @@ describe("MOCHA // CRUD // articles", () => {
   // Edit Customers
   it("PUT ID // Articles", async () => {
     let sql = `UPDATE articles
-               SET imgarticle  = 'mon image',
+               SET imgarticle  = "mon image",
                title = "test edit",
                description = "test edit",
                contenu = "test edit",
-               user_id = 2
-               WHERE  id  =${customer.id};`;
+               user_id = 2 
+               WHERE  id  =${article.id};`;
 
     const Articles = await db.query(sql);
     const ArticlesID = await db.query(
-      `SELECT * FROM articles WHERE id =${customer.id}`
+      `SELECT * FROM articles WHERE id =${article.id}`
     );
 
-  console.log('PUT: ', ArticlesID)   
+    console.log('PUT: ', ArticlesID)
     assert.ok(ArticlesID);
 
     assert.strictEqual(ArticlesID[0].imgarticle, "mon image");
@@ -90,17 +90,16 @@ describe("MOCHA // CRUD // articles", () => {
 
   // Delete ID
   it("DELETE ID // Articles", async () => {
-    let sql = `DELETE FROM articles WHERE id = ${customer.id}`;
+    let sql = `DELETE FROM articles WHERE id =${article.id}`;
     await db.query(sql);
 
     const ArticlesID = await db.query(
-      `SELECT * FROM articles where id = ${customer.id}`
+      `SELECT * FROM articles where id =${article.id}`
     );
     assert.ok(ArticlesID);
     assert.strictEqual(ArticlesID.length, 0);
   });
 
-  // à décommenter pour tout supprimer
   // Delete ALL
   it("DELETE ALL // Articles", async () => {
     let sql = `DELETE FROM articles`;

@@ -91,6 +91,7 @@ router.route("/admin/blog")
    .delete(AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
+   .get(AdminBlogController.adminBlog)
    .put(AdminBlogController.adminEditBlog)
    .delete(AdminBlogController.adminDeleteOneBlog);
 

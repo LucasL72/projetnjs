@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 
 describe("CHAI // CONTROLLER // ARTICLE", () => {
     let customer = {};
-    beforeEach(async() => {
+    beforeEach(async () => {
         let values = ["mon image", "BRUNO", "test bruno", "test bruno", "0"];
         let sql = `INSERT INTO articles (imgarticle,title,description,contenu,user_id) values("mon image","BRUNO","test bruno","test bruno",0);`;
         const Articles = await db.query(sql, [values]);
@@ -25,7 +25,6 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
         ArticlesID[0].description.should.be.a("string");
         ArticlesID[0].contenu.should.be.a("string");
         ArticlesID[0].user_id.should.be.a("number");
-
     });
     // Test
     it("Exemple", (done) => {
@@ -65,8 +64,6 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
             });
     });
 
-    // Test Post
-    // (name,email,mobile)
     it(" ChaiRouter // Post Article", (done) => {
 
         const body = {
@@ -91,7 +88,7 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
             });
     });
 
-    // Test Put /path:id
+  
     it(" ChaiRouter // Put Article", (done) => {
 
         const body = {
@@ -102,10 +99,10 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
             user_id: 12,
         };
 
-        // Test route Put
+        
         chai
             .request(app)
-            .put(`/back/v1/admin/blog/:${customer.id}`)
+            .put(`/back/v1/admin/blog/${customer.id}`)
             .set("Accept", "application/json")
             .send(body)
             .end((err, res) => {
@@ -117,13 +114,12 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
             });
     });
 
-    // Delete ID
     it(" ChaiRouter // Delete ID Article", (done) => {
 
-        // Test route Delete
+      
         chai
             .request(app)
-            .delete(`/back/v1/admin/blog/:${customer.id}`)
+            .delete(`/back/v1/admin/blog/${customer.id}`)
             .set("Accept", "application/json")
             .end((err, res) => {
                 if (err) return done(err);
@@ -134,10 +130,8 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
             });
     });
 
-    // Delete All
     it(" ChaiRouter // Delete Article", (done) => {
-
-        // Test route Delete
+ 
         chai
             .request(app)
             .delete("/back/v1/admin/blog")
