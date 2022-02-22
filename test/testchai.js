@@ -3,10 +3,7 @@ const chai = require("chai");
 const chaiHttp = require("chai-http");
 const expect = chai.expect;
 const should = require("chai").should();
-const {
-    app,
-    query
-} = require("../serverl"); // import to server.js
+const {app,query} = require("../serverl"); // import to server.js
 const path = require("path");
 
 chai.use(chaiHttp);
