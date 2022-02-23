@@ -26,6 +26,7 @@ exports.idpage = async (req, res) => {
   res.render('blog-id', {
     dbarticles: await db.query(`SELECT * FROM articles WHERE title ="${req.params.title}"`),
     dbcommentaires: await db.query(`SELECT * FROM  commentaires INNER JOIN articles ON commentaires.articles_id=articles.id WHERE articles.title="${req.params.title}" ORDER BY commentaires.idcommentaire DESC`),
+    dbuser: await db.query(`SELECT * FROM user INNER JOIN commentaires on user.id=commentaires.user_id;`)
   })
 };
 
@@ -33,10 +34,14 @@ exports.CreateCom = async (req, res) => {
   console.log("Je suis le controller Create Com dans blog-id", req.body);
 
   const articleID = await db.query(` SELECT * FROM articles WHERE title ="${req.params.title}"`)
-  const { content } = req.body;
+  const {
+    content
+  } = req.body;
   await db.query(`INSERT INTO commentaires(content,pseudouser,imguser,user_id,articles_id) 
-  VALUES(:content,"${req.session.user.pseudo}","${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `, {content})
-  
+  VALUES(:content,"${req.session.user.pseudo}","${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `, {
+    content
+  })
+
   res.redirect('back')
 
 };
