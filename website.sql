@@ -89,12 +89,12 @@ CREATE TABLE IF NOT EXISTS `site_db`.`commentaires` (
     FOREIGN KEY (`user_id`)
     REFERENCES `site_db`.`user` (`id`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION,
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_commentaires_articles1`
     FOREIGN KEY (`articles_id`)
     REFERENCES `site_db`.`articles` (`id`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------

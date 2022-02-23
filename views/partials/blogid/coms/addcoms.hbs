@@ -5,6 +5,8 @@ Partial : Id/Comms/Add coms
 {{#if user}}
 <div class="col-md-12 bg-com">
     <h5 class="text-center">Ajouter un commentaire</h5>
+    <p class="text-danger"><i class="fa-solid fa-circle-exclamation"></i> Votre commentaire ne peut excéder 255
+        caractères</p>
     {{#each @root.dbarticles}}
     <form action="/blog/{{ this.title }}" method="post">
         <label> Votre commentaire:</label>

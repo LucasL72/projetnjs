@@ -33,9 +33,9 @@ exports.CreateCom = async (req, res) => {
   console.log("Je suis le controller Create Com dans blog-id", req.body);
 
   const articleID = await db.query(` SELECT * FROM articles WHERE title ="${req.params.title}"`)
-
+  const { content } = req.body;
   await db.query(`INSERT INTO commentaires(content,pseudouser,imguser,user_id,articles_id) 
-  VALUES("${req.body.content}","${req.session.user.pseudo}","${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `)
+  VALUES(:content,"${req.session.user.pseudo}","${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `, {content})
   
   res.redirect('back')
 
