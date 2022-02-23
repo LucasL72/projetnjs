@@ -376,28 +376,39 @@
             },
             "post": {
                 "summary": "/back/v1/admin/blog",
-                "consumes": "application/json",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "application/x-www-form-urlencoded": {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "imgarticle": {
-                                        "type": "string"
-                                    },
+
                                     "title": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     },
                                     "description": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     },
                                     "contenu": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     },
                                     "user_id": {
-                                        "type": "number"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     }
                                 }
                             }
@@ -407,11 +418,13 @@
                 "responses": {
                     "200": {
                         "description": "create article response",
-                        "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "/back/v1/admin/blog"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Blog"
+                                }
                             }
+
                         }
                     }
                 },
@@ -452,32 +465,49 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "application/x-www-form-urlencoded": {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "imgarticle": {
-                                        "type": "string"
-                                    },
+
                                     "title": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     },
                                     "description": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     },
                                     "contenu": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     },
-
                                     "user_id": {
-                                        "type": "number"
+                                        "type": "string",
+                                        "in": "formData",
+                                        "required": true
                                     }
                                 }
                             }
                         }
                     }
                 },
-                "responses": {},
+                "responses": {
+                    "200": {
+                        "description": "create article response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Blog"
+                                }
+                            }
+
+                        }
+                    }
+                },
                 "tags": []
             },
             "delete": {
@@ -572,5 +602,34 @@
             }
         }
     },
+    "components": {
+        "schemas": {
+            "Blog": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "imguser": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "contenu": {
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "type": "integer"
+                    }
+                }
+
+            }
+        }
+    },
+
     "tags": []
 }
