@@ -3,7 +3,7 @@
  * Point d'entrée de l'application (Main / Root)
  * ********************************************* */
 
-console.log("Mon projet en node js");
+console.log("Mon projet branch test en node js");
 //  config .env
 require("dotenv").config();
 
@@ -21,6 +21,14 @@ const express = require("express"),
     engine
   } = require("express-handlebars");
 
+  // express-oas-generator
+  // à décommenter pour la génération 
+  //const expressOasGenerator = require('express-oas-generator');
+  //expressOasGenerator.init(app, {});
+
+// Swagger
+const swaggerUi = require('swagger-ui-express'),
+ swaggerDocument = require('./swagger/swagger.json');
 
 // Date
 const {
@@ -102,6 +110,9 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+// Route Swagger
+// à mettre en commentaire pour la génération avec express-oas-generator
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // import et utilisation du Router
 const ROUTER = require('./back/router')

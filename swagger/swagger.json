@@ -1,0 +1,576 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "projet",
+        "version": "1.0.0",
+        "license": {
+            "name": "ISC"
+        },
+        "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).\n\nProjet Arinfo"
+    },
+    "paths": {
+        "/back/v1": {
+            "get": {
+                "summary": "/back/v1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/html": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "<!--Composotion page type-->\n\n\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title> ⚡ Graines de Citoyen Montgesnois ⚡ </title>\n    <!---Icon-->\n    <script src=\"https://kit.fontawesome.com/a2d449ee14.js\" crossorigin=\"anonymous\"></script>\n    <!---Font-->\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap\"\n        rel=\"stylesheet\">\n\n    <!---Style-->\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n        integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\n    <link rel=\"stylesheet\" href=\"../assets/css/style.css\">\n</head>\n\n<body>\n\n<!---Navbar--->\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-theme\">\n    <div class=\"container\">\n\n        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarToggler\"\n            aria-controls=\"navbarToggler\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <a class=\"navbar-brand\" href=\"/contact\"><img src=\"/assets/images/logo-modified.png\" alt=\"\" width=\"40\" height=\"35\"> Graines\n            de\n            Citoyen Montgesnois</a>\n        <div class=\"collapse navbar-collapse mx-auto\" id=\"navbarToggler\">\n\n            <ul class=\"navbar-nav me-auto mb-2mb-lg-0\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" aria-current=\"page\" href=\"/\">Accueil</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"/blog\">Blog</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"/contact\">Nous contacter</a>\n                </li>\n            </ul>\n\n            <!-- 2 Modal lost password -->\n            \n            <div class=\"modal fade\" id=\"lostpassword\" aria-hidden=\"true\" aria-labelledby=\"ModalToggleLabel2\" tabindex=\"-1\">\n                <div class=\"modal-dialog modal-dialog-centered\">\n                    <div class=\"modal-content\">\n                        <div class=\"modal-header\">\n                            <h5 class=\"modal-title\" id=\"ModalToggleLabel2\">Mot de passe oublié</h5>\n                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n                        </div>\n                        <div class=\"modal-body\">\n                            <form action=\"/lostpassword\" method=\"post\">\n                                <div class=\"mb-3\">\n                                    <p class=\"fst-italic\"> Nous vous enverrons le mail de réinitialisation</p>\n                                    <input name=\"author\" class=\"form-control\" type=\"name\" placeholder=\"Votre Nom\"> \n                                    <input name=\"email\" type=\"email\" class=\"form-control\" id=\"loginEmail\"\n                                        aria-describedby=\"emailHelp\" placeholder=\"Votre Adresse Mail\">\n                                    <div id=\"emailHelp\" class=\"form-text\"></div>\n                                    <button type=\"submit\" class=\"btn btn-primary\">Envoyer</button>\n                                </div>\n                                <div class=\"modal-footer\">\n                                    <button type=\"submit\" class=\"btn btn-contact\" data-bs-target=\"#connectModal\" data-bs-toggle=\"modal\">Se\n                                        connecter</button>\n                                </div>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n            </div>            <button type=\"button\" class=\"btn btn-full\" data-bs-toggle=\"modal\" data-bs-target=\"#connectModal\">\n                Se connecter/S'inscrire\n            </button>\n            <!--  Modal connect -->\n            \n            \n            <div class=\"modal fade\" id=\"connectModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">\n                <div class=\"modal-dialog\">\n                    <div class=\"modal-content\">\n                        <div class=\"modal-header\">\n                            <h5 class=\"modal-title\" id=\"ModalLabel\">Se connecter/S'inscrire</h5>\n                            <button type=\"submit\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n                        </div>\n                        <div class=\"modal-body\">\n                            <form action=\"/login\" method=\"post\">\n                                <div class=\"container\">\n                                    <div class=\"mb-3\">\n                                        <label for=\"loginEmail\" class=\"form-label\">Adresse Mail</label>\n                                        <input name=\"email\" type=\"email\" class=\"form-control\" id=\"loginEmail\"\n                                            aria-describedby=\"emailHelp\">\n                                    </div>\n                                    <div class=\"mb-3\">\n                                        <label for=\"Password\" class=\"form-label\">Mot de passe</label>\n                                        <input name=\"password\" type=\"password\" class=\"form-control\" id=\"Password\">\n                                    </div>\n            \n                                    <a data-bs-toggle=\"modal\" href=\"#lostpassword\" role=\"button\">Mot de passe\n                                        oublié</a><br>\n                                    <button type=\"submit\" class=\"btn btn-contact\">Se connecter</button>\n                                    <a href=\"register\" class=\"btn btn-ghost\">Nouvel Utilisateur</a>\n                                </div>\n                            </form>\n            \n                        </div>\n                        <div class=\"modal-footer\">\n                            <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Fermer</button>\n            \n                        </div>\n                    </div>\n                </div>\n            </div>\n\n\n        </div>\n    </div>\n\n</nav>\n<header>\n    <div class=\"container\">\n        <div class=\"row home-title\">\n            <div class=\"col-md-12\">\n                 <h1>Bienvenue</h1>\n                <div class=\"typewriter-container\">\n                    <div class=\"typewriter\">\n                        <p class=\"welcome\">Rejoignez l'aventure!</p>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</header>\n<!--- Cards-->\n<section id=\"cards\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <h2> Actualités</h2>\n\n            </div>\n           \n        </div>\n\n</section>    \n\n<!--- bannière--->\n    <section class=\"banniere\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                    <h2>La bannière</h2>\n                    <h3>\"Avec du temps et de la patience, on vient à bout de tout.\"</h3>\n                </div>\n            </div>\n        </div>\n    </section>\n<!--- Contact--->\n\n<section class=\"theme-contact\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"row\">\n                    <div class=\"col-md-12\">\n                        <div class=\"form\">\n                            <h2>Contactez-nous</h2>\n                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia\n                                veritatis vel\n                                consequatur\n                                aspernatur voluptatem nisi eius omnis adipisci illum maiores odit magnam\n                                esse\n                                deserunt, quo\n                                voluptate et assumenda expedita iste?</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-md-4\">\n                        <div class=\"phone\">\n                            <p><i class=\"fas fa-phone\"></i> 02.00.00.00.00</p>\n                        </div>\n                    </div>\n                    <div class=\"col-md-8\">\n                        <div class=\"adress\">\n                            <p><i class=\"fas fa-map-marker-alt\"></i> Adresse 72450 Montfort-le-Gesnois\n                            </p>\n                        </div>\n                    </div>\n\n                </div>\n                <!--Create Message--->\n                <form action=\"/\" method=\"post\">\n                    <!--- Nom & Email- -->\n                    <div class=\"row\">\n                        <div class=\"col-md-6\">\n                            <div class=\"contact-form\">\n                                <label class=\"form-label\">Nom:</label>\n                                <input name=\"author\" type=\"text\" class=\"form-control\" placeholder=\"Ajouter votre Nom\" />\n                            </div>\n                        </div>\n                        <div class=\"col-md-6\">\n                            <div class=\"contact-form\">\n                                <label class=\"form-label\">Email:</label>\n                                <input name=\"email\" class=\"form-control\" type=\"email\" id=\"email\" placeholder=\"Ajouter votre email\" />\n                            </div>\n                        </div>\n                    </div>\n        \n                    <!---Message--->\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <div class=\"contact-form\">\n                                <label>Votre message:</label>\n                                <textarea name=\"content\" rows=\"3\" class=\"contact-message form-control\"> </textarea>\n                            </div>\n                        </div>\n                    </div>\n                    <!--- Bouton -->\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <div class=\" contact-form d-grid gap-2 d-md-flex justify-content-md-center\">\n                                <button type=\"submit\" class=\"btn btn-contact\">Envoyer</button>\n                            </div>\n\n                        </div>\n                    </div>\n\n                </form>\n            </div>\n        </div>\n    </div>\n</section>\n\n\n\n<!--- Footer--->\n<footer class=\"container-fluid\">\n    <div class=\"copyright\">\n        <div class=\"col-md-12\">\n\n            <a class=\"navbar-brand d-flex justify-content-center\" href=\"/contact\"><img\n                    src=\"/assets/images/logo-modified.png\" alt=\"\" width=\"40\" height=\"35\">\n                Graines\n                de\n                Citoyen Montgesnois</a>\n\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <nav class=\"navbar-dark\">\n                    <ul class=\"navbar-nav me-auto mb-2mb-lg-0\">\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" aria-current=\"page\" href=\"/\">Accueil</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" href=\"/blog\">Blog</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" href=\"/contact\">Nous contacter</a>\n                        </li>\n                    </ul>\n                </nav>\n\n            </div>\n           \n            <div class=\"col-md-6\">\n                <h5>Nos Coordonnés</h5>\n                <p><i class=\"fas fa-phone\"></i> Tél : 02.00.00.00.00</p>\n                <p><i class=\"fas fa-envelope\"></i> Email : Example@example.com</p>\n                <p><i class=\"fas fa-map-marker-alt\"></i> Adresse : 72450 Montfort-le-Gesnois </p>\n            </div>\n        </div>\n        <div class=\"col-md-12 socials\">\n            <a href=\"#\"> <i class=\"fab fa-discord black\"></i></a>\n            <a href=\"#\"> <i class=\"fab fa-facebook black\"></i></a>\n            <a href=\"#\"> <i class=\"fab fa-twitter black\"></i></a>\n            <a href=\"#\"> <i class=\"fab fa-linkedin black\"></i></a>\n            <a href=\"#\"> <i class=\"fab fa-snapchat black\"></i></a>\n            <a href=\"#\"> <i class=\"fab fa-instagram black\"></i></a>\n        </div>\n\n        <p class=\"copyright\">Created by Lucas Ledoux© 2021-2022 <a href=\"/CGU\">Mentions légales</a></p>\n    </div>\n\n</footer>\n\n<script src=\"/assets/js/BlogFilter.js\"></script>\n<script src=\"/assets/js/galerie.js\"></script>\n\n</body>\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\"\n    integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\">\n    </script>\n\n</html>"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": []
+            },
+            "post": {
+                "summary": "/back/v1",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/blog": {
+            "get": {
+                "summary": "/back/v1/blog",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/blog/{title}": {
+            "get": {
+                "summary": "/back/v1/blog/{title}",
+                "parameters": [{
+                    "name": "title",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            },
+            "post": {
+                "summary": "/back/v1/blog/{title}",
+                "parameters": [{
+                    "name": "title",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/pics": {
+            "get": {
+                "summary": "/back/v1/pics",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/contact": {
+            "get": {
+                "summary": "/back/v1/contact",
+                "responses": {},
+                "tags": []
+            },
+            "post": {
+                "summary": "/back/v1/contact",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/register": {
+            "get": {
+                "summary": "/back/v1/register",
+                "responses": {},
+                "tags": []
+            },
+            "post": {
+                "summary": "/back/v1/register",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/login": {
+            "post": {
+                "summary": "/back/v1/login",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/logout": {
+            "get": {
+                "summary": "/back/v1/logout",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/lostpassword": {
+            "post": {
+                "summary": "/back/v1/lostpassword",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/lostpassword/{id}": {
+            "get": {
+                "summary": "/back/v1/lostpassword/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/editPassword/{id}": {
+            "post": {
+                "summary": "/back/v1/editPassword/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/CGU": {
+            "get": {
+                "summary": "/back/v1/CGU",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/user": {
+            "get": {
+                "summary": "/back/v1/user",
+                "responses": {},
+                "tags": []
+            },
+            "put": {
+                "summary": "/back/v1/user",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin": {
+            "get": {
+                "summary": "/back/v1/admin",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin/user/{id}": {
+            "put": {
+                "summary": "/back/v1/admin/user/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            },
+            "delete": {
+                "summary": "/back/v1/admin/user/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/ban/{id}": {
+            "put": {
+                "summary": "/back/v1/ban/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/unban/{id}": {
+            "put": {
+                "summary": "/back/v1/unban/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin/blog": {
+            "get": {
+                "summary": "/back/v1/admin/blog",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "number",
+                                            "example": 200
+                                        },
+                                        "dbuser": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number"
+                                                    },
+                                                    "imguser": {
+                                                        "type": "string"
+                                                    },
+                                                    "pseudo": {
+                                                        "type": "string"
+                                                    },
+                                                    "firstname": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "email": {
+                                                        "type": "string"
+                                                    },
+                                                    "password": {
+                                                        "type": "string"
+                                                    },
+                                                    "isAdmin": {
+                                                        "type": "number"
+                                                    },
+                                                    "isBan": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "id",
+                                                    "imguser",
+                                                    "pseudo",
+                                                    "firstname",
+                                                    "name",
+                                                    "email",
+                                                    "password",
+                                                    "isAdmin",
+                                                    "isBan"
+                                                ]
+                                            },
+                                            "example": [{
+                                                "id": 27,
+                                                "imguser": "1644405445950_licorn.jpeg",
+                                                "pseudo": "AdminLucas",
+                                                "firstname": "Lucas",
+                                                "name": "Ledoux",
+                                                "email": "lucasj.ledoux@gmail.com",
+                                                "password": "$2b$10$qAGlJ6d4WqIjgu/xmA1PleWvgdKtIAbbUOAihN8/GDM30gnTlTl/y",
+                                                "isAdmin": 1,
+                                                "isBan": 0
+                                            }]
+                                        },
+                                        "dbarticles": {
+                                            "type": "array",
+                                            "items": {},
+                                            "example": [{
+                                                "id": 1,
+                                                "imgarticle": "1644405445950_licorn.jpeg",
+                                                "title": "test",
+                                                "description": "test swagger",
+                                                "Contenu": "test",
+                                                "user_id": "1"
+                                            }]
+                                        },
+                                        "dbcommentaires": {
+                                            "type": "array",
+                                            "items": {},
+                                            "example": [
+                                                null
+                                            ]
+                                        },
+                                        "dbpics": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "idphotos": {
+                                                        "type": "number"
+                                                    },
+                                                    "photo": {
+                                                        "type": "string"
+                                                    },
+                                                    "authorname": {
+                                                        "type": "string"
+                                                    },
+                                                    "datephoto": {
+                                                        "type": "string"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "idphotos",
+                                                    "photo",
+                                                    "authorname",
+                                                    "datephoto",
+                                                    "user_id"
+                                                ]
+                                            },
+                                            "example": [{
+                                                "idphotos": 85,
+                                                "photo": "1644929867926_creative1.jpg",
+                                                "authorname": "Anonymedu72rpzlastreet",
+                                                "datephoto": "2022-02-15T12:57:47.000Z",
+                                                "user_id": 27
+                                            }]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "article lists retrieved successfully"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": []
+            },
+            "post": {
+                "summary": "/back/v1/admin/blog",
+                "consumes": "application/json",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "imgarticle": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "contenu": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "create article response",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "/back/v1/admin/blog"
+                            }
+                        }
+                    }
+                },
+                "tags": []
+            },
+            "delete": {
+                "summary": "/back/v1/admin/blog",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin/blog/{id}": {
+            "get": {
+                "summary": "/back/v1/admin/blog/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            },
+            "put": {
+                "summary": "/back/v1/admin/blog/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+
+
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "imgarticle": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "contenu": {
+                                        "type": "string"
+                                    },
+
+                                    "user_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {},
+                "tags": []
+            },
+            "delete": {
+                "summary": "/back/v1/admin/blog/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin/coms/{idcommentaire}": {
+            "delete": {
+                "summary": "/back/v1/admin/coms/{idcommentaire}",
+                "parameters": [{
+                    "name": "idcommentaire",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin/pics": {
+            "get": {
+                "summary": "/back/v1/admin/pics",
+                "responses": {},
+                "tags": []
+            },
+            "post": {
+                "summary": "/back/v1/admin/pics",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/admin/pics/{idphotos}": {
+            "delete": {
+                "summary": "/back/v1/admin/pics/{idphotos}",
+                "parameters": [{
+                    "name": "idphotos",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/messages": {
+            "get": {
+                "summary": "/back/v1/messages",
+                "responses": {},
+                "tags": []
+            }
+        },
+        "/back/v1/messages/{id}": {
+            "post": {
+                "summary": "/back/v1/messages/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            },
+            "delete": {
+                "summary": "/back/v1/messages/{id}",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {},
+                "tags": []
+            }
+        }
+    },
+    "tags": []
+}
