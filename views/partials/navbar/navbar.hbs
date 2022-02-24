@@ -10,9 +10,7 @@ Partial : navabar
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/contact"><img src="/assets/images/logo-modified.png" alt="" width="40" height="35"> Graines
-            de
-            Citoyen Montgesnois</a>
+        <a class="navbar-brand text-break" href="/contact"><img src="/assets/images/logo-modified.png" alt="logo" width="55" height="44"></a>
         <div class="collapse navbar-collapse mx-auto" id="navbarToggler">
 
             <ul class="navbar-nav me-auto mb-2mb-lg-0">
@@ -42,14 +40,14 @@ Partial : navabar
             {{#if user }}
             <a class="btn btn-full" href="/user">Profil</a>
 
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disconnect" name="disconnect button">
                 <i class="fas fa-power-off"></i>
             </button>
             <!--  Modal disconnect -->
             {{> modals/modalLogout }}
 
             {{ else }}
-            <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal">
+            <button type="button" class="btn btn-full" data-bs-toggle="modal" data-bs-target="#connectModal" name="connect modal">
                 Se connecter/S'inscrire
             </button>
             <!--  Modal connect -->

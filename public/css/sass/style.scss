@@ -1,10 +1,4 @@
 /*------------------------------Début Projet Arinfo---------------------*/
-/*-----Licence
--bootstrap v5.1
--fontawesome for icons
-- https://fonts.googleapis.com : for theme Roboto
--https://fonts.gstatic.com
----*/
 $font-stack: 'Roboto',
 sans-serif;
 $primary-color: #009b00;
@@ -197,11 +191,6 @@ header {
         color: #fff;
     }
 }
-
-
-
-
-
 
 .btn-contact {
     background-color: rgb(43, 204, 3);
@@ -432,12 +421,29 @@ footer {
 
 @media (max-width: 1200px) {
     header {
+        background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.432)), url(mtfcolor1.jpg);
+        background-position: 100% 100%;
+        background-size: cover;
+        height: 50vh;
+    }
+
+    header {
         height: 60vh;
     }
 
     .home-title {
         position: relative;
         top: 30%;
+    }
+
+
+    .banniere {
+        background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(155, 187, 38, 0.7), rgba(253, 208, 5, 0.4)), url(mtfcolor2.jpg);
+        background-size: cover;
+        background-position: 100% 100%;
+        background-attachment: fixed;
+        min-height: 15vh;
+        color: #fff;
     }
 
     .galeries-img {
@@ -458,6 +464,31 @@ footer {
 
 @media (max-width: 576px) {
 
+
+    header {
+        background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.432)), url(mtfcolor1.jpg);
+        background-position: 100% 100%;
+        background-size: cover;
+        height: 50vh;
+    }
+
+    .banniere {
+        background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(155, 187, 38, 0.7), rgba(253, 208, 5, 0.4)), url(mtfcolor2.jpg);
+        background-size: cover;
+        background-position: 100% 100%;
+        background-attachment: fixed;
+        height: 10vh;
+        color: #fff;
+    }
+
+    .welcome {
+        color: rgb(255, 255, 255);
+        padding-bottom: 0px;
+        padding-bottom: 0px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
     .galeries-img {
         max-width: 100%;
         height: 200px;
@@ -472,4 +503,16 @@ footer {
     .modal-content {
         width: 100%;
     }
+
+    h1 {
+        text-transform: none;
+        letter-spacing: -1px;
+        font-weight: 300;
+        word-spacing: 4px;
+      }
+    .produit-img {
+        width: 30vw;
+        height: 30vh;
+        border-radius: 10px;
+      }
 }
