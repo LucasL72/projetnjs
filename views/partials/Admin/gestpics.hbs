@@ -18,26 +18,27 @@ Partial : Admin/ Gestion photos
                     Add pics
                 </button></h3>
             <!-------------------------- 1ère rangée----------------------------------->
-            <div class="row">
-                {{#each dbpics }}
+            <div class="container">
+                <div class="row">
+                    {{#each dbpics }}
 
-                <div class="col-md-4">
-                    <div class="galeries-img"
-                        style="background-image: url(/assets/data/photos/{{ this.photo }});">
-                        <div class="text-white">
-                            <p class="fst-bold text-white position-absolute bottom-0 end-0"><i
-                                    class="fas fa-camera"></i>
-                                {{ this.authorname }}</p>
-                        </div>
-                        <div class=" position-absolute top-0 end-0 ">
-                            <button class=" btn btn-danger" type="submit" data-bs-toggle="modal"
-                                data-bs-target="#DelPics{{ this.idphotos }}" name="Deletepic">Delete</button>
+                    <div class="col-md-4">
+                        <div class="galeries-img" style="background-image: url(/assets/data/photos/{{ this.photo }});">
+                            <div class="text-white">
+                                <p class="fst-bold text-white position-absolute bottom-0 end-0"><i
+                                        class="fas fa-camera"></i>
+                                    {{ this.authorname }}</p>
+                            </div>
+                            <div class=" position-absolute top-0 end-0 ">
+                                <button class=" btn btn-danger" type="submit" data-bs-toggle="modal"
+                                    data-bs-target="#DelPics{{ this.idphotos }}" name="Deletepic">Delete</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {{> modals/modalsupprpic }}
-                {{/each}}
+                    {{> modals/modalsupprpic }}
+                    {{/each}}
 
+                </div>
             </div>
         </div>
     </div>

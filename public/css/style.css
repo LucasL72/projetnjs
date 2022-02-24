@@ -73,7 +73,7 @@ section {
 /* Header 
 ============================*/
 header {
-  background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.432)), url(mtfcolor1.jpg);
+  background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.363)), url(mtfcolor1.jpg);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -154,7 +154,7 @@ header {
 ============================*/
 .btn {
   display: inline-block;
-  padding: 5px 15px;
+  padding: 10px 15px;
   text-decoration: none;
   border-radius: 10px;
   transition: background-color 1s, color 1s, border 1s;
@@ -162,12 +162,12 @@ header {
 
 .btn-full {
   background-color: azure;
-  color: #45bd5d;
+  color: #00719e;
   margin-right: 15px;
 }
 
 .btn-full:hover {
-  background-color: #45bd5d;
+  background-color: #00719e;
   color: #fff;
 }
 
@@ -235,7 +235,7 @@ header {
 }
 
 .famille-details:hover {
-  transform: translateY(15px);
+  transform: scale(1.06);
   transition: all 0.5s;
 }
 

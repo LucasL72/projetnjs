@@ -9,7 +9,7 @@ const uploadArticles = require('./config/multerArticles');
 const uploadPhotos = require('./config/multerPhotos');
 const uploadUsers = require('./config/multerUsers');
 const mdl = require("./middleware/AdminOrNot");
-
+//const sharpPics = require("./config/sharpPics.js");
 // Import des controllers
 const HomeController = require("./controllers/HomeController"),
    BlogController = require("./controllers/BlogController"),
@@ -100,8 +100,7 @@ router.route('/admin/coms/:idcommentaire')
 
 
 router.route("/admin/pics")
-   .get(mdl.isAdmin, AdminpicsController.adminpics)
-   .post(mdl.isAdmin, uploadPhotos.single('photo'), AdminpicsController.adminCreatepic);
+   .post(mdl.isAdmin, uploadPhotos.single('photo'),AdminpicsController.adminCreatepic);
 
 router.route("/admin/pics/:idphotos")
    .delete(mdl.isAdmin, AdminpicsController.adminDeleteOnepic);

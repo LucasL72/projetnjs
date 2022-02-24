@@ -23,51 +23,54 @@ Partial : Admin/ Gestion Blog
                 </h3>
 
             </div>
-            <div class="row">
+            <div class="container">
+                <div class="row">
 
-                {{#each dbarticles }}
-                <div class="col-md-4">
-                    <div class="famille-details card mb-3">
-                        <img class="card-img-top" src="/assets/data/articles/{{ this.imgarticle }}" alt="paysage">
-                        <div class="card-body">
+                    {{#each dbarticles }}
+                    <div class="col-md-4">
+                        <div class="famille-details card mb-3">
+                            <img class="card-img-top" src="/assets/data/articles/{{ this.imgarticle }}" alt="paysage">
+                            <div class="card-body">
 
-                            <h3 class="card-title">{{ this.title }}</h3>
-                            <p class="card-text">{{ this.description }}</p>
-                        </div>
-                        <div class="card-footer bg-transparent row">
-                            <div class="col-6">
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#editcardModal{{ this.id }}">
-                                    Edit
-                                </button>
-
+                                <h3 class="card-title">{{ this.title }}</h3>
+                                <p class="card-text">{{ this.description }}</p>
                             </div>
-
-                            <div class="col-6">
-                               
-                                    <button class="btn btn-danger" name="DeleteCard" type="submit" data-bs-toggle="modal"
-                                    data-bs-target="#DelBlog{{this.id}}"> Delete
+                            <div class="card-footer bg-transparent row">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#editcardModal{{ this.id }}">
+                                        Edit
                                     </button>
-                               
+
+                                </div>
+
+                                <div class="col-6">
+
+                                    <button class="btn btn-danger" name="DeleteCard" type="submit"
+                                        data-bs-toggle="modal" data-bs-target="#DelBlog{{this.id}}"> Delete
+                                    </button>
+
+                                </div>
+                                <p class="text-muted">Posté le {{{formatDate dateart "DD MMMM YYYY à HH:mm"}}} et Edité
+                                    le {{{formatDate dateedit "DD MMMM YYYY à HH:mm"}}} </p>
+
                             </div>
-                            <p class="text-muted">Posté le {{{formatDate dateart "DD MMMM YYYY à HH:mm"}}}  et Edité le {{{formatDate dateedit "DD MMMM YYYY à HH:mm"}}} </p>
-
                         </div>
-                    </div>
 
+
+                    </div>
+                    {{> modals/modalsupprblog }}
+                    {{> modals/modaleditcard }}
+                    {{/each}}
 
                 </div>
-                {{> modals/modalsupprblog }}
-                {{> modals/modaleditcard }}
-                {{/each}}
-
             </div>
 
         </div>
         <div class="col-md-12">
             <h3>
-                    <button class="btn btn-danger" type="submit" data-bs-toggle="modal"
-                                    data-bs-target="#DelAllBlog">Delete all </button>
+                <button class="btn btn-danger" type="submit" data-bs-toggle="modal" data-bs-target="#DelAllBlog">Delete
+                    all </button>
             </h3>
         </div>
         {{> modals/modalsupprallblog}}

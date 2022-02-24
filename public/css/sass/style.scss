@@ -164,7 +164,7 @@ header {
 ============================*/
 .btn {
     display: inline-block;
-    padding: 5px 15px;
+    padding: 10px 15px;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 1s, color 1s, border 1s;
@@ -172,11 +172,11 @@ header {
 
 .btn-full {
     background-color: azure;
-    color: #45bd5d;
+    color: #00719e;
     margin-right: 15px;
 
     :hover {
-        background-color: #45bd5d;
+        background-color: #00719e;
         color: #fff;
     }
 }
@@ -249,7 +249,7 @@ header {
 
 
     :hover {
-        transform: translateY(15px);
+        transform: scale(1.06);
         transition: all 0.5s;
     }
 }
