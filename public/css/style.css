@@ -73,7 +73,7 @@ section {
 /* Header 
 ============================*/
 header {
-  background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.363)), url(mtfcolor1.jpg);
+  background-image: linear-gradient(90deg, rgba(3, 71, 1, 0.6), rgba(54, 129, 39, 0.7), rgba(253, 208, 5, 0.363)), url(1645779986902_mtfcolor1.webp);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -241,7 +241,7 @@ header {
 
 .user-details {
   color: white;
-  background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(173, 175, 164, 0.7), rgba(139, 134, 112, 0.671)), url(mtfcolor2.jpg);
+  background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(173, 175, 164, 0.7), rgba(139, 134, 112, 0.671)), url(1645779986902_mtfcolor1.webp);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 5px;
@@ -251,7 +251,7 @@ header {
 /* Bannière
 ============================*/
 .banniere {
-  background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(155, 187, 38, 0.7), rgba(253, 208, 5, 0.4)), url(mtfcolor2.jpg);
+  background-image: linear-gradient(90deg, rgba(2, 0, 36, 0.6), rgba(155, 187, 38, 0.7), rgba(253, 208, 5, 0.4)), url(1645779997960_mtfcolor2.webp);
   background-size: cover;
   background-position: 100%;
   background-attachment: fixed;

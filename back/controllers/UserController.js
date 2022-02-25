@@ -33,7 +33,7 @@ exports.EditUser = async (req, res) => {
   if (image) {
     const dir = path.join('./public/data/users')
     deleteFile(dir, user[0].imguser)
-    await db.query(`UPDATE user SET imguser = '${req.file.filename}' WHERE id = "${req.session.user.id}"`)
+    await db.query(`UPDATE user SET imguser = '${req.file.filename.split('.').slice(0, -1).join('.') + ".webp"}' WHERE id = "${req.session.user.id}"`)
   }
   if (password) {
     const hash = bcrypt.hashSync(password, 10)

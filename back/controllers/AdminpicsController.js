@@ -11,7 +11,8 @@ const {
 /*----Méthode Post---*/
 exports.adminCreatepic = async (req, res) => {
     console.log("Je suis le controller Create pics dans Admin", req.body);
-    await db.query(`INSERT INTO pics (photo,authorname,user_id) values("${req.file.filename}","${req.body.authorname}","${req.session.user.id}");`)
+    const imgPhoto = req.file.filename.split('.').slice(0, -1).join('.') + ".webp";
+    await db.query(`INSERT INTO pics (photo,authorname,user_id) values("${imgPhoto}","${req.body.authorname}","${req.session.user.id}");`)
     res.redirect('/admin')
 
 };

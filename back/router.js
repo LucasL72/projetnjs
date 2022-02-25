@@ -9,7 +9,10 @@ const uploadArticles = require('./config/multerArticles');
 const uploadPhotos = require('./config/multerPhotos');
 const uploadUsers = require('./config/multerUsers');
 const mdl = require("./middleware/AdminOrNot");
-//const sharpPics = require("./config/sharpPics.js");
+const sharpPics = require("./config/sharpPics.js");
+const sharpBlog = require("./config/sharpBlog.js");
+const sharpUser = require("./config/sharpUser.js");
+
 // Import des controllers
 const HomeController = require("./controllers/HomeController"),
    BlogController = require("./controllers/BlogController"),
@@ -45,7 +48,7 @@ router.route("/contact")
 
 router.route("/register")
    .get(AuthController.registerpage)
-   .post(uploadUsers.single('imguser'), AuthController.CreateUser);
+   .post(uploadUsers.single('imguser'),sharpUser, AuthController.CreateUser);
 
 router.route("/login")
    .post(AuthController.loginUser);
@@ -67,7 +70,7 @@ router.route("/CGU")
 
 router.route('/user')
    .get(UserController.userProfile)
-   .put(uploadUsers.single('imguser'), UserController.EditUser);
+   .put(uploadUsers.single('imguser'),sharpUser, UserController.EditUser);
 
 
 // Gestion Administration :
@@ -75,7 +78,7 @@ router.route("/admin")
    .get(mdl.isAdmin, AdminuserController.adminShow);
 
 router.route("/admin/user/:id")
-   .put(mdl.isAdmin, uploadUsers.single('imguser'), AdminuserController.adminEditUser)
+   .put(mdl.isAdmin, uploadUsers.single('imguser'),sharpUser, AdminuserController.adminEditUser)
    .delete(mdl.isAdmin, AdminuserController.adminDeleteUser);
 
 router.route('/ban/:id')
@@ -87,11 +90,11 @@ router.route('/unban/:id')
 
 router.route("/admin/blog")
    .get(mdl.isAdmin, AdminBlogController.adminBlog)
-   .post(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminCreateBlog)
+   .post(mdl.isAdmin, uploadArticles.single('imgarticle'),sharpBlog, AdminBlogController.adminCreateBlog)
    .delete(AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
-   .put(mdl.isAdmin, uploadArticles.single('imgarticle'), AdminBlogController.adminEditBlog)
+   .put(mdl.isAdmin, uploadArticles.single('imgarticle'),sharpBlog, AdminBlogController.adminEditBlog)
    .delete(mdl.isAdmin, AdminBlogController.adminDeleteOneBlog);
 
 
@@ -100,7 +103,7 @@ router.route('/admin/coms/:idcommentaire')
 
 
 router.route("/admin/pics")
-   .post(mdl.isAdmin, uploadPhotos.single('photo'),AdminpicsController.adminCreatepic);
+   .post(mdl.isAdmin, uploadPhotos.single('photo'),sharpPics,AdminpicsController.adminCreatepic);
 
 router.route("/admin/pics/:idphotos")
    .delete(mdl.isAdmin, AdminpicsController.adminDeleteOnepic);

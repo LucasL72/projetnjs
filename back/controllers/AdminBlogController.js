@@ -7,7 +7,6 @@ const {
   deleteFile
 } = require('../utils/deleteFile');
 
-
 /*
  * Controller: Page Admin
     Partie blog
@@ -41,7 +40,8 @@ exports.adminBlog = async (req, res) => {
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
-  await db.query(`INSERT INTO articles (imgarticle,title,description,contenu,user_id) values("${req.file.filename}","${req.body.title}","${req.body.description}","${req.body.contenu}","${req.session.user.id}");`);
+  const imgArt = req.file.filename.split('.').slice(0, -1).join('.') + ".webp";
+  await db.query(`INSERT INTO articles (imgarticle,title,description,contenu,user_id) values("${imgArt}","${req.body.title}","${req.body.description}","${req.body.contenu}","${req.session.user.id}");`);
   res.redirect("/admin")
 };
 /*----Méthode PUT --------*/
@@ -59,7 +59,7 @@ exports.adminEditBlog = async (req, res) => {
   if (image) {
     const dir = path.join('./public/data/articles');
     deleteFile(dir, article[0].imgarticle)
-    await db.query(`UPDATE articles SET imgarticle = '${req.file.filename}' WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET imgarticle = '${req.file.filename.split('.').slice(0, -1).join('.') + ".webp"}' WHERE id = "${req.params.id}"`)
   }
   if (description) {
     await db.query(`UPDATE articles SET description = "${req.body.description}" WHERE id = "${req.params.id}"`)

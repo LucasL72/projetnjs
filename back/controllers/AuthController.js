@@ -18,13 +18,14 @@ exports.CreateUser = async (req, res) => {
     email,
     password
   } = req.body;
+  const imgUser = req.file.filename.split('.').slice(0, -1).join('.') + ".webp";
 
   const hash = bcrypt.hashSync(password, 10);
 
   console.log("hash", hash);
 
   await db.query(`INSERT INTO user(imguser,pseudo,firstname,name,email,password) VALUES 
-  ("${req.file.filename}","${pseudo}","${firstname}",
+  ("${imgUser}","${pseudo}","${firstname}",
   "${name}","${email}","${hash}")`);
 
   res.redirect("/");

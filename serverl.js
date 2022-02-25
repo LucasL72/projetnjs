@@ -15,6 +15,7 @@ const express = require("express"),
   mysql = require('mysql'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
+  sharp = require('sharp'),
   moment = require('moment'), // date 
   port = process.env.PORT || 3001,
   {
