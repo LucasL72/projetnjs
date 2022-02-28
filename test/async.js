@@ -55,7 +55,7 @@ describe("MOCHA // CRUD // articles", () => {
     let sql = `SELECT * FROM articles`;
     const listArticles = await db.query(sql);
 
-    console.log('GET ALL: ', listArticles)
+    //console.log('GET ALL: ', listArticles)
 
     assert.ok(listArticles);
 
