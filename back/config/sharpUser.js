@@ -10,9 +10,6 @@ module.exports = (req, res, next) => {
         const file = req.file;
 
         sharp(file.path)
-            .resize({
-                fit: sharp.fit.cover
-            })
             .webp({
                 quality: 100
             })
