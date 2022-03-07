@@ -25,7 +25,7 @@ const upload = multer({
     storage: storage,
     // Ici seront renseigner les limits des fichiers (taile, proportion, ...)
     limits: {
-        fileSize: 35 * 1024 * 1024, //ici limite la taille à 80048,576 Ko donc 8.048 Moctet
+        fileSize: 1 * 4098 * 4098,
         files: 1
     },
     // Ici nous avons un filtre qui va nous permetre de configurer les extensions accepter par notre middleware ou autre
