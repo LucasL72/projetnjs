@@ -13,7 +13,7 @@ const nodemailer = require('nodemailer'),
         port: '587',
         auth: {
             user: "testgrainesdecitoyen@gmail.com",
-            pass: "rfn2K22$"
+            pass: process.env.MDP_MAIL
         }
     });
 
