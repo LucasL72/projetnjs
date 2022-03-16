@@ -40,10 +40,21 @@ exports.adminBlog = async (req, res) => {
 /*----Méthode Post---*/
 exports.adminCreateBlog = async (req, res) => {
   console.log("Je suis le controller Create dans Admin", req.body);
+  const {
+    title,
+    description,
+    contenu
+  } = req.body;
   const imgArt = req.file.filename.split('.').slice(0, -1).join('.') + ".webp";
-  await db.query(`INSERT INTO articles (imgarticle,title,description,contenu,user_id) values("${imgArt}","${req.body.title}","${req.body.description}","${req.body.contenu}","${req.session.user.id}");`);
+  const sql = `INSERT INTO articles SET imgarticle= :imgArt,title= :title ,description= :description,contenu= :contenu,user_id="${req.session.user.id}";`
+  await db.query(sql, {title,description,contenu,imgArt},function (err) {
+  if (err) throw err
+  console.log("Article créés")
   res.redirect("/admin")
+  })
 };
+
+
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
