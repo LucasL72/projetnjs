@@ -65,7 +65,7 @@ exports.adminEditBlog = async (req, res) => {
   const article = await db.query(`SELECT * FROM articles WHERE id = "${req.params.id}"`)
 
   if (title) {
-    await db.query(`UPDATE articles SET title ="${req.body.title}" WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET title = :title WHERE id = "${req.params.id}"`)
   }
   if (image) {
     const dir = path.join('./public/data/articles');
@@ -73,10 +73,10 @@ exports.adminEditBlog = async (req, res) => {
     await db.query(`UPDATE articles SET imgarticle = '${req.file.filename.split('.').slice(0, -1).join('.') + ".webp"}' WHERE id = "${req.params.id}"`)
   }
   if (description) {
-    await db.query(`UPDATE articles SET description = "${req.body.description}" WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET description = :description WHERE id = "${req.params.id}"`)
   }
   if (contenu) {
-    await db.query(`UPDATE articles SET contenu = "${req.body.contenu}" WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET contenu = :contenu WHERE id = "${req.params.id}"`)
   }
   res.redirect('/admin')
 };
