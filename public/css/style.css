@@ -111,7 +111,7 @@ header {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  animation: typing 7s steps(26);
+  animation: typing 5s steps(26);
   animation-iteration-count: infinite;
 }
 
