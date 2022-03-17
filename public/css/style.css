@@ -429,6 +429,11 @@ footer {
   .modals-content {
     width: 100%;
   }
+  .produit-img {
+    width: auto;
+    height: 30vh;
+    border-radius: 10px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -477,10 +482,11 @@ footer {
   }
 
   .produit-img {
-    width: 30vw;
+    width: auto;
     height: 30vh;
     border-radius: 10px;
   }
+  
 }
 
 /*# sourceMappingURL=style.css.map */
