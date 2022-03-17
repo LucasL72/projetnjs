@@ -11,10 +11,10 @@ exports.registerpage = (req, res) => {
 exports.CreateUser = async (req, res) => {
   console.log("Je suis le register", req.body);
 
-  const { pseudo, firstname, name, email, password } = req.body;
+  const { pseudo, firstname, name, email, password } = req.body
   const imgUser = req.file.filename.split(".").slice(0, -1).join(".") + ".webp";
 
-  const hash = bcrypt.hashSync(password, 10);
+  const hash = bcrypt.hashSync(password, 10)
 
   console.log("hash", hash);
 
