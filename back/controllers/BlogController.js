@@ -39,9 +39,10 @@ const {title}= req.params
   const {
     content
   } = req.body;
+  const {pseudouser} = req.session.user.pseudo
   await db.query(`INSERT INTO commentaires(content,pseudouser,imguser,user_id,articles_id) 
-  VALUES(:content,"${req.session.user.pseudo}","${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `, {
-    content
+  VALUES(:content,:pseudouser,"${req.session.user.imguser}","${req.session.user.id}","${articleID[0].id}") `, {
+    content,pseudouser
   })
 
   res.redirect('back')
