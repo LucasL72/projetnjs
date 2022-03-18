@@ -17,9 +17,6 @@ exports.CreateUser = async (req, res) => {
 
   console.log("hash", hash);
 
-  /*await db.query(`INSERT INTO user (imguser,pseudo,firstname,name,email,password) VALUES 
-  ("${imgUser}","${pseudo}","${firstname}",
-  "${name}","${email}","${hash}")`);*/
   const { pseudo, firstname, name, email } = req.body;
 
   await db.query(
