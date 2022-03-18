@@ -10,6 +10,7 @@ exports.registerpage = (req, res) => {
 
 exports.CreateUser = async (req, res) => {
   console.log("Je suis le register", req.body);
+  const { pseudo, firstname, name, email,password } = req.body;
 
   const imgUser = req.file.filename.split(".").slice(0, -1).join(".") + ".webp";
 
@@ -17,7 +18,7 @@ exports.CreateUser = async (req, res) => {
 
   console.log("hash", hash);
 
-  const { pseudo, firstname, name, email } = req.body;
+  
 
   await db.query(
     `INSERT INTO user SET imguser=${imgUser},pseudo= :pseudo,firstname= :firstname,name= :name,email= :email,password = ${hash}`,
