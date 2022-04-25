@@ -91,7 +91,7 @@ router.route('/unban/:id')
 router.route("/admin/blog")
    .get(mdl.isAdmin, AdminBlogController.adminBlog)
    .post(mdl.isAdmin, uploadArticles.single('imgarticle'),sharpBlog, AdminBlogController.adminCreateBlog)
-   .delete(AdminBlogController.adminDeleteAllBlog);
+   .delete(mdl.isAdmin,AdminBlogController.adminDeleteAllBlog);
 
 router.route('/admin/blog/:id')
    .put(mdl.isAdmin, uploadArticles.single('imgarticle'),sharpBlog, AdminBlogController.adminEditBlog)
