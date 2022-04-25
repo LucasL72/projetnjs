@@ -58,14 +58,12 @@ exports.adminCreateBlog = async (req, res) => {
 /*----Méthode PUT --------*/
 exports.adminEditBlog = async (req, res) => {
   console.log("Je suis le controller Edit dans Admin", req.body);
-  let title = req.body.title
+  const {title,description,contenu} = req.body
   let image = req.file
-  let description = req.body.description
-  let contenu = req.body.contenu
   const article = await db.query(`SELECT * FROM articles WHERE id = "${req.params.id}"`)
 
   if (title) {
-    await db.query(`UPDATE articles SET title = :title WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET title = :title WHERE id = "${req.params.id}"`,{title})
   }
   if (image) {
     const dir = path.join('./public/data/articles');
@@ -73,10 +71,10 @@ exports.adminEditBlog = async (req, res) => {
     await db.query(`UPDATE articles SET imgarticle = '${req.file.filename.split('.').slice(0, -1).join('.') + ".webp"}' WHERE id = "${req.params.id}"`)
   }
   if (description) {
-    await db.query(`UPDATE articles SET description = :description WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET description = :description WHERE id = "${req.params.id}"`,{description})
   }
   if (contenu) {
-    await db.query(`UPDATE articles SET contenu = :contenu WHERE id = "${req.params.id}"`)
+    await db.query(`UPDATE articles SET contenu = :contenu WHERE id = "${req.params.id}"`,{contenu})
   }
   res.redirect('/admin')
 };

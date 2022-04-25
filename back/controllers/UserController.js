@@ -18,17 +18,17 @@ exports.userProfile = async (req, res) => {
 exports.EditUser = async (req, res) => {
   console.log("Je suis le controller Edit dans user", req.body)
   let image = req.file
-  let firstname = req.body.firstname
-  let name = req.body.name
+  const {firstname,name} = req.body
+   
   let password = req.body.password
 
   const user = await db.query(`SELECT * FROM user WHERE id = "${req.session.user.id}"`)
 
   if (firstname) {
-    await db.query(`UPDATE user SET firstname="${req.body.firstname}" WHERE id = "${req.session.user.id}"`)
+    await db.query(`UPDATE user SET firstname= :firstname WHERE id = "${req.session.user.id}"`,{firstname})
   }
   if (name) {
-    await db.query(`UPDATE user SET name="${req.body.name}" WHERE id = "${req.session.user.id}"`)
+    await db.query(`UPDATE user SET name= :name WHERE id = "${req.session.user.id}"`, {name})
   }
   if (image) {
     const dir = path.join('./public/data/users')
