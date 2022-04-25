@@ -12,14 +12,13 @@ const nodemailer = require('nodemailer'),
         service: 'gmail',
         port: '587',
         auth: {
-            user: "testgrainesdecitoyen@gmail.com",
+            user: process.env.MAIL,
             pass: process.env.MDP_MAIL
         }
     });
 
 module.exports = {
     lostpassword: async (req, res) => {
-        console.log("Je suis le controller MDP oublié", req.body)
         const user = await db.query(`SELECT * FROM user WHERE email="${req.body.email}";`)
         if (user) {
             // génération d'un chiffre random
@@ -30,7 +29,7 @@ module.exports = {
             link = "http://" + req.get('host') + "/lostpassword/" + rand
             // et enfin notre mail
             mailOptions = {
-                from: 'testgrainesdecitoyen@gmail.com',
+                from: process.env.MAIL,
                 to: req.body.email,
                 subject: "Mot de passe oublié",
                 rand: rand,
@@ -51,7 +50,6 @@ module.exports = {
                 }
             })
 
-            console.log('Données ', rand, link, mailOptions, host)
             // Response
             res.render('home', {
                 dbarticles: await db.query(`SELECT * FROM articles ORDER BY dateart DESC LIMIT 3`),
@@ -115,7 +113,7 @@ module.exports = {
         message = await db.query(`SELECT * FROM messages WHERE id = ${req.params.id}`)
 
         const mailOptions = {
-            from: `testgrainesdecitoyen@gmail.com`,
+            from: process.env.MAIL,
             to: message[0].email,
             subject: 'Bonjour ' + message[0].author + ' !',
             html: `
